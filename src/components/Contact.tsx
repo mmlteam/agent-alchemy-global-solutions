@@ -1,13 +1,55 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { ArrowRight, Calendar, Mail, Phone, MessageCircle } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { useToast } from "@/hooks/use-toast";
+import { ArrowRight, Calendar, Mail, Phone, MessageCircle, Send } from "lucide-react";
+import { useState } from "react";
 
 const Contact = () => {
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    company: "",
+    phone: "",
+    message: ""
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    // Simulate form submission
+    await new Promise(resolve => setTimeout(resolve, 1000));
+
+    toast({
+      title: "Message Sent!",
+      description: "Thank you for your interest. We'll get back to you within 24 hours.",
+    });
+
+    setFormData({
+      name: "",
+      email: "",
+      company: "",
+      phone: "",
+      message: ""
+    });
+    setIsSubmitting(false);
+  };
+
   return (
     <section className="py-24 bg-gradient-secondary">
       <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Content */}
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
+          {/* Contact Form */}
           <div className="space-y-8 animate-fade-in">
             <div className="space-y-6">
               <h2 className="text-4xl lg:text-5xl font-bold leading-tight">
@@ -19,26 +61,91 @@ const Contact = () => {
               </h2>
               
               <p className="text-xl text-muted-foreground leading-relaxed">
-                Join hundreds of forward-thinking companies that have already revolutionized 
-                their operations with our AI automation solutions. Let's discuss how we can 
-                accelerate your business growth.
+                Tell us about your project and we'll get back to you within 24 hours 
+                with a custom AI automation strategy.
               </p>
             </div>
-            
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button variant="premium" size="lg" className="group">
-                Schedule Free Consultation
-                <Calendar className="w-5 h-5 group-hover:scale-110 transition-transform" />
-              </Button>
-              
-              <Button variant="hero" size="lg" className="group">
-                Get Custom Quote
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-            </div>
+
+            <Card className="p-6 bg-card/50 backdrop-blur-sm border-border/50">
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="name">Full Name *</Label>
+                    <Input
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      required
+                      placeholder="John Smith"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="email">Email Address *</Label>
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
+                      placeholder="john@company.com"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="company">Company Name</Label>
+                    <Input
+                      id="company"
+                      name="company"
+                      value={formData.company}
+                      onChange={handleInputChange}
+                      placeholder="Your Company"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="phone">Phone Number</Label>
+                    <Input
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      placeholder="+1 (555) 123-4567"
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="message">Project Details *</Label>
+                  <Textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    required
+                    placeholder="Tell us about your automation needs, current challenges, and goals..."
+                    className="min-h-[120px]"
+                  />
+                </div>
+
+                <Button 
+                  type="submit" 
+                  variant="premium" 
+                  size="lg" 
+                  className="w-full group"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "Sending..." : "Send Message"}
+                  <Send className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </form>
+            </Card>
             
             {/* Contact methods */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div className="flex items-center gap-3 p-4 bg-card/30 rounded-xl border border-border/30">
                 <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center">
                   <Mail className="w-5 h-5 text-primary" />
