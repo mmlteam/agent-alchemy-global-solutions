@@ -180,6 +180,18 @@ const Contact = () => {
           
           {/* Features highlight */}
           <div className="space-y-6 animate-scale-in">
+            <div className="flex flex-col sm:flex-row gap-4 mb-6">
+              <Button variant="premium" size="lg" className="group">
+                Schedule Free Consultation
+                <Calendar className="w-5 h-5 group-hover:scale-110 transition-transform" />
+              </Button>
+              
+              <Button variant="hero" size="lg" className="group">
+                Get Custom Quote
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </div>
+
             <Card className="p-6 bg-card/50 backdrop-blur-sm border-border/50">
               <h3 className="text-xl font-semibold mb-4">What You Get:</h3>
               <ul className="space-y-3">
@@ -206,6 +218,61 @@ const Contact = () => {
                   Book your consultation this month and receive a 
                   <span className="text-primary font-semibold"> free AI readiness assessment</span> worth $2,500
                 </p>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-card/30 border-border/30">
+              <h3 className="text-lg font-semibold mb-4 text-primary">Why Choose Us?</h3>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center mt-0.5">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  </div>
+                  <div>
+                    <div className="font-medium text-sm">Proven Track Record</div>
+                    <div className="text-xs text-muted-foreground">500+ successful AI implementations</div>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center mt-0.5">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  </div>
+                  <div>
+                    <div className="font-medium text-sm">Industry Expertise</div>
+                    <div className="text-xs text-muted-foreground">15+ years in automation</div>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center mt-0.5">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  </div>
+                  <div>
+                    <div className="font-medium text-sm">Global Reach</div>
+                    <div className="text-xs text-muted-foreground">Serving clients in 50+ countries</div>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-primary/20 rounded-full flex items-center justify-center mt-0.5">
+                    <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  </div>
+                  <div>
+                    <div className="font-medium text-sm">Fast Response</div>
+                    <div className="text-xs text-muted-foreground">24-hour response guarantee</div>
+                  </div>
+                </div>
+              </div>
+            </Card>
+
+            <Card className="p-6 bg-secondary/20 border-secondary/30">
+              <div className="text-center space-y-3">
+                <div className="text-lg font-semibold">🚀 Ready to Start?</div>
+                <p className="text-sm text-muted-foreground">
+                  Join the AI revolution today. Let's build the future of your business together.
+                </p>
+                <div className="flex items-center justify-center gap-2 text-xs text-muted-foreground pt-2">
+                  <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                  <span>Our team is online now</span>
+                </div>
               </div>
             </Card>
           </div>
