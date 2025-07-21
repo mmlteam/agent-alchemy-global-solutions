@@ -1,23 +1,25 @@
 import Hero from "@/components/Hero";
-import Services from "@/components/Services";
+import SocialProof from "@/components/SocialProof";
+import PainSolution from "@/components/PainSolution";
 import Benefits from "@/components/Benefits";
-import Process from "@/components/Process";
-import Trust from "@/components/Trust";
-import Testimonials from "@/components/Testimonials";
-import ClientLogos from "@/components/ClientLogos";
-import Contact from "@/components/Contact";
+import Offer from "@/components/Offer";
+import LeadForm from "@/components/LeadForm";
+import FAQ from "@/components/FAQ";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Hero />
-      <ClientLogos />
-      <Services />
+      <SocialProof />
+      <PainSolution />
       <Benefits />
-      <Trust />
-      <Process />
-      <Testimonials />
-      <Contact />
+      <Offer />
+      <div id="lead-form">
+        <LeadForm />
+      </div>
+      <FAQ />
+      <Footer />
     </div>
   );
 };

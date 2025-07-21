@@ -22,26 +22,21 @@ const Hero = () => {
               </div>
               
               <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
-                AI Agents That{" "}
+                Unlock{" "}
                 <span className="bg-gradient-primary bg-clip-text text-transparent">
-                  Transform
-                </span>{" "}
-                Your Business
+                  AI-Driven Growth
+                </span>
               </h1>
               
               <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl">
-                Unlock unprecedented efficiency with our intelligent AI agents. Automate complex workflows, eliminate repetitive tasks, and scale your operations with enterprise-grade automation solutions.
+                Trusted by 200+ tech brands to automate workflows and scale operations with enterprise-grade AI solutions.
               </p>
             </div>
             
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button variant="premium" size="lg" className="group">
-                Start Your Automation Journey
+            <div className="flex justify-center lg:justify-start">
+              <Button variant="premium" size="lg" className="group text-lg px-8 py-4">
+                Get My Free Consultation
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              
-              <Button variant="hero" size="lg">
-                Watch Demo
               </Button>
             </div>
             
