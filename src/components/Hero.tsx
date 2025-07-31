@@ -29,8 +29,8 @@ const Hero = () => {
                 – Save 420 Hours a Year
               </h1>
               
-              <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl" data-type="|AI Agents|Automation|No-Code Bots|">
-                AI agents built & live in &lt; 30 days.
+              <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl">
+                <span>AI agents built &amp; live in &lt; 30 days</span><span className="pl-2 animate-typing" data-words="AI Agents,No-Code Bots,Python Scripts"></span>
               </p>
               
               {/* Trust bar */}
@@ -53,12 +53,12 @@ const Hero = () => {
               </div>
             </div>
             
-            <div className="flex justify-center lg:justify-start">
+            <div className="flex flex-col items-center lg:items-start">
               <Button variant="premium" size="lg" className="group text-lg px-8 py-4" aria-label="Book My Free Automation Audit">
                 Book My Free Automation Audit
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <p className="text-sm text-muted-foreground mt-2">Takes &lt; 2 min</p>
+              <p className="text-sm text-slate-400 mt-1 text-center lg:text-left">Takes &lt; 2 min</p>
             </div>
             
             {/* Stats */}
