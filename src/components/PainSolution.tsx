@@ -59,14 +59,13 @@ const PainSolution = () => {
           {painPoints.map((item, index) => (
             <Card 
               key={item.id}
-              className={`p-6 cursor-pointer border-2 animate-fade-in hover:shadow-premium relative overflow-hidden transition-all duration-500 ${
+              className={`p-6 cursor-pointer border-2 animate-fade-in hover:shadow-premium relative transition-all duration-500 ${
                 activeCard === item.id 
-                  ? 'border-primary bg-primary/5 transform scale-105' 
-                  : 'border-border/50 hover:border-primary/50'
+                  ? 'border-primary bg-primary/5 transform scale-105 z-10 overflow-visible' 
+                  : 'border-border/50 hover:border-primary/50 overflow-hidden'
               }`}
               style={{ 
-                animationDelay: `${index * 200}ms`,
-                maxHeight: activeCard === item.id ? '400px' : '240px'
+                animationDelay: `${index * 200}ms`
               }}
               onMouseEnter={() => setActiveCard(item.id)}
               onMouseLeave={() => setActiveCard(null)}
