@@ -59,18 +59,23 @@ const PainSolution = () => {
           {painPoints.map((item, index) => (
             <Card 
               key={item.id}
-              className={`p-6 cursor-pointer transition-all duration-500 border-2 animate-fade-in hover:shadow-premium min-h-[280px] md:min-h-[320px] relative ${
+              className={`p-6 cursor-pointer border-2 animate-fade-in hover:shadow-premium relative overflow-hidden transition-all duration-500 ${
                 activeCard === item.id 
                   ? 'border-primary bg-primary/5 transform scale-105' 
                   : 'border-border/50 hover:border-primary/50'
               }`}
-              style={{ animationDelay: `${index * 200}ms` }}
+              style={{ 
+                animationDelay: `${index * 200}ms`,
+                maxHeight: activeCard === item.id ? '400px' : '240px'
+              }}
               onMouseEnter={() => setActiveCard(item.id)}
               onMouseLeave={() => setActiveCard(null)}
             >
-              <div className="space-y-6">
+              <div className="relative">
                 {/* Pain State */}
-                <div className={`transition-all duration-500 ${activeCard === item.id ? 'opacity-0 scale-95' : 'opacity-100 scale-100'}`}>
+                <div className={`transition-all duration-500 ${
+                  activeCard === item.id ? 'opacity-0 transform -translate-y-2' : 'opacity-100 transform translate-y-0'
+                }`}>
                   <div className="w-12 h-12 bg-destructive/20 rounded-xl flex items-center justify-center mb-4">
                     <item.icon className="w-6 h-6 text-destructive" />
                   </div>
@@ -79,15 +84,15 @@ const PainSolution = () => {
                 </div>
 
                 {/* Solution State */}
-                <div className={`absolute inset-6 transition-all duration-500 ${
-                  activeCard === item.id ? 'opacity-100 scale-100' : 'opacity-0 scale-95 pointer-events-none'
+                <div className={`absolute inset-0 transition-all duration-500 ${
+                  activeCard === item.id ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-2 pointer-events-none'
                 }`}>
                   <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center mb-4">
                     <item.solutionIcon className="w-6 h-6 text-primary" />
                   </div>
                    <h3 className="text-xl font-semibold mb-3 text-primary">AI Solution</h3>
                    <p className="text-muted-foreground leading-relaxed mb-4">
-                     <strong>{item.pain.split(' ').slice(0, 6).join(' ')}</strong> — {item.solution.split(' ').slice(0, 12).join(' ')}.
+                     {item.solution}
                    </p>
                   <div className="inline-flex items-center gap-2 bg-primary/10 text-primary text-sm font-semibold px-3 py-1 rounded-full">
                     <CheckCircle className="w-4 h-4" />
