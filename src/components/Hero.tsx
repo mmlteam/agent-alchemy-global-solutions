@@ -45,13 +45,13 @@ const Hero = () => {
                 ].map((partner, index) => (
                   <div 
                     key={index}
-                    className="flex items-center justify-center p-2 transition-all duration-300 hover:scale-105"
+                    className="flex items-center justify-center p-2"
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
                     <img
                       src={partner.logoPath}
                       alt={partner.alt}
-                      className="h-8 lg:h-10 w-auto filter grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100"
+                      className="h-8 lg:h-10 w-auto"
                       loading="lazy"
                     />
                   </div>
