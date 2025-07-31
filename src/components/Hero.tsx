@@ -33,21 +33,27 @@ const Hero = () => {
                 <span>AI agents built &amp; live in &lt; 30 days</span><span className="pl-2 animate-typing" data-words="AI Agents,No-Code Bots,Python Scripts"></span>
               </p>
               
-              {/* Trust bar */}
-              <div className="flex flex-wrap justify-center lg:justify-start items-center gap-6 mt-6">
+              {/* Integration Partners Bar */}
+              <div className="grid grid-cols-3 lg:flex lg:flex-wrap justify-center lg:justify-start items-center gap-4 lg:gap-6 mt-6 animate-fade-in">
                 {[
-                  { name: "TechCorp", logo: "TC" },
-                  { name: "InnovateAI", logo: "IA" },
-                  { name: "DataFlow", logo: "DF" },
-                  { name: "AutoScale", logo: "AS" },
-                  { name: "SmartOps", logo: "SO" },
-                  { name: "CloudTech", logo: "CT" }
-                ].map((client, index) => (
+                  { name: "Make.com", logoPath: "/logos/make-logo.svg", alt: "Make.com logo" },
+                  { name: "Zapier", logoPath: "/logos/zapier-logo.svg", alt: "Zapier logo" },
+                  { name: "Python", logoPath: "/logos/python-logo.svg", alt: "Python logo" },
+                  { name: "OpenAI", logoPath: "/logos/openai-logo.svg", alt: "OpenAI logo" },
+                  { name: "Slack", logoPath: "/logos/slack-logo.svg", alt: "Slack logo" },
+                  { name: "Notion", logoPath: "/logos/notion-logo.svg", alt: "Notion logo" }
+                ].map((partner, index) => (
                   <div 
                     key={index}
-                    className="w-12 h-12 bg-card border border-border rounded-lg flex items-center justify-center text-xs font-semibold text-muted-foreground hover:text-primary hover:border-primary/50 transition-all duration-300"
+                    className="flex items-center justify-center p-2 transition-all duration-300 hover:scale-105"
+                    style={{ animationDelay: `${index * 100}ms` }}
                   >
-                    {client.logo}
+                    <img
+                      src={partner.logoPath}
+                      alt={partner.alt}
+                      className="h-8 lg:h-10 w-auto filter grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100"
+                      loading="lazy"
+                    />
                   </div>
                 ))}
               </div>
