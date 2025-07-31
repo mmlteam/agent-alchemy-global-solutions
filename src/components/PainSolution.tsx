@@ -11,6 +11,7 @@ const painPoints = [
     pain: "Teams spend 60% of time on repetitive tasks instead of strategic work",
     solution: "AI agents automate routine processes, freeing teams for high-value activities",
     solutionIcon: Cpu,
+    painMetric: "↓ 60% productivity",
     metric: "↑ 300% productivity"
   },
   {
@@ -20,6 +21,7 @@ const painPoints = [
     pain: "High operational costs from manual processes and human errors",
     solution: "Intelligent automation reduces costs while improving accuracy and speed",
     solutionIcon: CheckCircle,
+    painMetric: "↑ 40% waste costs",
     metric: "↓ 60% operational costs"
   },
   {
@@ -29,6 +31,7 @@ const painPoints = [
     pain: "Delayed time-to-market due to inefficient workflows and bottlenecks",
     solution: "Streamlined AI workflows accelerate product launches and customer delivery",
     solutionIcon: BarChart3,
+    painMetric: "↑ 2x delivery delays",
     metric: "↑ 43% faster delivery"
   }
 ];
@@ -79,7 +82,11 @@ const PainSolution = () => {
                     <item.icon className="w-6 h-6 text-destructive" />
                   </div>
                   <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{item.pain}</p>
+                  <p className="text-muted-foreground leading-relaxed mb-4">{item.pain}</p>
+                  <div className="inline-flex items-center gap-2 bg-destructive/10 text-destructive text-sm font-semibold px-3 py-1 rounded-full">
+                    <TrendingDown className="w-4 h-4" />
+                    {item.painMetric}
+                  </div>
                 </div>
 
                 {/* Solution State */}
