@@ -36,12 +36,12 @@ const Hero = () => {
               {/* Integration Partners Bar */}
               <div className="grid grid-cols-3 lg:flex lg:flex-wrap justify-center lg:justify-start items-center gap-4 lg:gap-6 mt-6 animate-fade-in">
                 {[
-                  { name: "Make.com", logoPath: "/logos/make-logo.svg", alt: "Make.com logo" },
-                  { name: "Zapier", logoPath: "/logos/zapier-logo.svg", alt: "Zapier logo" },
-                  { name: "Python", logoPath: "/logos/python-logo.svg", alt: "Python logo" },
-                  { name: "OpenAI", logoPath: "/logos/openai-logo.svg", alt: "OpenAI logo" },
-                  { name: "Slack", logoPath: "/logos/slack-logo.svg", alt: "Slack logo" },
-                  { name: "Notion", logoPath: "/logos/notion-logo.svg", alt: "Notion logo" }
+                  { name: "Make.com", logoPath: "/logos/make-logo.png", alt: "Make.com logo" },
+                  { name: "Zapier", logoPath: "/logos/zapier-logo.png", alt: "Zapier logo" },
+                  { name: "Python", logoPath: "/logos/python-logo.png", alt: "Python logo" },
+                  { name: "OpenAI", logoPath: "/logos/openai-logo.png", alt: "OpenAI logo" },
+                  { name: "Slack", logoPath: "/logos/slack-logo.png", alt: "Slack logo" },
+                  { name: "Notion", logoPath: "/logos/notion-logo.png", alt: "Notion logo" }
                 ].map((partner, index) => (
                   <div 
                     key={index}
