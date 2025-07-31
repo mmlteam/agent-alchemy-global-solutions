@@ -69,12 +69,20 @@ const Offer = () => {
             {/* CTA */}
             <div className="text-center mt-8 pt-8 border-t border-border/30">
               <Button variant="premium" size="lg" className="group text-lg px-12 py-4">
-                Get My Free Consultation
+                Book My Free Automation Audit
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
               <p className="text-xs text-muted-foreground mt-3">
                 Join 200+ tech leaders who've transformed their operations
               </p>
+            </div>
+            
+            {/* Risk Reversal Badge */}
+            <div className="mt-8 text-center">
+              <div className="inline-flex items-center gap-2 bg-green-500/10 text-green-500 px-6 py-3 rounded-full border border-green-500/20">
+                <Shield className="w-5 h-5" />
+                <span className="font-semibold">100% No-Obligation – keep the roadmap even if you don't proceed.</span>
+              </div>
             </div>
           </Card>
         </div>

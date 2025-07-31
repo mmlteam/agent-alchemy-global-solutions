@@ -85,8 +85,10 @@ const PainSolution = () => {
                   <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center mb-4">
                     <item.solutionIcon className="w-6 h-6 text-primary" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-3 text-primary">AI Solution</h3>
-                  <p className="text-muted-foreground leading-relaxed mb-4">{item.solution}</p>
+                   <h3 className="text-xl font-semibold mb-3 text-primary">AI Solution</h3>
+                   <p className="text-muted-foreground leading-relaxed mb-4">
+                     <strong>{item.pain.split(' ').slice(0, 6).join(' ')}</strong> — {item.solution.split(' ').slice(0, 12).join(' ')}.
+                   </p>
                   <div className="inline-flex items-center gap-2 bg-primary/10 text-primary text-sm font-semibold px-3 py-1 rounded-full">
                     <CheckCircle className="w-4 h-4" />
                     {item.metric}
@@ -98,10 +100,10 @@ const PainSolution = () => {
         </div>
 
         <div className="text-center mt-12">
-          <Button variant="premium" size="lg" className="group">
-            Get My Free Consultation
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </Button>
+           <Button variant="premium" size="lg" className="group">
+             Book My Free Automation Audit
+             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+           </Button>
         </div>
       </div>
     </section>

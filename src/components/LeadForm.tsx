@@ -56,23 +56,26 @@ const LeadForm = () => {
 
     setIsSubmitting(true);
 
-    try {
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      toast({
-        title: "Consultation booked successfully!",
-        description: "Check your email for the calendar link within 5 minutes.",
-      });
+      try {
+        await new Promise(resolve => setTimeout(resolve, 2000));
+        
+        // Redirect to thank you page
+        window.location.href = '/thank-you';
+        
+        toast({
+          title: "Consultation booked successfully!",
+          description: "Redirecting to your calendar link...",
+        });
 
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        companySize: "",
-        challenge: "",
-        gdprConsent: false
-      });
-      setStep(1);
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          companySize: "",
+          challenge: "",
+          gdprConsent: false
+        });
+        setStep(1);
     } catch (error) {
       toast({
         title: "Error booking consultation",
@@ -92,11 +95,11 @@ const LeadForm = () => {
             <h2 className="text-4xl lg:text-5xl font-bold">
               Book Your{" "}
               <span className="bg-gradient-primary bg-clip-text text-transparent">
-                Free Consultation
+                Free Automation Audit
               </span>
             </h2>
             <p className="text-xl text-muted-foreground">
-              Get your personalized AI roadmap in just 2 steps
+              Get your personalized automation roadmap in just 2 steps
             </p>
           </div>
 
@@ -112,7 +115,12 @@ const LeadForm = () => {
                 <span className="text-sm font-medium">Contact Info</span>
               </div>
               
-              <div className="flex-1 h-px bg-border"></div>
+              <div className="flex-1 h-2 bg-border rounded-full overflow-hidden">
+                <div 
+                  className="h-full bg-primary transition-all duration-300"
+                  style={{ width: step === 1 ? '50%' : '100%' }}
+                ></div>
+              </div>
               
               <div className={`flex items-center gap-2 ${step >= 2 ? 'text-primary' : 'text-muted-foreground'}`}>
                 <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold ${
@@ -210,10 +218,11 @@ const LeadForm = () => {
                         onChange={handleInputChange}
                         placeholder="Describe your biggest automation challenge..."
                         className="min-h-[80px] border-border/50 focus:border-primary"
-                        maxLength={200}
+                        maxLength={100}
+                        aria-label="Describe your main automation challenge"
                       />
                       <div className="text-xs text-muted-foreground text-right">
-                        {formData.challenge.length}/200 characters
+                        {formData.challenge.length}/100 characters
                       </div>
                     </div>
                   </div>
@@ -252,8 +261,9 @@ const LeadForm = () => {
                       size="lg" 
                       className="flex-2 group"
                       disabled={isSubmitting || !formData.gdprConsent}
+                      aria-label="Book My Free Automation Audit"
                     >
-                      {isSubmitting ? "Booking..." : "Book Free Consultation"}
+                      {isSubmitting ? "Booking..." : "Book My Free Automation Audit"}
                       <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </Button>
                   </div>
@@ -288,7 +298,7 @@ const LeadForm = () => {
           className="w-full group"
           onClick={() => document.querySelector('#lead-form')?.scrollIntoView({ behavior: 'smooth' })}
         >
-          Get My Free Consultation
+          Book My Free Automation Audit
           <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
         </Button>
       </div>

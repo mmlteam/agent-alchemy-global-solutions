@@ -22,22 +22,43 @@ const Hero = () => {
               </div>
               
               <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
-                Unlock{" "}
+                Turn Busywork Into{" "}
                 <span className="bg-gradient-primary bg-clip-text text-transparent">
-                  AI-Driven Growth
-                </span>
+                  Autopilot
+                </span>{" "}
+                – Save 420 Hours a Year
               </h1>
               
-              <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl">
-                Trusted by 200+ tech brands to automate workflows and scale operations with enterprise-grade AI solutions.
+              <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl" data-type="|AI Agents|Automation|No-Code Bots|">
+                AI agents built & live in &lt; 30 days.
               </p>
+              
+              {/* Trust bar */}
+              <div className="flex flex-wrap justify-center lg:justify-start items-center gap-6 mt-6">
+                {[
+                  { name: "TechCorp", logo: "TC" },
+                  { name: "InnovateAI", logo: "IA" },
+                  { name: "DataFlow", logo: "DF" },
+                  { name: "AutoScale", logo: "AS" },
+                  { name: "SmartOps", logo: "SO" },
+                  { name: "CloudTech", logo: "CT" }
+                ].map((client, index) => (
+                  <div 
+                    key={index}
+                    className="w-12 h-12 bg-card border border-border rounded-lg flex items-center justify-center text-xs font-semibold text-muted-foreground hover:text-primary hover:border-primary/50 transition-all duration-300"
+                  >
+                    {client.logo}
+                  </div>
+                ))}
+              </div>
             </div>
             
             <div className="flex justify-center lg:justify-start">
-              <Button variant="premium" size="lg" className="group text-lg px-8 py-4">
-                Get My Free Consultation
+              <Button variant="premium" size="lg" className="group text-lg px-8 py-4" aria-label="Book My Free Automation Audit">
+                Book My Free Automation Audit
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
+              <p className="text-sm text-muted-foreground mt-2">Takes &lt; 2 min</p>
             </div>
             
             {/* Stats */}
