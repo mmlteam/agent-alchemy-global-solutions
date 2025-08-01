@@ -39,18 +39,15 @@ const LogoIcon = ({ Icon, isWinner }: { Icon: any, isWinner: boolean }) => (
 
 const EvolutionTimeline = () => {
   return (
-    <section className="py-24 bg-background overflow-hidden">
+    <section className="py-12 bg-background overflow-hidden">
       <div className="container mx-auto px-6">
-        <div className="text-center space-y-6 mb-16 animate-fade-in">
-          <h2 className="text-4xl lg:text-5xl font-bold">
-            Tech{" "}
+        <div className="text-center space-y-4 mb-8 animate-fade-in">
+          <h2 className="text-2xl lg:text-3xl font-bold">
+            Don't Get Left Behind in the{" "}
             <span className="bg-gradient-primary bg-clip-text text-transparent">
-              Waves
+              AI Wave
             </span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Throughout history, early adopters dominated while laggards struggled to catch up
-          </p>
         </div>
         
         {/* Desktop Horizontal Scroll */}
@@ -59,40 +56,37 @@ const EvolutionTimeline = () => {
             {/* Timeline Line */}
             <div className="absolute top-16 left-8 right-8 h-1 bg-gradient-primary rounded-full"></div>
             
-            <div className="flex gap-8 overflow-x-auto scroll-snap-x-mandatory pb-8" style={{ scrollSnapType: 'x mandatory' }}>
+            <div className="flex gap-4 overflow-x-auto scroll-snap-x-mandatory pb-4" style={{ scrollSnapType: 'x mandatory' }}>
               {techWaves.map((wave, index) => (
                 <div 
                   key={index}
-                  className="flex-shrink-0 w-80 animate-fade-in scroll-snap-start"
+                  className="flex-shrink-0 w-60 animate-fade-in scroll-snap-start"
                   style={{ 
-                    animationDelay: `${index * 200}ms`,
+                    animationDelay: `${index * 100}ms`,
                     scrollSnapAlign: 'start'
                   }}
                 >
                   {/* Timeline Dot */}
-                  <div className="w-6 h-6 bg-primary rounded-full border-4 border-background shadow-glow-primary mx-auto mb-8 animate-pulse" 
-                       style={{ animationDelay: `${index * 500}ms` }}></div>
+                  <div className="w-4 h-4 bg-primary rounded-full border-2 border-background shadow-glow-primary mx-auto mb-4"></div>
                   
                   {/* Wave Header */}
-                  <div className="text-center mb-6">
-                    <h3 className="text-xl font-bold text-primary mb-2">{wave.era}</h3>
-                    <p className="text-sm font-medium text-muted-foreground">{wave.metric}</p>
+                  <div className="text-center mb-3">
+                    <h3 className="text-sm font-bold text-primary mb-1">{wave.era}</h3>
+                    <p className="text-xs font-medium text-muted-foreground">{wave.metric}</p>
                   </div>
                   
                   {/* Winner vs Laggard Cards */}
-                  <div className="grid grid-cols-2 gap-4">
+                  <div className="grid grid-cols-2 gap-2">
                     {/* Winner */}
-                    <Card className="p-4 bg-green-500/5 border-green-500/20 hover:shadow-premium transition-all duration-300">
+                    <Card className="p-2 bg-green-500/5 border-green-500/20">
                       <LogoIcon Icon={wave.winner.icon} isWinner={true} />
-                      <p className="text-sm font-medium text-green-600 mt-3 leading-tight">{wave.winner.label}</p>
-                      <div className="text-xs text-green-500 mt-1">✓ Winner</div>
+                      <p className="text-xs font-medium text-green-600 mt-2 leading-tight">{wave.winner.label}</p>
                     </Card>
                     
                     {/* Laggard */}
-                    <Card className="p-4 bg-red-500/5 border-red-500/20 hover:shadow-premium transition-all duration-300">
+                    <Card className="p-2 bg-red-500/5 border-red-500/20">
                       <LogoIcon Icon={wave.laggard.icon} isWinner={false} />
-                      <p className="text-sm font-medium text-red-600 mt-3 leading-tight">{wave.laggard.label}</p>
-                      <div className="text-xs text-red-500 mt-1">✗ Laggard</div>
+                      <p className="text-xs font-medium text-red-600 mt-2 leading-tight">{wave.laggard.label}</p>
                     </Card>
                   </div>
                 </div>
@@ -102,44 +96,34 @@ const EvolutionTimeline = () => {
         </div>
 
         {/* Mobile Vertical */}
-        <div className="lg:hidden space-y-8">
+        <div className="lg:hidden space-y-4">
           {techWaves.map((wave, index) => (
             <div 
               key={index}
               className="animate-fade-in"
               style={{ 
-                animationDelay: `${index * 150}ms`
+                animationDelay: `${index * 100}ms`
               }}
             >
               {/* Wave Header */}
-              <div className="text-center mb-6">
-                <div className="w-6 h-6 bg-primary rounded-full border-4 border-background shadow-glow-primary mx-auto mb-4"></div>
-                <h3 className="text-xl font-bold text-primary mb-2">{wave.era}</h3>
-                <p className="text-sm font-medium text-muted-foreground">{wave.metric}</p>
+              <div className="text-center mb-3">
+                <div className="w-4 h-4 bg-primary rounded-full border-2 border-background shadow-glow-primary mx-auto mb-2"></div>
+                <h3 className="text-sm font-bold text-primary mb-1">{wave.era}</h3>
+                <p className="text-xs font-medium text-muted-foreground">{wave.metric}</p>
               </div>
               
               {/* Winner vs Laggard Cards */}
-              <div className="grid grid-cols-1 gap-4">
+              <div className="grid grid-cols-2 gap-2">
                 {/* Winner */}
-                <Card className="p-4 bg-green-500/5 border-green-500/20">
-                  <div className="flex items-center gap-3">
-                    <LogoIcon Icon={wave.winner.icon} isWinner={true} />
-                    <div>
-                      <p className="text-sm font-medium text-green-600 leading-tight">{wave.winner.label}</p>
-                      <div className="text-xs text-green-500">✓ Winner</div>
-                    </div>
-                  </div>
+                <Card className="p-2 bg-green-500/5 border-green-500/20">
+                  <LogoIcon Icon={wave.winner.icon} isWinner={true} />
+                  <p className="text-xs font-medium text-green-600 mt-2 leading-tight">{wave.winner.label}</p>
                 </Card>
                 
                 {/* Laggard */}
-                <Card className="p-4 bg-red-500/5 border-red-500/20">
-                  <div className="flex items-center gap-3">
-                    <LogoIcon Icon={wave.laggard.icon} isWinner={false} />
-                    <div>
-                      <p className="text-sm font-medium text-red-600 leading-tight">{wave.laggard.label}</p>
-                      <div className="text-xs text-red-500">✗ Laggard</div>
-                    </div>
-                  </div>
+                <Card className="p-2 bg-red-500/5 border-red-500/20">
+                  <LogoIcon Icon={wave.laggard.icon} isWinner={false} />
+                  <p className="text-xs font-medium text-red-600 mt-2 leading-tight">{wave.laggard.label}</p>
                 </Card>
               </div>
             </div>
