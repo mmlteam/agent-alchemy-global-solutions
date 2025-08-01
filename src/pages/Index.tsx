@@ -1,12 +1,16 @@
 import Hero from "@/components/Hero";
+import EvolutionTimeline from "@/components/EvolutionTimeline";
 import ValueSnapshotStrip from "@/components/ValueSnapshotStrip";
 import SocialProof from "@/components/SocialProof";
 import PainSolution from "@/components/PainSolution";
+import WhatWeAutomate from "@/components/WhatWeAutomate";
+import IndustriesWeServe from "@/components/IndustriesWeServe";
 import Benefits from "@/components/Benefits";
 import ROICalculator from "@/components/ROICalculator";
 import UrgencyStrip from "@/components/UrgencyStrip";
 import Offer from "@/components/Offer";
 import LeadForm from "@/components/LeadForm";
+import TrustStrip from "@/components/TrustStrip";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
@@ -15,9 +19,12 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Hero />
+      <EvolutionTimeline />
       <ValueSnapshotStrip />
       <SocialProof />
       <PainSolution />
+      <WhatWeAutomate />
+      <IndustriesWeServe />
       <Benefits />
       <ROICalculator />
       <UrgencyStrip />
@@ -25,6 +32,7 @@ const Index = () => {
       <div id="lead-form">
         <LeadForm />
       </div>
+      <TrustStrip />
       <FAQ />
       <Footer />
       <StickyMobileCTA />

@@ -70,17 +70,28 @@ const ROICalculator = () => {
               </div>
             </div>
 
-            {showCTA && (
-              <div className="mt-6 p-4 bg-primary/10 rounded-lg border border-primary/20 animate-fade-in">
-                <div className="text-center space-y-3">
-                  <p className="font-semibold text-primary">Lock in your savings potential!</p>
-                  <Button variant="premium" className="group">
-                    Book My Free Automation Audit
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-                </div>
+            <div className="mt-6 p-4 bg-primary/10 rounded-lg border border-primary/20">
+              <div className="text-center space-y-3">
+                <p className="font-semibold text-primary">
+                  {annualSavings > 100000 ? "Lock in your savings potential!" : "Enter values to see your potential"}
+                </p>
+                <Button 
+                  variant="premium" 
+                  className={`group transition-all duration-200 ${
+                    annualSavings > 100000 
+                      ? 'opacity-100 transform scale-100' 
+                      : 'opacity-50 blur-sm pointer-events-none'
+                  } ${annualSavings > 100000 && 'animate-fade-in'}`}
+                  disabled={annualSavings <= 100000}
+                >
+                  {annualSavings > 100000 
+                    ? "Lock in your savings → Book Audit" 
+                    : "Enter values to unlock your free audit"
+                  }
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
               </div>
-            )}
+            </div>
           </Card>
         </div>
       </div>

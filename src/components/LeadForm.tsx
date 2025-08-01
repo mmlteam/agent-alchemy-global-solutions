@@ -32,12 +32,12 @@ const LeadForm = () => {
   };
 
   const handleNext = () => {
-    if (formData.name && formData.email) {
+    if (formData.name && formData.phone) {
       setStep(2);
     } else {
       toast({
         title: "Missing information",
-        description: "Please fill in your name and email to continue.",
+        description: "Please fill in your name and phone number to continue.",
         variant: "destructive",
       });
     }
@@ -149,15 +149,15 @@ const LeadForm = () => {
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="email">Business Email *</Label>
+                      <Label htmlFor="phone">Phone Number *</Label>
                       <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        value={formData.email}
+                        id="phone"
+                        name="phone"
+                        type="tel"
+                        value={formData.phone}
                         onChange={handleInputChange}
                         required
-                        placeholder="john@company.com"
+                        placeholder="+91 98765 43210"
                         className="border-border/50 focus:border-primary"
                       />
                     </div>
@@ -169,7 +169,7 @@ const LeadForm = () => {
                     variant="premium" 
                     size="lg" 
                     className="w-full group"
-                    disabled={!formData.name || !formData.email}
+                    disabled={!formData.name || !formData.phone}
                   >
                     Continue to Business Details
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -181,14 +181,15 @@ const LeadForm = () => {
                 <div className="space-y-6 animate-fade-in">
                   <div className="space-y-4">
                     <div className="space-y-2">
-                      <Label htmlFor="phone">Phone Number</Label>
+                      <Label htmlFor="email">Work Email *</Label>
                       <Input
-                        id="phone"
-                        name="phone"
-                        type="tel"
-                        value={formData.phone}
+                        id="email"
+                        name="email"
+                        type="email"
+                        value={formData.email}
                         onChange={handleInputChange}
-                        placeholder="+1 (555) 123-4567"
+                        required
+                        placeholder="name@company.com"
                         className="border-border/50 focus:border-primary"
                       />
                     </div>
@@ -210,7 +211,7 @@ const LeadForm = () => {
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="challenge">Main Challenge (optional)</Label>
+                      <Label htmlFor="challenge">Main Challenge (≤ 100 chars)</Label>
                       <Textarea
                         id="challenge"
                         name="challenge"
