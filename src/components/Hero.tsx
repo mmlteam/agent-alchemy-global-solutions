@@ -5,6 +5,16 @@ import heroImage from "@/assets/hero-ai-automation.jpg";
 const Hero = () => {
   return (
     <section className="min-h-screen bg-gradient-hero relative overflow-hidden">
+      {/* Header with Logo */}
+      <div className="absolute top-0 left-0 right-0 z-20 p-6">
+        <a href="#hero" className="inline-flex items-center justify-center w-8 h-8 bg-white rounded-full">
+          <svg viewBox="0 0 24 24" className="w-5 h-5 text-primary">
+            <circle cx="12" cy="12" r="10" fill="currentColor"/>
+            <path d="M12 6l4 6-4 6-4-6z" fill="white"/>
+          </svg>
+        </a>
+      </div>
+      
       {/* Animated background elements */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-primary rounded-full blur-3xl animate-glow"></div>

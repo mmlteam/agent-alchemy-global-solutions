@@ -73,11 +73,11 @@ const ROICalculator = () => {
             <div className="mt-6 p-4 bg-primary/10 rounded-lg border border-primary/20">
               <div className="text-center space-y-3">
                 <p className="font-semibold text-primary">
-                  {annualSavings > 100000 ? "Lock in your savings potential!" : "Enter values to see your potential"}
+                  {annualSavings > 100000 ? "Lock in your savings potential!" : "Enter values to unlock your free audit"}
                 </p>
                 <Button 
                   variant="premium" 
-                  className={`group transition-all duration-200 ${
+                  className={`group transition-all duration-300 ${
                     annualSavings > 100000 
                       ? 'opacity-100 transform scale-100' 
                       : 'opacity-50 blur-sm pointer-events-none'

@@ -125,7 +125,7 @@ const MetricsZigZag = () => {
               <div className="w-16 h-16 bg-green-500/20 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <DollarSign className="w-8 h-8 text-green-500" />
               </div>
-              <div className="text-3xl font-bold text-green-500 mb-2">₹48cr</div>
+              <div className="text-3xl font-bold text-green-500 mb-2">₹</div>
               <div className="text-sm text-muted-foreground">Total savings</div>
             </Card>
           </div>

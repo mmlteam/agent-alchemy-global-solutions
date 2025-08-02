@@ -1,5 +1,5 @@
 import Hero from "@/components/Hero";
-import EvolutionTimeline from "@/components/EvolutionTimeline";
+import CombinedFOMOStrip from "@/components/CombinedFOMOStrip";
 import ValueSnapshotStrip from "@/components/ValueSnapshotStrip";
 import SocialProof from "@/components/SocialProof";
 import MetricsZigZag from "@/components/MetricsZigZag";
@@ -11,8 +11,6 @@ import ROICalculator from "@/components/ROICalculator";
 import UrgencyStrip from "@/components/UrgencyStrip";
 import Offer from "@/components/Offer";
 import LeadForm from "@/components/LeadForm";
-import TrustStrip from "@/components/TrustStrip";
-import TrackRecord from "@/components/TrackRecord";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
@@ -21,7 +19,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Hero />
-      <EvolutionTimeline />
+      <CombinedFOMOStrip />
       <ValueSnapshotStrip />
       <SocialProof />
       <PainSolution />
@@ -35,8 +33,6 @@ const Index = () => {
       <div id="lead-form">
         <LeadForm />
       </div>
-      <TrustStrip />
-      <TrackRecord />
       <FAQ />
       <Footer />
       <StickyMobileCTA />
