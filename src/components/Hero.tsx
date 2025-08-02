@@ -45,18 +45,23 @@ const Hero = () => {
                 ].map((partner, index) => (
                   <div 
                     key={index}
-                    className="flex items-center justify-center p-2"
+                    className="flex items-center justify-center p-2 grayscale hover:grayscale-0 transition-all duration-300"
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
                     <img
                       src={partner.logoPath}
                       alt={partner.alt}
-                      className="h-8 lg:h-10 w-auto"
+                      className="h-10 w-auto"
                       loading="lazy"
                     />
                   </div>
                 ))}
               </div>
+              
+              {/* Disclaimer */}
+              <p className="text-xs text-muted-foreground text-center mt-4 opacity-60">
+                *All brand visuals are illustrative dummy logos—no affiliation implied.
+              </p>
             </div>
             
             <div className="flex flex-col items-center lg:items-start">
@@ -64,7 +69,7 @@ const Hero = () => {
                 Book My Free Automation Audit
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
-              <p className="text-sm text-slate-400 mt-1 text-center lg:text-left">Takes &lt; 2 min</p>
+              <p className="text-sm text-muted-foreground mt-1 text-center lg:text-left">Takes &lt; 2 min</p>
             </div>
             
             {/* Stats */}

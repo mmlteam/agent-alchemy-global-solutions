@@ -62,7 +62,7 @@ const PainSolution = () => {
           {painPoints.map((item, index) => (
             <Card 
               key={item.id}
-              className={`p-6 cursor-pointer border-2 animate-fade-in hover:shadow-premium relative transition-all duration-500 ${
+              className={`p-6 cursor-pointer border-2 animate-fade-in hover:shadow-premium relative transition-all duration-500 min-h-[280px] md:min-h-[320px] ${
                 activeCard === item.id 
                   ? 'border-primary bg-primary/5 transform scale-105 z-10 overflow-visible' 
                   : 'border-border/50 hover:border-primary/50 overflow-hidden'

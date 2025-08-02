@@ -112,7 +112,7 @@ const LeadForm = () => {
                 }`}>
                   {step > 1 ? <CheckCircle className="w-4 h-4" /> : '1'}
                 </div>
-                <span className="text-sm font-medium">Contact Info</span>
+                <span className="text-sm font-medium hidden sm:inline">Contact Info</span>
               </div>
               
               <div className="flex-1 h-2 bg-border rounded-full overflow-hidden">
@@ -128,7 +128,7 @@ const LeadForm = () => {
                 }`}>
                   2
                 </div>
-                <span className="text-sm font-medium">Business Details</span>
+                <span className="text-sm font-medium hidden sm:inline">Business Details</span>
               </div>
             </div>
 
@@ -217,7 +217,7 @@ const LeadForm = () => {
                         name="challenge"
                         value={formData.challenge}
                         onChange={handleInputChange}
-                        placeholder="Describe your biggest automation challenge..."
+                        placeholder="Describe your main challenge with manual processes..."
                         className="min-h-[80px] border-border/50 focus:border-primary"
                         maxLength={100}
                         aria-label="Describe your main automation challenge"

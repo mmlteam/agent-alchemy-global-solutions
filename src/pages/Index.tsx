@@ -2,6 +2,7 @@ import Hero from "@/components/Hero";
 import EvolutionTimeline from "@/components/EvolutionTimeline";
 import ValueSnapshotStrip from "@/components/ValueSnapshotStrip";
 import SocialProof from "@/components/SocialProof";
+import MetricsZigZag from "@/components/MetricsZigZag";
 import PainSolution from "@/components/PainSolution";
 import WhatWeAutomate from "@/components/WhatWeAutomate";
 import IndustriesWeServe from "@/components/IndustriesWeServe";
@@ -11,6 +12,7 @@ import UrgencyStrip from "@/components/UrgencyStrip";
 import Offer from "@/components/Offer";
 import LeadForm from "@/components/LeadForm";
 import TrustStrip from "@/components/TrustStrip";
+import TrackRecord from "@/components/TrackRecord";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
@@ -23,6 +25,7 @@ const Index = () => {
       <ValueSnapshotStrip />
       <SocialProof />
       <PainSolution />
+      <MetricsZigZag />
       <WhatWeAutomate />
       <IndustriesWeServe />
       <Benefits />
@@ -33,6 +36,7 @@ const Index = () => {
         <LeadForm />
       </div>
       <TrustStrip />
+      <TrackRecord />
       <FAQ />
       <Footer />
       <StickyMobileCTA />
