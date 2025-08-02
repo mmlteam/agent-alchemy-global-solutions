@@ -43,11 +43,15 @@ const EvolutionTimeline = () => {
       <div className="container mx-auto px-6">
         <div className="text-center space-y-4 mb-8 animate-fade-in">
           <h2 className="text-2xl lg:text-3xl font-bold">
-            Don't Get Left Behind in the{" "}
+            Your Competitors Are Already{" "}
             <span className="bg-gradient-primary bg-clip-text text-transparent">
-              AI Wave
+              Automating
             </span>
           </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            While you're still doing manual work, they're scaling with AI. 
+            <span className="text-destructive font-semibold"> Don't be the next business left behind.</span>
+          </p>
         </div>
         
         {/* Desktop Horizontal Scroll */}
