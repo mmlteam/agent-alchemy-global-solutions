@@ -18,23 +18,30 @@ const FloatingContact = () => {
   const { toast } = useToast();
 
   useEffect(() => {
+    console.log('FloatingContact mounted');
+    
     const timer = setTimeout(() => {
+      console.log('Timer triggered - setting visible to true');
       setIsVisible(true);
     }, 15000); // 15 seconds
 
     const handleScroll = () => {
       const scrollPercentage = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+      console.log('Scroll percentage:', scrollPercentage);
       if (scrollPercentage >= 25) {
+        console.log('Scroll threshold reached - setting visible to true');
         setIsVisible(true);
       }
     };
 
-    // Check for main form interaction
+    // Check for main form interaction - this logic is wrong, it should check for actual interaction
     const checkMainForm = () => {
       const mainForm = document.getElementById('lead-form');
-      if (mainForm) {
-        setHasInteracted(true);
-      }
+      console.log('Main form element:', mainForm);
+      // Don't set hasInteracted to true just because the element exists
+      // if (mainForm) {
+      //   setHasInteracted(true);
+      // }
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -83,6 +90,7 @@ const FloatingContact = () => {
     setFormData({ name: '', phone: '' });
   };
 
+  console.log('FloatingContact render - isVisible:', isVisible, 'hasInteracted:', hasInteracted);
   if (!isVisible || hasInteracted) return null;
 
   return (
