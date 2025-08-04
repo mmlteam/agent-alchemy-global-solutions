@@ -68,7 +68,12 @@ const Offer = () => {
 
             {/* CTA */}
             <div className="text-center mt-8 pt-8 border-t border-border/30">
-              <Button variant="premium" size="lg" className="group text-lg px-12 py-4">
+              <Button 
+                variant="premium" 
+                size="lg" 
+                className="group text-lg px-12 py-4"
+                onClick={() => document.querySelector('#lead-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+              >
                 Book My Free Automation Audit
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>

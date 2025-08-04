@@ -59,6 +59,9 @@ const LeadForm = () => {
       try {
         await new Promise(resolve => setTimeout(resolve, 2000));
         
+        // Mark form as submitted to hide WhatsApp button
+        localStorage.setItem('form-submitted', 'true');
+        
         // Redirect to thank you page
         window.location.href = '/thank-you';
         
@@ -297,7 +300,7 @@ const LeadForm = () => {
           variant="premium" 
           size="lg" 
           className="w-full group"
-          onClick={() => document.querySelector('#lead-form')?.scrollIntoView({ behavior: 'smooth' })}
+          onClick={() => document.querySelector('#lead-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
         >
           Book My Free Automation Audit
           <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />

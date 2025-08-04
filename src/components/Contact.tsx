@@ -216,7 +216,7 @@ const Contact = () => {
                 <div className="text-2xl font-bold text-primary">⚡ Limited Time Offer</div>
                 <p className="text-sm text-muted-foreground">
                   Book your consultation this month and receive a 
-                  <span className="text-primary font-semibold"> free AI readiness assessment</span> worth $2,500
+                  <span className="text-primary font-semibold"> free AI readiness assessment</span> worth ₹2,50,000
                 </p>
               </div>
             </Card>

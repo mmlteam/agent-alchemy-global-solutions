@@ -111,7 +111,12 @@ const PainSolution = () => {
         </div>
 
         <div className="text-center mt-12">
-           <Button variant="premium" size="lg" className="group">
+           <Button 
+             variant="premium" 
+             size="lg" 
+             className="group"
+             onClick={() => document.querySelector('#lead-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+           >
              Book My Free Automation Audit
              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
            </Button>

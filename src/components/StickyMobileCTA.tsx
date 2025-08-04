@@ -8,7 +8,7 @@ const StickyMobileCTA = () => {
         variant="premium" 
         size="lg" 
         className="w-full group"
-        onClick={() => document.querySelector('#lead-form')?.scrollIntoView({ behavior: 'smooth' })}
+        onClick={() => document.querySelector('#lead-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
         aria-label="Book My Free Automation Audit"
       >
         Book My Free Automation Audit
