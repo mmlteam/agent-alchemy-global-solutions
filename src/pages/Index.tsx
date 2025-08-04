@@ -14,6 +14,7 @@ import LeadForm from "@/components/LeadForm";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
+import FloatingContact from "@/components/FloatingContact";
 
 const Index = () => {
   return (
@@ -36,6 +37,7 @@ const Index = () => {
       <FAQ />
       <Footer />
       <StickyMobileCTA />
+      <FloatingContact />
       
       {/* Analytics placeholders */}
       <script dangerouslySetInnerHTML={{

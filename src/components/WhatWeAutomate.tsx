@@ -1,5 +1,5 @@
 import { Card } from "@/components/ui/card";
-import { TrendingUp, MessageSquare, DollarSign, ShoppingCart, Users } from "lucide-react";
+import { TrendingUp, MessageSquare, DollarSign, ShoppingCart, Users, Shield } from "lucide-react";
 
 const automationTypes = [
   {
@@ -26,6 +26,11 @@ const automationTypes = [
     icon: Users,
     title: "HR & Recruitment",
     description: "Screen CVs with GPT, schedule interviews in Google Cal"
+  },
+  {
+    icon: Shield,
+    title: "IT & Security Ops",
+    description: "Automate user-provisioning, rotate passwords, trigger uptime alerts"
   }
 ];
 

@@ -15,6 +15,38 @@ const faqs = [
   {
     question: "Is our data secure with AI automation?",
     answer: "Absolutely. We implement bank-grade security with end-to-end encryption, comply with GDPR/CCPA standards, and offer on-premise deployment options for maximum data control."
+  },
+  {
+    question: "Can my small business even use AI automation?",
+    answer: "Yes—most clients start with one workflow and scale. We tailor scope to budget."
+  },
+  {
+    question: "Will I fall behind if I delay?",
+    answer: "Early adopters cut costs & gain speed; late adopters scramble to catch up."
+  },
+  {
+    question: "How much does the roadmap cost?",
+    answer: "The 30-min audit & roadmap are ₹0. You pay only if you proceed."
+  },
+  {
+    question: "Is ongoing maintenance included?",
+    answer: "Yes, 30-day optimisation + optional monthly SLA."
+  },
+  {
+    question: "How secure is my data?",
+    answer: "Tokens stored with AES-256, deploy in your VPC, ISO-27001 processes."
+  },
+  {
+    question: "Which tools do you integrate?",
+    answer: "1500+ SaaS + custom APIs via Make, Zapier, Python & OpenAI."
+  },
+  {
+    question: "Do I need in-house developers?",
+    answer: "No—our team builds, deploys, and trains your staff."
+  },
+  {
+    question: "What's the ROI timeline?",
+    answer: "Most clients recover costs in ≤ 60 days."
   }
 ];
 
