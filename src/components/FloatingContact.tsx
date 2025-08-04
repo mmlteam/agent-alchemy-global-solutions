@@ -91,9 +91,8 @@ const FloatingContact = () => {
       <div className="fixed bottom-8 right-8 z-50 hidden md:block">
         <Button
           onClick={() => setIsOpen(true)}
-          variant="premium"
           size="icon"
-          className="w-16 h-16 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group relative"
+          className="w-16 h-16 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group relative bg-gradient-to-r from-[#7B5CF3] to-[#5ED6FF] text-white hover:opacity-90"
           aria-label="Talk to an automation specialist"
         >
           <Headphones className="w-6 h-6" />
@@ -107,8 +106,7 @@ const FloatingContact = () => {
       <div className="fixed bottom-4 left-4 right-4 z-50 md:hidden">
         <Button
           onClick={() => setIsOpen(true)}
-          variant="premium"
-          className="w-full h-12 rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+          className="w-full h-12 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 bg-gradient-to-r from-[#7B5CF3] to-[#5ED6FF] text-white hover:opacity-90"
         >
           <Phone className="w-5 h-5 mr-2" />
           Quick Contact - Get Called Back
