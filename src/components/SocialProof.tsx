@@ -3,12 +3,12 @@ import { Card } from "@/components/ui/card";
 import { Star, Quote } from "lucide-react";
 
 const logos = [
-  { name: "TechCorp", logo: "TC" },
-  { name: "InnovateAI", logo: "IA" },
-  { name: "DataFlow", logo: "DF" },
-  { name: "AutoScale", logo: "AS" },
-  { name: "SmartOps", logo: "SO" },
-  { name: "CloudTech", logo: "CT" }
+  { name: "TechCorp", logo: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=64&h=64&fit=crop&crop=center" },
+  { name: "InnovateAI", logo: "https://images.unsplash.com/photo-1461749280684-dccba630e246?w=64&h=64&fit=crop&crop=center" },
+  { name: "DataFlow", logo: "https://images.unsplash.com/photo-1485833077593-4278bba3f11f?w=64&h=64&fit=crop&crop=center" },
+  { name: "AutoScale", logo: "https://images.unsplash.com/photo-1500673922987-e212871ec22?w=64&h=64&fit=crop&crop=center" },
+  { name: "SmartOps", logo: "https://images.unsplash.com/photo-1488972685288-c3fd157d7c7a?w=64&h=64&fit=crop&crop=center" },
+  { name: "CloudTech", logo: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=64&h=64&fit=crop&crop=center" }
 ];
 
 const testimonials = [
@@ -54,10 +54,14 @@ const SocialProof = () => {
             {logos.map((client, index) => (
               <div 
                 key={index}
-                className="w-16 h-16 bg-card border border-border rounded-xl flex items-center justify-center text-sm font-semibold text-muted-foreground hover:text-primary hover:border-primary/50 transition-all duration-300 animate-fade-in"
+                className="w-16 h-16 bg-card border border-border rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300 animate-fade-in"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                {client.logo}
+                <img
+                  src={client.logo}
+                  alt={`${client.name} logo`}
+                  className="w-full h-full object-cover"
+                />
               </div>
             ))}
           </div>
