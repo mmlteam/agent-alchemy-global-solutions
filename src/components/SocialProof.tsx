@@ -5,7 +5,7 @@ import { Star, Quote } from "lucide-react";
 const logos = [
   { name: "TechCorp", logo: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=64&h=64&fit=crop&crop=center" }, // AI/ML brain
   { name: "InnovateAI", logo: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=64&h=64&fit=crop&crop=center" }, // Code/programming
-  { name: "DataFlow", logo: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=64&h=64&fit=crop&crop=center" }, // Network/connectivity
+  { name: "DataFlow", logo: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=64&h=64&fit=crop&crop=center" }, // MacBook with code
   { name: "AutoScale", logo: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=64&h=64&fit=crop&crop=center" }, // Software development
   { name: "SmartOps", logo: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=64&h=64&fit=crop&crop=center" }, // Data analytics
   { name: "CloudTech", logo: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=64&h=64&fit=crop&crop=center" } // Circuit board/automation
