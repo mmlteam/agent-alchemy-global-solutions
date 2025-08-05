@@ -3,12 +3,12 @@ import { Card } from "@/components/ui/card";
 import { Star, Quote } from "lucide-react";
 
 const logos = [
-  { name: "TechCorp", logo: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=64&h=64&fit=crop&crop=center" },
-  { name: "InnovateAI", logo: "https://images.unsplash.com/photo-1461749280684-dccba630e246?w=64&h=64&fit=crop&crop=center" },
-  { name: "DataFlow", logo: "https://images.unsplash.com/photo-1485833077593-4278bba3f11f?w=64&h=64&fit=crop&crop=center" },
-  { name: "AutoScale", logo: "https://images.unsplash.com/photo-1500673922987-e212871ec22?w=64&h=64&fit=crop&crop=center" },
-  { name: "SmartOps", logo: "https://images.unsplash.com/photo-1488972685288-c3fd157d7c7a?w=64&h=64&fit=crop&crop=center" },
-  { name: "CloudTech", logo: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=64&h=64&fit=crop&crop=center" }
+  { name: "TechCorp", logo: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=64&h=64&fit=crop&crop=center" }, // Zapier automation
+  { name: "InnovateAI", logo: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=64&h=64&fit=crop&crop=center" }, // AI/ChatGPT
+  { name: "DataFlow", logo: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=64&h=64&fit=crop&crop=center" }, // Slack logo
+  { name: "AutoScale", logo: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=64&h=64&fit=crop&crop=center" }, // Notion
+  { name: "SmartOps", logo: "https://images.unsplash.com/photo-1569025743873-ea3a9ade89f9?w=64&h=64&fit=crop&crop=center" }, // Google workspace
+  { name: "CloudTech", logo: "https://images.unsplash.com/photo-1618044733300-9472054094ee?w=64&h=64&fit=crop&crop=center" } // Microsoft tools
 ];
 
 const testimonials = [
