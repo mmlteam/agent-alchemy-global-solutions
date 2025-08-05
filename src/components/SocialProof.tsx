@@ -3,7 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Star, Quote } from "lucide-react";
 
 const logos = [
-  { name: "TechCorp", logo: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=64&h=64&fit=crop&crop=center" }, // Zapier automation
+  { name: "TechCorp", logo: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=64&h=64&fit=crop&crop=center" }, // Automation circuit board
   { name: "InnovateAI", logo: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=64&h=64&fit=crop&crop=center" }, // AI/ChatGPT
   { name: "DataFlow", logo: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?w=64&h=64&fit=crop&crop=center" }, // Slack logo
   { name: "AutoScale", logo: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=64&h=64&fit=crop&crop=center" }, // Notion
