@@ -71,7 +71,7 @@ const Offer = () => {
               <Button 
                 variant="premium" 
                 size="lg" 
-                className="group text-lg px-12 py-4"
+                className="group text-lg px-12 py-4 w-full max-w-sm mx-auto"
                 onClick={() => document.querySelector('#lead-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
               >
                 Book My Free Automation Audit

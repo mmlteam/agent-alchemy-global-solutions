@@ -77,7 +77,7 @@ const ROICalculator = () => {
                 </p>
                 <Button 
                   variant="premium" 
-                  className={`group transition-all duration-300 ${
+                  className={`group transition-all duration-300 w-full max-w-sm mx-auto ${
                     annualSavings > 100000 
                       ? 'opacity-100 transform scale-100' 
                       : 'opacity-50 blur-sm pointer-events-none'

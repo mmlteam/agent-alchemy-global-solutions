@@ -25,17 +25,17 @@ const IndustriesWeServe = () => {
           </h2>
         </div>
         
-        <div className="grid grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 max-w-4xl mx-auto">
           {industries.map((industry, index) => (
             <Card 
               key={index}
-              className="p-6 text-center border-border/50 hover:border-primary/50 hover:shadow-premium transition-all duration-300 animate-fade-in hover:scale-105"
+              className="p-4 md:p-6 text-center border-border/50 hover:border-primary/50 hover:shadow-premium transition-all duration-300 animate-fade-in hover:scale-105"
               style={{ 
                 animationDelay: `${index * 100}ms`
               }}
             >
-              <div className="text-4xl mb-3">{industry.emoji}</div>
-              <p className="font-medium text-sm">{industry.label}</p>
+              <div className="text-3xl md:text-4xl mb-2 md:mb-3">{industry.emoji}</div>
+              <p className="font-medium text-xs md:text-sm leading-tight">{industry.label}</p>
             </Card>
           ))}
         </div>
