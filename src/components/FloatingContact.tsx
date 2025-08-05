@@ -42,19 +42,19 @@ const FloatingContact = () => {
   if (!isVisible || hasInteracted) return null;
 
   return (
-    <div className="fixed bottom-8 right-8 z-50">
+    <div className="fixed bottom-8 right-8 z-50 group">
       <Button
         onClick={handleWhatsAppClick}
         size="icon"
-        className="w-14 h-14 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 group relative"
+        className="w-14 h-14 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 relative"
         style={{ backgroundColor: '#25D366' }}
         aria-label="Talk to an automation specialist"
       >
         <MessageCircle className="w-6 h-6 text-white" />
-        <div className="absolute -top-12 right-0 bg-background border border-border rounded-lg px-3 py-2 text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap">
-          Talk to an automation specialist
-        </div>
       </Button>
+      <div className="absolute -top-12 right-0 bg-background border border-border rounded-lg px-3 py-2 text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap z-10">
+        Talk to an automation specialist
+      </div>
     </div>
   );
 };
