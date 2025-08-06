@@ -7,7 +7,7 @@ import HeroFloatingParticles from "@/components/HeroFloatingParticles";
 
 const Hero = () => {
   return (
-    <section className="bg-gradient-hero relative overflow-hidden">
+    <section className="bg-gradient-hero relative overflow-y-hidden">
       {/* Full Hero Spotlight Effect */}
       <SpotlightCursor size={400} />
       {/* Header with Logo */}
@@ -20,13 +20,13 @@ const Hero = () => {
       </div>
       
       {/* Animated background elements */}
-      <div className="absolute inset-0 opacity-10">
+      <div className="absolute inset-0 opacity-10 overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-primary rounded-full blur-3xl animate-glow"></div>
         <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-accent rounded-full blur-3xl animate-glow delay-300"></div>
       </div>
       
       <div className="container mx-auto px-6 pt-0 pb-8 lg:pb-12 relative z-10">
-        <div className="grid lg:grid-cols-[1fr_0.9fr] xl:grid-cols-2 gap-6 lg:gap-8 items-end min-h-[80vh] lg:min-h-[75vh]">
+        <div className="grid lg:grid-cols-[1fr_1.2fr] xl:grid-cols-[1fr_1.1fr] gap-6 lg:gap-2 items-end min-h-[80vh] lg:min-h-[75vh]">
           {/* Content */}
           <div className="space-y-6 animate-fade-in flex flex-col justify-center order-1 lg:order-none">
             <div className="space-y-5">
@@ -124,7 +124,7 @@ const Hero = () => {
           </div>
           
           {/* Hero Illustration - Aligned with content */}
-          <div className="relative h-[350px] sm:h-[400px] md:h-[450px] lg:h-[600px] xl:h-[650px] w-full order-2 lg:order-none self-end">
+          <div className="relative h-[350px] sm:h-[400px] md:h-[450px] lg:h-[600px] xl:h-[650px] w-full order-2 lg:order-none self-end overflow-visible">
             <HeroIllustration />
             <HeroFloatingParticles />
           </div>
