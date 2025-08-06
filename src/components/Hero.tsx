@@ -24,8 +24,8 @@ const Hero = () => {
         <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-accent rounded-full blur-3xl animate-glow delay-300"></div>
       </div>
       
-      <div className="container mx-auto px-6 py-20 relative z-10">
-        <div className="grid lg:grid-cols-[1fr_0.9fr] xl:grid-cols-2 gap-8 lg:gap-16 items-stretch min-h-[95vh]">
+      <div className="container mx-auto px-6 py-12 lg:py-16 relative z-10">
+        <div className="grid lg:grid-cols-[1fr_0.9fr] xl:grid-cols-2 gap-6 lg:gap-12 items-stretch h-[85vh] lg:h-[80vh]">
           {/* Content */}
           <div className="space-y-8 animate-fade-in flex flex-col justify-center order-1 lg:order-none">
             <div className="space-y-6">
@@ -34,7 +34,7 @@ const Hero = () => {
                 <span className="text-muted-foreground">Next-Gen Automation</span>
               </div>
               
-              <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
+              <h1 className="text-4xl lg:text-6xl xl:text-7xl font-bold leading-tight">
                 Turn Busywork Into{" "}
                 <span className="bg-gradient-primary bg-clip-text text-transparent">
                   Autopilot
@@ -42,7 +42,7 @@ const Hero = () => {
                 – Save 420 Hours a Year
               </h1>
               
-              <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl">
+              <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed max-w-2xl">
                 <span>AI agents built &amp; live in &lt; 30 days</span><span className="pl-2 animate-typing" data-words="AI Agents,No-Code Bots,Python Scripts"></span>
               </p>
               
@@ -92,24 +92,24 @@ const Hero = () => {
             </div>
             
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-8 pt-8 border-t border-border/30">
+            <div className="grid grid-cols-3 gap-6 pt-6 border-t border-border/30">
               <div className="space-y-1">
-                <div className="text-2xl font-bold text-primary">500+</div>
-                <div className="text-sm text-muted-foreground">AI Agents Deployed</div>
+                <div className="text-xl lg:text-2xl font-bold text-primary">500+</div>
+                <div className="text-xs lg:text-sm text-muted-foreground">AI Agents Deployed</div>
               </div>
               <div className="space-y-1">
-                <div className="text-2xl font-bold text-primary">98%</div>
-                <div className="text-sm text-muted-foreground">Efficiency Increase</div>
+                <div className="text-xl lg:text-2xl font-bold text-primary">98%</div>
+                <div className="text-xs lg:text-sm text-muted-foreground">Efficiency Increase</div>
               </div>
               <div className="space-y-1">
-                <div className="text-2xl font-bold text-primary">24/7</div>
-                <div className="text-sm text-muted-foreground">Autonomous Operation</div>
+                <div className="text-xl lg:text-2xl font-bold text-primary">24/7</div>
+                <div className="text-xs lg:text-sm text-muted-foreground">Autonomous Operation</div>
               </div>
             </div>
           </div>
           
           {/* Hero Illustration - Full Bleed */}
-          <div className="relative h-[500px] sm:h-[600px] md:h-[700px] lg:h-auto lg:min-h-[750px] xl:min-h-[800px] w-full order-2 lg:order-none">
+          <div className="relative h-[400px] sm:h-[480px] md:h-[520px] lg:h-full w-full order-2 lg:order-none">
             <HeroIllustration />
           </div>
         </div>
