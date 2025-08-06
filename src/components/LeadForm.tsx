@@ -8,7 +8,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
 import { ArrowRight, Users, Building, CheckCircle } from "lucide-react";
 import { useState } from "react";
-import { supabase, isSupabaseConfigured, type Lead } from "@/lib/supabase";
+import { supabase } from "@/integrations/supabase/client";
 
 const LeadForm = () => {
   const { toast } = useToast();
@@ -39,16 +39,6 @@ const LeadForm = () => {
       setIsSubmitting(true);
       
       try {
-        // Check if Supabase is configured
-        if (!isSupabaseConfigured || !supabase) {
-          toast({
-            title: "Configuration needed",
-            description: "Please configure Supabase to save form data.",
-            variant: "destructive",
-          });
-          setStep(2); // Still allow proceeding to step 2
-          return;
-        }
 
         // Save step 1 data to database
         const { data, error } = await supabase
@@ -113,18 +103,6 @@ const LeadForm = () => {
     setIsSubmitting(true);
 
     try {
-      // Check if Supabase is configured
-      if (!isSupabaseConfigured || !supabase) {
-        toast({
-          title: "Configuration needed",
-          description: "Please configure Supabase to save form data and send emails.",
-          variant: "destructive",
-        });
-        // Still show success message for demo purposes
-        setIsFormCompleted(true);
-        localStorage.setItem('form-submitted', 'true');
-        return;
-      }
 
       // Update the lead with complete information
       const { error: updateError } = await supabase
