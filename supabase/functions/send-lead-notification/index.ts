@@ -23,8 +23,8 @@ serve(async (req) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'leads@yourdomain.com', // Replace with your domain
-        to: ['your-email@yourdomain.com'], // Replace with your email
+        from: 'agentx@mmlprojects.in',
+        to: ['sharik@makemelive.in'],
         subject: `New Lead: ${name} - Free Automation Audit`,
         html: `
           <h2>New Lead Submission</h2>
