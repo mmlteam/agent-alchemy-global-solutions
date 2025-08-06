@@ -64,7 +64,13 @@ const ROICalculator = () => {
             <div className="mt-8 p-6 bg-gradient-primary rounded-xl text-center">
               <div className="text-white">
                 <p className="text-lg font-medium mb-2">Estimated Annual Savings</p>
-                <p className="text-4xl font-bold">
+                <p className={`font-bold break-words ${
+                  annualSavings.toLocaleString('en-IN').length > 12 
+                    ? 'text-2xl' 
+                    : annualSavings.toLocaleString('en-IN').length > 8 
+                    ? 'text-3xl' 
+                    : 'text-4xl'
+                }`}>
                   ₹{annualSavings.toLocaleString('en-IN')}
                 </p>
               </div>
