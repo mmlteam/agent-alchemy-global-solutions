@@ -126,6 +126,16 @@ export default {
 					'50%': {
 						opacity: '0.8',
 					}
+				},
+				'spotlight': {
+					'0%': {
+						opacity: '0',
+						transform: 'translate(-72%, -62%) scale(0.5)',
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translate(-50%,-40%) scale(1)',
+					}
 				}
 			},
 			animation: {
@@ -134,6 +144,7 @@ export default {
 				'fade-in': 'fade-in 0.6s ease-out',
 				'scale-in': 'scale-in 0.4s ease-out',
 				'glow': 'glow 2s ease-in-out infinite',
+				'spotlight': 'spotlight 2s ease .75s 1 forwards',
 			}
 		}
 	},
