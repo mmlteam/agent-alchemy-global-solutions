@@ -6,9 +6,8 @@ import { Spotlight } from "@/components/ui/spotlight"
  
 const SplineHero = () => {
   return (
-    <section className="py-20 px-6 bg-gradient-to-b from-background to-secondary/20">
-      <div className="container mx-auto max-w-7xl">
-        <Card className="w-full h-[500px] bg-black/[0.96] relative overflow-hidden">
+    <section className="bg-gradient-to-b from-background to-secondary/20">
+      <Card className="w-full h-[500px] bg-black/[0.96] relative overflow-hidden">
           <Spotlight
             className="-top-40 left-0 md:left-60 md:-top-20"
             fill="white"
@@ -35,7 +34,6 @@ const SplineHero = () => {
             </div>
           </div>
         </Card>
-      </div>
     </section>
   )
 }
