@@ -1,13 +1,11 @@
 import { SplineScene } from '@/components/ui/splite'
-import { SpotlightCursor } from '@/components/ui/spotlight-cursor'
 
 export function HeroIllustration() {
   return (
-    <div className="relative w-full h-full">
-      <SpotlightCursor size={300} />
+    <div className="absolute inset-0 w-full h-full">
       <SplineScene
         scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
-        className="w-full h-full object-contain"
+        className="w-full h-full scale-110 md:scale-125 lg:scale-150 object-cover"
       />
     </div>
   )
