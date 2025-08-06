@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap, Brain, Workflow } from "lucide-react";
-import HeroIllustration from "@/components/HeroIllustration";
+import { HeroIllustration } from "@/components/HeroIllustration";
 
 const Hero = () => {
   return (
@@ -106,36 +106,8 @@ const Hero = () => {
           </div>
           
           {/* Hero Illustration */}
-          <div className="relative animate-scale-in">
-            <div className="absolute inset-0 bg-gradient-primary rounded-3xl blur-3xl opacity-30 animate-glow"></div>
-            <div className="relative rounded-3xl shadow-premium w-full h-64 lg:h-96 overflow-hidden bg-black/5">
-              <HeroIllustration />
-            </div>
-            
-            {/* Floating cards */}
-            <div className="absolute -top-6 -left-6 bg-card/90 backdrop-blur-sm border border-border rounded-xl p-4 shadow-premium animate-fade-in delay-500">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-primary/20 rounded-lg flex items-center justify-center">
-                  <Brain className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <div className="font-semibold text-sm">Smart Processing</div>
-                  <div className="text-xs text-muted-foreground">99.9% accuracy</div>
-                </div>
-              </div>
-            </div>
-            
-            <div className="absolute -bottom-6 -right-6 bg-card/90 backdrop-blur-sm border border-border rounded-xl p-4 shadow-premium animate-fade-in delay-700">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 bg-accent/20 rounded-lg flex items-center justify-center">
-                  <Workflow className="w-5 h-5 text-accent" />
-                </div>
-                <div>
-                  <div className="font-semibold text-sm">Auto Scaling</div>
-                  <div className="text-xs text-muted-foreground">Real-time adaptation</div>
-                </div>
-              </div>
-            </div>
+          <div className="flex-1 relative">
+            <HeroIllustration />
           </div>
         </div>
       </div>

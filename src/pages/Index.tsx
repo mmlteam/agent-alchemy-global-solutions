@@ -1,4 +1,3 @@
-import SplineHero from "@/components/SplineHero";
 import Hero from "@/components/Hero";
 import CombinedFOMOStrip from "@/components/CombinedFOMOStrip";
 import ValueSnapshotStrip from "@/components/ValueSnapshotStrip";
@@ -20,7 +19,6 @@ import FloatingContact from "@/components/FloatingContact";
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
-      <SplineHero />
       <Hero />
       <CombinedFOMOStrip />
       <ValueSnapshotStrip />
