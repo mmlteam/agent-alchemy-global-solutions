@@ -25,7 +25,7 @@ const Hero = () => {
       </div>
       
       <div className="container mx-auto px-6 py-20 relative z-10">
-        <div className="grid lg:grid-cols-[1fr_0.9fr] xl:grid-cols-2 gap-8 lg:gap-16 items-stretch min-h-[90vh]">
+        <div className="grid lg:grid-cols-[1fr_0.9fr] xl:grid-cols-2 gap-8 lg:gap-16 items-stretch min-h-[95vh]">
           {/* Content */}
           <div className="space-y-8 animate-fade-in flex flex-col justify-center order-1 lg:order-none">
             <div className="space-y-6">
@@ -109,7 +109,7 @@ const Hero = () => {
           </div>
           
           {/* Hero Illustration - Full Bleed */}
-          <div className="relative h-[400px] sm:h-[500px] md:h-[600px] lg:h-auto lg:min-h-[600px] xl:min-h-[700px] w-full order-2 lg:order-none">
+          <div className="relative h-[500px] sm:h-[600px] md:h-[700px] lg:h-auto lg:min-h-[750px] xl:min-h-[800px] w-full order-2 lg:order-none">
             <HeroIllustration />
           </div>
         </div>
