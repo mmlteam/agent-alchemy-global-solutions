@@ -83,18 +83,20 @@ const ROICalculator = () => {
                 </p>
                 <Button 
                   variant="premium" 
-                  className={`group transition-all duration-300 w-full max-w-sm mx-auto ${
+                  className={`group transition-all duration-300 w-full max-w-md mx-auto px-6 py-3 text-sm md:text-base ${
                     annualSavings > 100000 
                       ? 'opacity-100 transform scale-100' 
                       : 'opacity-50 blur-sm pointer-events-none'
                   } ${annualSavings > 100000 && 'animate-fade-in'}`}
                   disabled={annualSavings <= 100000}
                 >
-                  {annualSavings > 100000 
-                    ? "Lock in your savings → Book Audit" 
-                    : "Enter values to unlock your free audit"
-                  }
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <span className="truncate">
+                    {annualSavings > 100000 
+                      ? "Lock in your savings → Book Audit" 
+                      : "Enter values to unlock your free audit"
+                    }
+                  </span>
+                  <ArrowRight className="w-4 h-4 ml-2 flex-shrink-0 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </div>
             </div>
