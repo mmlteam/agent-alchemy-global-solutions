@@ -91,10 +91,17 @@ const ROICalculator = () => {
                   disabled={annualSavings <= 100000}
                 >
                   <span className="truncate">
-                    {annualSavings > 100000 
-                      ? "Lock in your savings → Book Audit" 
-                      : "Enter values to unlock your free audit"
-                    }
+                    {annualSavings > 100000 ? (
+                      <>
+                        <span className="md:hidden">Book Audit</span>
+                        <span className="hidden md:inline">Lock in your savings → Book Audit</span>
+                      </>
+                    ) : (
+                      <>
+                        <span className="md:hidden">Enter values to unlock</span>
+                        <span className="hidden md:inline">Enter values to unlock your free audit</span>
+                      </>
+                    )}
                   </span>
                   <ArrowRight className="w-4 h-4 ml-2 flex-shrink-0 group-hover:translate-x-1 transition-transform" />
                 </Button>
