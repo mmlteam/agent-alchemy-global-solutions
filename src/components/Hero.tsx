@@ -54,7 +54,7 @@ const Hero = () => {
                     "Make.com Scenarios"
                   ]}
                   speed={70}
-                  className="text-primary"
+                  className="text-primary font-bold"
                   waitTime={1500}
                   deleteSpeed={40}
                   showCursor={false}
