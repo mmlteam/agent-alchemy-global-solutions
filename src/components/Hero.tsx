@@ -109,8 +109,8 @@ const Hero = () => {
           </div>
           
           {/* Hero Illustration - Full Bleed */}
-          <div className="flex-1 relative overflow-visible w-full md:w-[80%] md:max-w-[420px] md:mx-auto lg:w-full lg:max-w-none lg:mx-0 lg:-translate-y-10 xl:-translate-y-6">
-            <div className="robot-offset -translate-y-6 lg:-translate-y-10">
+          <div className="flex-1 relative overflow-visible h-[400px] sm:h-[500px] md:h-[600px] lg:h-full w-full md:w-[80%] md:max-w-[420px] md:mx-auto lg:w-full lg:max-w-none lg:mx-0 lg:-translate-y-10 xl:-translate-y-6">
+            <div className="robot-offset -translate-y-6 lg:-translate-y-10 w-full h-full">
               <HeroIllustration />
             </div>
           </div>
