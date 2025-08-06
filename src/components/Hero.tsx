@@ -10,12 +10,11 @@ const Hero = () => {
       {/* Full Hero Spotlight Effect */}
       <SpotlightCursor size={400} />
       {/* Header with Logo */}
-      <div className="absolute top-0 left-0 right-0 z-20 p-6">
-        <a href="#hero" className="inline-flex items-center justify-center w-8 h-8 bg-white rounded-full">
-          <svg viewBox="0 0 24 24" className="w-5 h-5 text-primary">
-            <circle cx="12" cy="12" r="10" fill="currentColor"/>
-            <path d="M12 6l4 6-4 6-4-6z" fill="white"/>
-          </svg>
+      <div className="absolute top-0 left-0 right-0 z-20 p-4">
+        <a href="#hero" className="inline-flex items-center">
+          <div className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
+            ProAgentz
+          </div>
         </a>
       </div>
       
@@ -25,7 +24,7 @@ const Hero = () => {
         <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-accent rounded-full blur-3xl animate-glow delay-300"></div>
       </div>
       
-      <div className="container mx-auto px-6 py-8 lg:py-12 relative z-10">
+      <div className="container mx-auto px-6 pt-16 pb-8 lg:pt-20 lg:pb-12 relative z-10">
         <div className="grid lg:grid-cols-[1fr_0.9fr] xl:grid-cols-2 gap-6 lg:gap-8 items-end min-h-[80vh] lg:min-h-[75vh]">
           {/* Content */}
           <div className="space-y-6 animate-fade-in flex flex-col justify-center order-1 lg:order-none">
