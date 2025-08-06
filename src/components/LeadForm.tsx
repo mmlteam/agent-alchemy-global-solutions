@@ -138,17 +138,26 @@ const LeadForm = () => {
               email: formData.email,
               phone: formData.phone,
               company_size: formData.companySize,
-              challenge: formData.challenge
+              challenge: formData.challenge,
+              leadId: leadId
             }
           });
 
         if (functionError) {
           console.error('Error sending email:', functionError);
-          // Don't fail the form submission if email fails
+          // Update lead status to error if email fails
+          await supabase
+            .from('leads')
+            .update({ email_status: 'error' })
+            .eq('id', leadId);
         }
       } catch (emailError) {
         console.error('Email notification failed:', emailError);
-        // Continue with form completion even if email fails
+        // Update lead status to error if email fails
+        await supabase
+          .from('leads')
+          .update({ email_status: 'error' })
+          .eq('id', leadId);
       }
 
       // Mark form as completed

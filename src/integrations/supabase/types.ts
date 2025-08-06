@@ -20,6 +20,7 @@ export type Database = {
           company_size: string | null
           created_at: string
           email: string | null
+          email_status: string | null
           id: string
           name: string
           phone: string
@@ -31,6 +32,7 @@ export type Database = {
           company_size?: string | null
           created_at?: string
           email?: string | null
+          email_status?: string | null
           id?: string
           name: string
           phone: string
@@ -42,6 +44,7 @@ export type Database = {
           company_size?: string | null
           created_at?: string
           email?: string | null
+          email_status?: string | null
           id?: string
           name?: string
           phone?: string

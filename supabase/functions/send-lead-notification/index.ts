@@ -1,4 +1,5 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2'
 
 const RESEND_API_KEY = Deno.env.get('RESEND_API_KEY')
 
@@ -8,16 +9,11 @@ const corsHeaders = {
 }
 
 serve(async (req) => {
-  console.log('🚀 Email function started - Method:', req.method)
-  
-  // Handle CORS preflight requests
   if (req.method === 'OPTIONS') {
-    console.log('✅ CORS preflight request handled')
     return new Response(null, { headers: corsHeaders });
   }
 
   if (req.method !== 'POST') {
-    console.log('❌ Invalid method:', req.method)
     return new Response('Method not allowed', { 
       status: 405,
       headers: corsHeaders
@@ -25,21 +21,17 @@ serve(async (req) => {
   }
 
   try {
-    console.log('📝 Parsing request body...')
-    const { name, email, phone, company_size, challenge } = await req.json()
-    console.log('📋 Lead data received:', { 
-      name, 
-      email, 
-      phone, 
-      company_size: company_size || 'Not specified', 
-      challenge: challenge || 'Not specified' 
-    })
+    const { name, email, phone, company_size, challenge, leadId } = await req.json()
 
     if (!RESEND_API_KEY) {
-      console.error('❌ RESEND_API_KEY not found in environment variables')
       return new Response('Email service not configured', { status: 500 })
     }
-    console.log('✅ RESEND_API_KEY found')
+
+    // Initialize Supabase client
+    const supabase = createClient(
+      Deno.env.get('SUPABASE_URL') ?? '',
+      Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? ''
+    )
 
     const emailPayload = {
       from: 'hello@mmlprojects.in',
@@ -60,15 +52,6 @@ serve(async (req) => {
       `,
     }
 
-    console.log('📧 Preparing email with payload:', {
-      from: emailPayload.from,
-      to: emailPayload.to,
-      subject: emailPayload.subject
-    })
-
-    console.log('🔄 Sending email to Resend API...')
-    
-    // Send email to your team
     const emailResponse = await fetch('https://api.resend.com/emails', {
       method: 'POST',
       headers: {
@@ -77,14 +60,18 @@ serve(async (req) => {
       },
       body: JSON.stringify(emailPayload),
     })
-    
-    console.log('📬 Resend API response status:', emailResponse.status)
 
     if (!emailResponse.ok) {
       const error = await emailResponse.text()
-      console.error('❌ Email send failed with status:', emailResponse.status)
-      console.error('❌ Error details:', error)
-      console.error('❌ Response headers:', Object.fromEntries(emailResponse.headers.entries()))
+      
+      // Update lead with failed status if leadId provided
+      if (leadId) {
+        await supabase
+          .from('leads')
+          .update({ email_status: 'failed' })
+          .eq('id', leadId)
+      }
+
       return new Response('Failed to send email', { 
         status: 500,
         headers: corsHeaders
@@ -92,9 +79,14 @@ serve(async (req) => {
     }
 
     const emailData = await emailResponse.json()
-    console.log('✅ Email sent successfully!')
-    console.log('📧 Email ID:', emailData.id)
-    console.log('📊 Full response:', emailData)
+
+    // Update lead with success status if leadId provided
+    if (leadId) {
+      await supabase
+        .from('leads')
+        .update({ email_status: 'sent' })
+        .eq('id', leadId)
+    }
 
     return new Response(
       JSON.stringify({ success: true, message: 'Email sent successfully', emailId: emailData.id }),
@@ -108,7 +100,6 @@ serve(async (req) => {
     )
 
   } catch (error) {
-    console.error('Error in send-lead-notification:', error)
     return new Response(
       JSON.stringify({ error: 'Internal server error' }),
       { 
