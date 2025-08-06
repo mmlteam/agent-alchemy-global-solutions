@@ -2,7 +2,6 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap, Brain, Workflow } from "lucide-react";
 import { HeroIllustration } from "@/components/HeroIllustration";
 import { SpotlightCursor } from "@/components/ui/spotlight-cursor";
-import { Typewriter } from "@/components/ui/typewriter";
 
 const Hero = () => {
   return (
@@ -44,19 +43,7 @@ const Hero = () => {
               </h1>
               
               <p className="text-base lg:text-lg text-muted-foreground leading-relaxed max-w-2xl">
-                <span>AI agents built &amp; live in &lt; 30 days </span>
-                <Typewriter
-                  text={[
-                    "AI Agents",
-                    "No-Code Bots", 
-                    "Python Scripts"
-                  ]}
-                  speed={70}
-                  className="text-primary"
-                  waitTime={1500}
-                  deleteSpeed={40}
-                  cursorChar={"_"}
-                />
+                <span>AI agents built &amp; live in &lt; 30 days - </span><span className="pl-2 animate-typing" data-words="No-Code Bots | Python Scripts | Zapier Flows | Make.com Scenarios | n8n Workflows"></span>
               </p>
               
               {/* Integration Partners Bar */}
