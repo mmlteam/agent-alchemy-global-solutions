@@ -44,7 +44,7 @@ const Hero = () => {
               </h1>
               
               <p className="text-base lg:text-lg text-muted-foreground leading-relaxed max-w-2xl">
-                <span>AI agents built & live in &lt; 30 days </span>
+                <span>AI agents built & live in &lt; 30 days – </span>
                 <Typewriter
                   text={[
                     "No-Code Bots",
