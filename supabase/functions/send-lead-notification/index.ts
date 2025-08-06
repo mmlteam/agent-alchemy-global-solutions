@@ -36,7 +36,7 @@ serve(async (req) => {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'agentx@mmlprojects.in',
+        from: 'hello@mmlprojects.in',
         to: ['sharik@makemelive.in'],
         subject: `New Lead: ${name} - Free Automation Audit`,
         html: `
