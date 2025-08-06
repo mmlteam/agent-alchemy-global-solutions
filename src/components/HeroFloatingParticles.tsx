@@ -2,14 +2,14 @@ import { motion } from 'framer-motion';
 
 const HeroFloatingParticles = () => {
   // Generate floating particles with natural movement
-  const particles = Array.from({ length: 8 }, (_, i) => ({
+  const particles = Array.from({ length: 11 }, (_, i) => ({
     id: i,
     size: Math.random() * 3 + 2, // 2-5px
     delay: Math.random() * 3,
     duration: Math.random() * 4 + 3, // 3-7s
     x: Math.random() * 100, // 0-100%
     y: Math.random() * 100, // 0-100%
-    opacity: Math.random() * 0.4 + 0.2, // 0.2-0.6
+    opacity: Math.random() * 0.5 + 0.3, // 0.3-0.8
   }));
 
   return (
@@ -18,13 +18,13 @@ const HeroFloatingParticles = () => {
       {particles.map((particle) => (
         <motion.div
           key={particle.id}
-          className="absolute rounded-full bg-white/60"
+          className="absolute rounded-full bg-white/70"
           style={{
             width: particle.size,
             height: particle.size,
             left: `${particle.x}%`,
             top: `${particle.y}%`,
-            boxShadow: `0 0 ${particle.size * 3}px rgba(255, 255, 255, 0.8)`,
+            boxShadow: `0 0 ${particle.size * 4}px rgba(255, 255, 255, 0.9), 0 0 ${particle.size * 2}px rgba(255, 255, 255, 0.6)`,
           }}
           animate={{
             y: [-20, -40, -20],
