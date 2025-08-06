@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle, Shield, Clock, ArrowRight, Gift } from "lucide-react";
 const Offer = () => {
-  return <section className="py-24 bg-gradient-secondary">
+  return <section className="py-section bg-gradient-secondary">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto text-center space-y-12">
           {/* Offer Header */}

@@ -51,7 +51,7 @@ const metricsData = [
 
 const MetricsZigZag = () => {
   return (
-    <section className="py-24 bg-background">
+    <section className="py-section bg-background">
       <div className="container mx-auto px-6">
         <div className="text-center space-y-6 mb-16 animate-fade-in">
           <h2 className="text-4xl lg:text-5xl font-bold">

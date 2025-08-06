@@ -78,6 +78,11 @@ export default {
 				'glow-accent': 'var(--glow-accent)',
 				'premium': 'var(--shadow-premium)',
 			},
+			spacing: {
+				'section-sm': 'var(--section-spacing-sm)',
+				'section': 'var(--section-spacing-md)',
+				'section-lg': 'var(--section-spacing-lg)',
+			},
 			transitionTimingFunction: {
 				'smooth': 'var(--transition-smooth)',
 				'spring': 'var(--transition-spring)',

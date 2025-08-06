@@ -42,7 +42,7 @@ const benefits = [
 
 const Benefits = () => {
   return (
-    <section className="py-24 bg-secondary/20">
+    <section className="py-section bg-secondary/20">
       <div className="container mx-auto px-6">
         {/* Zig-zag feature layout */}
         <div className="space-y-20 max-w-6xl mx-auto">

@@ -17,7 +17,7 @@ const ROICalculator = () => {
     setAnnualSavings(calculatedAnnualSavings);
     setShowCTA(calculatedAnnualSavings > 100000);
   }, [monthlySalary, hoursAutomated]);
-  return <section className="py-16 bg-secondary/10">
+  return <section className="py-section bg-secondary/10">
       <div className="container mx-auto px-6">
         <div className="max-w-2xl mx-auto">
           <div className="text-center space-y-4 mb-8">

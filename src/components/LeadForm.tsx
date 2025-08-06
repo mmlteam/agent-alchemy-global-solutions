@@ -91,7 +91,7 @@ const LeadForm = () => {
   };
 
   return (
-    <section className="py-24 bg-background sticky bottom-0 z-10">
+    <section className="py-section bg-background sticky bottom-0 z-10">
       <div className="container mx-auto px-6">
         <div className="max-w-2xl mx-auto">
           <div className="text-center space-y-6 mb-12 animate-fade-in">

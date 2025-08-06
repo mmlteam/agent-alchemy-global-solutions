@@ -1,6 +1,6 @@
 const UrgencyStrip = () => {
   return (
-    <section className="py-6 bg-[#1E293B]">
+    <section className="py-section-sm bg-[#1E293B]">
       <div className="container mx-auto px-6">
         <div className="text-center text-white">
           <p className="text-lg font-semibold" data-slots="30">

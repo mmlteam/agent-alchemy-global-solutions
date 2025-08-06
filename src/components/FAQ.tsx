@@ -52,7 +52,7 @@ const faqs = [
 
 const FAQ = () => {
   return (
-    <section className="py-24 bg-secondary/10">
+    <section className="py-section bg-secondary/10">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
           <div className="text-center space-y-6 mb-16 animate-fade-in">

@@ -38,7 +38,7 @@ const CombinedFOMOStrip = () => {
   }, []);
 
   return (
-    <section id="fomo-strip" className="py-16 bg-slate-800 text-white">
+    <section id="fomo-strip" className="py-section bg-slate-800 text-white">
       <div className="container mx-auto px-6">
         <div className="text-center space-y-8 animate-fade-in">
           {/* Headline */}

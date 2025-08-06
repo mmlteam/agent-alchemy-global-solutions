@@ -38,6 +38,12 @@ All colors MUST be HSL.
 
     --radius: 0.75rem;
 
+    /* Standardized spacing system */
+    --section-spacing-sm: 4rem;    /* 64px - mobile/compact sections */
+    --section-spacing-md: 6rem;    /* 96px - standard sections */
+    --section-spacing-lg: 8rem;    /* 128px - hero/featured sections */
+    --container-padding: 1.5rem;   /* 24px - consistent container padding */
+
     /* Premium gradients */
     --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(261 83% 58%) 100%);
     --gradient-secondary: linear-gradient(135deg, hsl(210 17% 15%) 0%, hsl(210 17% 20%) 100%);
