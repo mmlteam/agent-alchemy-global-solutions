@@ -5,7 +5,7 @@ import { SpotlightCursor } from "@/components/ui/spotlight-cursor";
 
 const Hero = () => {
   return (
-    <section className="min-h-screen bg-gradient-hero relative overflow-hidden">
+    <section className="bg-gradient-hero relative overflow-hidden">
       {/* Full Hero Spotlight Effect */}
       <SpotlightCursor size={400} />
       {/* Header with Logo */}
@@ -24,7 +24,7 @@ const Hero = () => {
         <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-accent rounded-full blur-3xl animate-glow delay-300"></div>
       </div>
       
-      <div className="container mx-auto px-6 py-12 lg:py-16 relative z-10">
+      <div className="container mx-auto px-6 py-8 lg:py-12 relative z-10">
         <div className="grid lg:grid-cols-[1fr_0.9fr] xl:grid-cols-2 gap-6 lg:gap-12 items-stretch h-[85vh] lg:h-[80vh]">
           {/* Content */}
           <div className="space-y-8 animate-fade-in flex flex-col justify-center order-1 lg:order-none">
@@ -92,7 +92,7 @@ const Hero = () => {
             </div>
             
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-6 pt-6 border-t border-border/30">
+            <div className="grid grid-cols-3 gap-6 pt-6 pb-0 mb-0 border-t border-border/30">
               <div className="space-y-1">
                 <div className="text-xl lg:text-2xl font-bold text-primary">500+</div>
                 <div className="text-xs lg:text-sm text-muted-foreground">AI Agents Deployed</div>
