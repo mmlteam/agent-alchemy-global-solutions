@@ -2,10 +2,8 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle, Shield, Clock, ArrowRight, Gift } from "lucide-react";
-
 const Offer = () => {
-  return (
-    <section className="py-24 bg-gradient-secondary">
+  return <section className="py-24 bg-gradient-secondary">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto text-center space-y-12">
           {/* Offer Header */}
@@ -34,18 +32,10 @@ const Offer = () => {
               <div className="space-y-6">
                 <h3 className="text-2xl font-semibold">What You'll Receive:</h3>
                 <ul className="space-y-4">
-                  {[
-                    "Custom AI roadmap for your business",
-                    "ROI projections & cost-benefit analysis", 
-                    "Priority automation opportunities",
-                    "Implementation timeline & strategy",
-                    "Actionable next steps (yours to keep)"
-                  ].map((item, index) => (
-                    <li key={index} className="flex items-start gap-3">
+                  {["Custom AI roadmap for your business", "ROI projections & cost-benefit analysis", "Priority automation opportunities", "Implementation timeline & strategy", "Actionable next steps (yours to keep)"].map((item, index) => <li key={index} className="flex items-start gap-3">
                       <CheckCircle className="w-5 h-5 text-primary mt-0.5" />
                       <span className="text-muted-foreground">{item}</span>
-                    </li>
-                  ))}
+                    </li>)}
                 </ul>
               </div>
 
@@ -68,12 +58,10 @@ const Offer = () => {
 
             {/* CTA */}
             <div className="text-center mt-8 pt-8 border-t border-border/30">
-              <Button 
-                variant="premium" 
-                size="lg" 
-                className="group text-lg px-12 py-4 w-full max-w-sm mx-auto"
-                onClick={() => document.querySelector('#lead-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
-              >
+              <Button variant="premium" size="lg" className="group text-lg px-12 py-4 w-full max-w-sm mx-auto" onClick={() => document.querySelector('#lead-form')?.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            })}>
                 Book My Free Automation Audit
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
@@ -92,8 +80,6 @@ const Offer = () => {
           </Card>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Offer;
