@@ -39,7 +39,9 @@ const LeadForm = () => {
       setIsSubmitting(true);
       
       try {
-
+        console.log('Attempting to save lead data:', { name: formData.name, phone: formData.phone });
+        console.log('Supabase client status:', !!supabase);
+        
         // Save step 1 data to database
         const { data, error } = await supabase
           .from('leads')
@@ -51,11 +53,13 @@ const LeadForm = () => {
           .select()
           .single();
 
+        console.log('Supabase response:', { data, error });
+
         if (error) {
           console.error('Error saving lead:', error);
           toast({
             title: "Error",
-            description: "Failed to save your information. Please try again.",
+            description: `Database error: ${error.message}`,
             variant: "destructive",
           });
           return;
