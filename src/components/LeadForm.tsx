@@ -8,11 +8,14 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
 import { ArrowRight, Users, Building, CheckCircle } from "lucide-react";
 import { useState } from "react";
+import { supabase, type Lead } from "@/lib/supabase";
 
 const LeadForm = () => {
   const { toast } = useToast();
   const [step, setStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isFormCompleted, setIsFormCompleted] = useState(false);
+  const [leadId, setLeadId] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -31,9 +34,51 @@ const LeadForm = () => {
     setFormData(prev => ({ ...prev, companySize: value }));
   };
 
-  const handleNext = () => {
+  const handleNext = async () => {
     if (formData.name && formData.phone) {
-      setStep(2);
+      setIsSubmitting(true);
+      
+      try {
+        // Save step 1 data to database
+        const { data, error } = await supabase
+          .from('leads')
+          .insert({
+            name: formData.name,
+            phone: formData.phone,
+            step_completed: 1
+          })
+          .select()
+          .single();
+
+        if (error) {
+          console.error('Error saving lead:', error);
+          toast({
+            title: "Error",
+            description: "Failed to save your information. Please try again.",
+            variant: "destructive",
+          });
+          return;
+        }
+
+        // Store the lead ID for updating in step 2
+        setLeadId(data.id);
+        setStep(2);
+        
+        toast({
+          title: "Information saved",
+          description: "Your contact details have been saved. Please complete the remaining fields.",
+        });
+
+      } catch (error) {
+        console.error('Error:', error);
+        toast({
+          title: "Error",
+          description: "Something went wrong. Please try again.",
+          variant: "destructive",
+        });
+      } finally {
+        setIsSubmitting(false);
+      }
     } else {
       toast({
         title: "Missing information",
@@ -56,30 +101,61 @@ const LeadForm = () => {
 
     setIsSubmitting(true);
 
-      try {
-        await new Promise(resolve => setTimeout(resolve, 2000));
-        
-        // Mark form as submitted to hide WhatsApp button
-        localStorage.setItem('form-submitted', 'true');
-        
-        // Redirect to thank you page
-        window.location.href = '/thank-you';
-        
-        toast({
-          title: "Consultation booked successfully!",
-          description: "Redirecting to your calendar link...",
-        });
+    try {
+      // Update the lead with complete information
+      const { error: updateError } = await supabase
+        .from('leads')
+        .update({
+          email: formData.email,
+          company_size: formData.companySize,
+          challenge: formData.challenge,
+          step_completed: 2
+        })
+        .eq('id', leadId);
 
-        setFormData({
-          name: "",
-          email: "",
-          phone: "",
-          companySize: "",
-          challenge: "",
-          gdprConsent: false
+      if (updateError) {
+        console.error('Error updating lead:', updateError);
+        toast({
+          title: "Error",
+          description: "Failed to save your information. Please try again.",
+          variant: "destructive",
         });
-        setStep(1);
+        return;
+      }
+
+      // Send email notification to your team
+      try {
+        const { data: functionData, error: functionError } = await supabase.functions
+          .invoke('send-lead-notification', {
+            body: {
+              name: formData.name,
+              email: formData.email,
+              phone: formData.phone,
+              company_size: formData.companySize,
+              challenge: formData.challenge
+            }
+          });
+
+        if (functionError) {
+          console.error('Error sending email:', functionError);
+          // Don't fail the form submission if email fails
+        }
+      } catch (emailError) {
+        console.error('Email notification failed:', emailError);
+        // Continue with form completion even if email fails
+      }
+
+      // Mark form as completed
+      setIsFormCompleted(true);
+      localStorage.setItem('form-submitted', 'true');
+      
+      toast({
+        title: "Thank you!",
+        description: "Our team will contact you within 12 hours.",
+      });
+
     } catch (error) {
+      console.error('Error:', error);
       toast({
         title: "Error booking consultation",
         description: "Please try again later.",
@@ -135,8 +211,24 @@ const LeadForm = () => {
               </div>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
-              {step === 1 && (
+            {isFormCompleted ? (
+              <div className="text-center space-y-6 animate-fade-in">
+                <div className="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto">
+                  <CheckCircle className="w-8 h-8 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-primary">Thank You!</h3>
+                <p className="text-lg text-muted-foreground">
+                  We've received your information and our team will contact you within the next 12 hours to schedule your free automation audit.
+                </p>
+                <div className="p-4 bg-primary/10 rounded-lg border border-primary/20">
+                  <p className="text-sm text-muted-foreground">
+                    💡 <strong>What's next?</strong> Our automation expert will analyze your current processes and prepare a customized roadmap for your business.
+                  </p>
+                </div>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-6">
+                {step === 1 && (
                 <div className="space-y-6 animate-fade-in">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
@@ -166,16 +258,16 @@ const LeadForm = () => {
                     </div>
                   </div>
 
-                  <Button 
-                    type="button"
-                    onClick={handleNext}
-                    variant="premium" 
-                    size="lg" 
-                    className="w-full group"
-                    disabled={!formData.name || !formData.phone}
-                  >
-                    Continue to Business Details
-                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                   <Button 
+                     type="button"
+                     onClick={handleNext}
+                     variant="premium" 
+                     size="lg" 
+                     className="w-full group"
+                     disabled={!formData.name || !formData.phone || isSubmitting}
+                   >
+                     {isSubmitting ? "Saving..." : "Continue to Business Details"}
+                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </div>
               )}
@@ -271,9 +363,10 @@ const LeadForm = () => {
                       <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                     </Button>
                   </div>
-                </div>
-              )}
-            </form>
+                  </div>
+                )}
+              </form>
+            )}
 
             {/* Trust indicators */}
             <div className="flex items-center justify-center gap-6 mt-8 pt-6 border-t border-border/30 text-xs text-muted-foreground">
