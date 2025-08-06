@@ -4,14 +4,16 @@ import { HeroIllustration } from "@/components/HeroIllustration";
 import { SpotlightCursor } from "@/components/ui/spotlight-cursor";
 import { Typewriter } from "@/components/ui/typewriter";
 import HeroAIOverlay from "@/components/HeroAIOverlay";
+import HeroNeuralOverlay from "@/components/HeroNeuralOverlay";
 
 const Hero = () => {
   return (
     <section className="bg-gradient-hero relative overflow-hidden">
       {/* Full Hero Spotlight Effect */}
       <SpotlightCursor size={400} />
-      {/* AI Overlay Effect */}
+      {/* AI Overlay Effects */}
       <HeroAIOverlay />
+      <HeroNeuralOverlay />
       {/* Header with Logo */}
       <div className="absolute top-0 left-0 right-0 z-20 p-2">
         <a href="#hero" className="inline-flex items-center">
