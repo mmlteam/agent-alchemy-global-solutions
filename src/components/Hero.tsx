@@ -25,16 +25,16 @@ const Hero = () => {
       </div>
       
       <div className="container mx-auto px-6 py-8 lg:py-12 relative z-10">
-        <div className="grid lg:grid-cols-[1fr_0.9fr] xl:grid-cols-2 gap-6 lg:gap-12 items-stretch h-[85vh] lg:h-[80vh]">
+        <div className="grid lg:grid-cols-[1fr_0.9fr] xl:grid-cols-2 gap-6 lg:gap-8 items-end min-h-[80vh] lg:min-h-[75vh]">
           {/* Content */}
-          <div className="space-y-8 animate-fade-in flex flex-col justify-center order-1 lg:order-none">
-            <div className="space-y-6">
+          <div className="space-y-6 animate-fade-in flex flex-col justify-center order-1 lg:order-none">
+            <div className="space-y-5">
               <div className="inline-flex items-center gap-2 bg-secondary/50 backdrop-blur-sm border border-border rounded-full px-4 py-2 text-sm">
                 <Zap className="w-4 h-4 text-primary" />
                 <span className="text-muted-foreground">Next-Gen Automation</span>
               </div>
               
-              <h1 className="text-4xl lg:text-6xl xl:text-7xl font-bold leading-tight">
+              <h1 className="text-3xl lg:text-5xl xl:text-6xl font-bold leading-tight">
                 Turn Busywork Into{" "}
                 <span className="bg-gradient-primary bg-clip-text text-transparent">
                   Autopilot
@@ -42,12 +42,12 @@ const Hero = () => {
                 – Save 420 Hours a Year
               </h1>
               
-              <p className="text-lg lg:text-xl text-muted-foreground leading-relaxed max-w-2xl">
+              <p className="text-base lg:text-lg text-muted-foreground leading-relaxed max-w-2xl">
                 <span>AI agents built &amp; live in &lt; 30 days</span><span className="pl-2 animate-typing" data-words="AI Agents,No-Code Bots,Python Scripts"></span>
               </p>
               
               {/* Integration Partners Bar */}
-              <div className="grid grid-cols-3 lg:flex lg:flex-wrap justify-center lg:justify-start items-center gap-4 lg:gap-6 mt-6 animate-fade-in">
+              <div className="grid grid-cols-3 lg:flex lg:flex-wrap justify-center lg:justify-start items-center gap-3 lg:gap-4 mt-4 animate-fade-in">
                 {[
                   { name: "Make.com", logoPath: "/logos/make-logo.png", alt: "Make.com logo" },
                   { name: "Zapier", logoPath: "/logos/zapier-logo.png", alt: "Zapier logo" },
@@ -81,7 +81,7 @@ const Hero = () => {
               <Button 
                 variant="premium" 
                 size="lg" 
-                className="group text-lg px-8 py-4 w-full max-w-xs lg:w-auto" 
+                className="group text-base px-6 py-3 w-full max-w-xs lg:w-auto" 
                 aria-label="Book My Free Automation Audit"
                 onClick={() => document.querySelector('#lead-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
               >
@@ -92,24 +92,24 @@ const Hero = () => {
             </div>
             
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-6 pt-6 pb-0 mb-0 border-t border-border/30">
+            <div className="grid grid-cols-3 gap-4 pt-4 pb-0 mb-0 border-t border-border/30">
               <div className="space-y-1">
-                <div className="text-xl lg:text-2xl font-bold text-primary">500+</div>
-                <div className="text-xs lg:text-sm text-muted-foreground">AI Agents Deployed</div>
+                <div className="text-lg lg:text-xl font-bold text-primary">500+</div>
+                <div className="text-xs text-muted-foreground">AI Agents Deployed</div>
               </div>
               <div className="space-y-1">
-                <div className="text-xl lg:text-2xl font-bold text-primary">98%</div>
-                <div className="text-xs lg:text-sm text-muted-foreground">Efficiency Increase</div>
+                <div className="text-lg lg:text-xl font-bold text-primary">98%</div>
+                <div className="text-xs text-muted-foreground">Efficiency Increase</div>
               </div>
               <div className="space-y-1">
-                <div className="text-xl lg:text-2xl font-bold text-primary">24/7</div>
-                <div className="text-xs lg:text-sm text-muted-foreground">Autonomous Operation</div>
+                <div className="text-lg lg:text-xl font-bold text-primary">24/7</div>
+                <div className="text-xs text-muted-foreground">Autonomous Operation</div>
               </div>
             </div>
           </div>
           
-          {/* Hero Illustration - Full Bleed */}
-          <div className="relative h-[400px] sm:h-[480px] md:h-[520px] lg:h-full w-full order-2 lg:order-none">
+          {/* Hero Illustration - Aligned with content */}
+          <div className="relative h-[350px] sm:h-[400px] md:h-[450px] lg:h-[600px] xl:h-[650px] w-full order-2 lg:order-none self-end">
             <HeroIllustration />
           </div>
         </div>
