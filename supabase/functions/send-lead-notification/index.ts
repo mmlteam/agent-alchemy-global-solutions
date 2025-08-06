@@ -22,8 +22,12 @@ serve(async (req) => {
 
   try {
     const { name, email, phone, company_size, challenge, leadId } = await req.json()
-
+    
+    console.log('Lead ID received:', leadId)
+    console.log('Processing email for lead:', { name, email, leadId })
+    
     if (!RESEND_API_KEY) {
+      console.log('RESEND_API_KEY not found')
       return new Response('Email service not configured', { status: 500 })
     }
 
@@ -63,13 +67,23 @@ serve(async (req) => {
 
     if (!emailResponse.ok) {
       const error = await emailResponse.text()
+      console.log('Email failed with status:', emailResponse.status, 'Error:', error)
       
       // Update lead with failed status if leadId provided
       if (leadId) {
-        await supabase
+        console.log('Updating lead', leadId, 'status to failed')
+        const { data: updateData, error: updateError } = await supabase
           .from('leads')
           .update({ email_status: 'failed' })
           .eq('id', leadId)
+        
+        if (updateError) {
+          console.error('Failed to update lead status to failed:', updateError)
+        } else {
+          console.log('Successfully updated lead status to failed')
+        }
+      } else {
+        console.log('No leadId provided, skipping status update')
       }
 
       return new Response('Failed to send email', { 
@@ -79,13 +93,23 @@ serve(async (req) => {
     }
 
     const emailData = await emailResponse.json()
+    console.log('Email sent successfully, Resend ID:', emailData.id)
 
     // Update lead with success status if leadId provided
     if (leadId) {
-      await supabase
+      console.log('Updating lead', leadId, 'status to sent')
+      const { data: updateData, error: updateError } = await supabase
         .from('leads')
         .update({ email_status: 'sent' })
         .eq('id', leadId)
+      
+      if (updateError) {
+        console.error('Failed to update lead status to sent:', updateError)
+      } else {
+        console.log('Successfully updated lead status to sent')
+      }
+    } else {
+      console.log('No leadId provided, skipping status update')
     }
 
     return new Response(
