@@ -2,9 +2,22 @@ import { serve } from "https://deno.land/std@0.168.0/http/server.ts"
 
 const RESEND_API_KEY = Deno.env.get('RESEND_API_KEY')
 
+const corsHeaders = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+}
+
 serve(async (req) => {
+  // Handle CORS preflight requests
+  if (req.method === 'OPTIONS') {
+    return new Response(null, { headers: corsHeaders });
+  }
+
   if (req.method !== 'POST') {
-    return new Response('Method not allowed', { status: 405 })
+    return new Response('Method not allowed', { 
+      status: 405,
+      headers: corsHeaders
+    })
   }
 
   try {
@@ -45,14 +58,24 @@ serve(async (req) => {
     if (!emailResponse.ok) {
       const error = await emailResponse.text()
       console.error('Email send failed:', error)
-      return new Response('Failed to send email', { status: 500 })
+      console.error('Response status:', emailResponse.status)
+      return new Response('Failed to send email', { 
+        status: 500,
+        headers: corsHeaders
+      })
     }
+
+    const emailData = await emailResponse.json()
+    console.log('Email sent successfully:', emailData)
 
     return new Response(
       JSON.stringify({ success: true, message: 'Email sent successfully' }),
       { 
         status: 200,
-        headers: { 'Content-Type': 'application/json' }
+        headers: { 
+          'Content-Type': 'application/json',
+          ...corsHeaders
+        }
       }
     )
 
@@ -62,7 +85,10 @@ serve(async (req) => {
       JSON.stringify({ error: 'Internal server error' }),
       { 
         status: 500,
-        headers: { 'Content-Type': 'application/json' }
+        headers: { 
+          'Content-Type': 'application/json',
+          ...corsHeaders
+        }
       }
     )
   }
