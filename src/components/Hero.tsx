@@ -4,6 +4,7 @@ import { HeroIllustration } from "@/components/HeroIllustration";
 import { SpotlightCursor } from "@/components/ui/spotlight-cursor";
 import { Typewriter } from "@/components/ui/typewriter";
 import HeroAIOverlay from "@/components/HeroAIOverlay";
+import HeroNeuralNetwork from "@/components/HeroNeuralNetwork";
 
 const Hero = () => {
   return (
@@ -128,6 +129,7 @@ const Hero = () => {
           {/* Hero Illustration - Aligned with content */}
           <div className="relative h-[350px] sm:h-[400px] md:h-[450px] lg:h-[600px] xl:h-[650px] w-full order-2 lg:order-none self-end">
             <HeroIllustration />
+            <HeroNeuralNetwork />
           </div>
         </div>
       </div>
