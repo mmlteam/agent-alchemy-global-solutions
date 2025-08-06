@@ -83,27 +83,27 @@ const ROICalculator = () => {
                 </p>
                 <Button 
                   variant="premium" 
-                  className={`group transition-all duration-300 w-full max-w-md mx-auto px-6 py-3 text-sm md:text-base ${
+                  className={`group transition-all duration-300 w-full max-w-sm mx-auto px-4 py-3 text-xs sm:text-sm flex items-center justify-center gap-2 ${
                     annualSavings > 100000 
                       ? 'opacity-100 transform scale-100' 
                       : 'opacity-50 blur-sm pointer-events-none'
                   } ${annualSavings > 100000 && 'animate-fade-in'}`}
                   disabled={annualSavings <= 100000}
                 >
-                  <span className="truncate">
+                  <span className="truncate flex-1 text-center">
                     {annualSavings > 100000 ? (
                       <>
-                        <span className="md:hidden">Book Audit</span>
-                        <span className="hidden md:inline">Lock in your savings → Book Audit</span>
+                        <span className="sm:hidden">Book Audit</span>
+                        <span className="hidden sm:inline">Book Audit</span>
                       </>
                     ) : (
                       <>
-                        <span className="md:hidden">Enter values to unlock</span>
-                        <span className="hidden md:inline">Enter values to unlock your free audit</span>
+                        <span className="sm:hidden">Enter values</span>
+                        <span className="hidden sm:inline">Enter values to unlock</span>
                       </>
                     )}
                   </span>
-                  <ArrowRight className="w-4 h-4 ml-2 flex-shrink-0 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </div>
             </div>
