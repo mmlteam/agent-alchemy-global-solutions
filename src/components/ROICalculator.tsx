@@ -4,25 +4,20 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Calculator } from "lucide-react";
 import { useState, useEffect } from "react";
-
 const ROICalculator = () => {
   const [monthlySalary, setMonthlySalary] = useState<number>(0);
   const [hoursAutomated, setHoursAutomated] = useState<number>(0);
   const [annualSavings, setAnnualSavings] = useState<number>(0);
   const [showCTA, setShowCTA] = useState(false);
-
   useEffect(() => {
     // Calculate hourly rate: monthly salary / (22 working days * 8 hours)
     const hourlyRate = monthlySalary / (22 * 8);
     const monthlySavings = hoursAutomated * hourlyRate;
     const calculatedAnnualSavings = monthlySavings * 12;
-    
     setAnnualSavings(calculatedAnnualSavings);
     setShowCTA(calculatedAnnualSavings > 100000);
   }, [monthlySalary, hoursAutomated]);
-
-  return (
-    <section className="py-16 bg-secondary/10">
+  return <section className="py-16 bg-secondary/10">
       <div className="container mx-auto px-6">
         <div className="max-w-2xl mx-auto">
           <div className="text-center space-y-4 mb-8">
@@ -38,39 +33,19 @@ const ROICalculator = () => {
             <div className="grid md:grid-cols-2 gap-6">
               <div className="space-y-2">
                 <Label htmlFor="salary">Avg Monthly Salary (₹)</Label>
-                <Input
-                  id="salary"
-                  type="number"
-                  value={monthlySalary || ''}
-                  onChange={(e) => setMonthlySalary(Number(e.target.value))}
-                  placeholder="75000"
-                  className="text-lg"
-                />
+                <Input id="salary" type="number" value={monthlySalary || ''} onChange={e => setMonthlySalary(Number(e.target.value))} placeholder="75000" className="text-lg" />
               </div>
               
               <div className="space-y-2">
                 <Label htmlFor="hours">Hours Automated / Month</Label>
-                <Input
-                  id="hours"
-                  type="number"
-                  value={hoursAutomated || ''}
-                  onChange={(e) => setHoursAutomated(Number(e.target.value))}
-                  placeholder="80"
-                  className="text-lg"
-                />
+                <Input id="hours" type="number" value={hoursAutomated || ''} onChange={e => setHoursAutomated(Number(e.target.value))} placeholder="80" className="text-lg" />
               </div>
             </div>
 
             <div className="mt-8 p-6 bg-gradient-primary rounded-xl text-center">
               <div className="text-white">
                 <p className="text-lg font-medium mb-2">Estimated Annual Savings</p>
-                <p className={`font-bold break-words ${
-                  annualSavings.toLocaleString('en-IN').length > 12 
-                    ? 'text-2xl' 
-                    : annualSavings.toLocaleString('en-IN').length > 8 
-                    ? 'text-3xl' 
-                    : 'text-4xl'
-                }`}>
+                <p className={`font-bold break-words ${annualSavings.toLocaleString('en-IN').length > 12 ? 'text-2xl' : annualSavings.toLocaleString('en-IN').length > 8 ? 'text-3xl' : 'text-4xl'}`}>
                   ₹{annualSavings.toLocaleString('en-IN')}
                 </p>
               </div>
@@ -81,27 +56,15 @@ const ROICalculator = () => {
                 <p className="font-semibold text-primary">
                   {annualSavings > 100000 ? "Lock in your savings potential!" : "Enter values to unlock your free audit"}
                 </p>
-                <Button 
-                  variant="premium" 
-                  className={`group transition-all duration-300 w-full max-w-sm mx-auto px-4 py-3 text-xs sm:text-sm flex items-center justify-center gap-2 ${
-                    annualSavings > 100000 
-                      ? 'opacity-100 transform scale-100' 
-                      : 'opacity-50 blur-sm pointer-events-none'
-                  } ${annualSavings > 100000 && 'animate-fade-in'}`}
-                  disabled={annualSavings <= 100000}
-                >
+                <Button variant="premium" className={`group transition-all duration-300 w-full max-w-sm mx-auto px-4 py-3 text-xs sm:text-sm flex items-center justify-center gap-2 ${annualSavings > 100000 ? 'opacity-100 transform scale-100' : 'opacity-50 blur-sm pointer-events-none'} ${annualSavings > 100000 && 'animate-fade-in'}`} disabled={annualSavings <= 100000}>
                   <span className="truncate flex-1 text-center">
-                    {annualSavings > 100000 ? (
-                      <>
+                    {annualSavings > 100000 ? <>
                         <span className="sm:hidden">Book Audit</span>
                         <span className="hidden sm:inline">Book Audit</span>
-                      </>
-                    ) : (
-                      <>
+                      </> : <>
                         <span className="sm:hidden">Enter values</span>
                         <span className="hidden sm:inline">Enter values to unlock</span>
-                      </>
-                    )}
+                      </>}
                   </span>
                   <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0 group-hover:translate-x-1 transition-transform" />
                 </Button>
@@ -110,8 +73,6 @@ const ROICalculator = () => {
           </Card>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default ROICalculator;
