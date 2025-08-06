@@ -24,7 +24,7 @@ const Hero = () => {
         <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-accent rounded-full blur-3xl animate-glow delay-300"></div>
       </div>
       
-      <div className="container mx-auto px-6 pt-12 pb-8 lg:pt-16 lg:pb-12 relative z-10">
+      <div className="container mx-auto px-6 pt-0 pb-8 lg:pb-12 relative z-10">
         <div className="grid lg:grid-cols-[1fr_0.9fr] xl:grid-cols-2 gap-6 lg:gap-8 items-end min-h-[80vh] lg:min-h-[75vh]">
           {/* Content */}
           <div className="space-y-6 animate-fade-in flex flex-col justify-center order-1 lg:order-none">
