@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap, Brain, Workflow } from "lucide-react";
-import heroImage from "@/assets/hero-ai-automation.jpg";
+import HeroIllustration from "@/components/HeroIllustration";
 
 const Hero = () => {
   return (
@@ -105,14 +105,12 @@ const Hero = () => {
             </div>
           </div>
           
-          {/* Hero Image */}
+          {/* Hero Illustration */}
           <div className="relative animate-scale-in">
             <div className="absolute inset-0 bg-gradient-primary rounded-3xl blur-3xl opacity-30 animate-glow"></div>
-            <img 
-              src={heroImage} 
-              alt="AI Automation Dashboard" 
-              className="relative rounded-3xl shadow-premium w-full h-auto"
-            />
+            <div className="relative rounded-3xl shadow-premium w-full h-64 lg:h-96 overflow-hidden bg-black/5">
+              <HeroIllustration />
+            </div>
             
             {/* Floating cards */}
             <div className="absolute -top-6 -left-6 bg-card/90 backdrop-blur-sm border border-border rounded-xl p-4 shadow-premium animate-fade-in delay-500">
