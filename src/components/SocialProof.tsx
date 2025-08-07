@@ -73,7 +73,7 @@ const SocialProof = () => {
             <div className="space-y-6">
               <Quote className="w-12 h-12 text-primary mx-auto opacity-50" />
               
-              <blockquote className="text-lg lg:text-2xl font-medium leading-relaxed">
+              <blockquote className="text-lg lg:text-2xl font-medium leading-relaxed min-h-[120px] lg:min-h-[140px] flex items-center justify-center">
                 "{testimonials[currentTestimonial].quote}"
               </blockquote>
               
