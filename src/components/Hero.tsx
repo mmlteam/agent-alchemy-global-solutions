@@ -44,23 +44,21 @@ const Hero = () => {
               </h1>
               
               <div className="text-base lg:text-lg text-muted-foreground leading-relaxed max-w-2xl min-h-[3.5rem] lg:min-h-[4.5rem]">
-                <div className="mb-1">AI agents built & live in &lt; 30 days –</div>
-                <div className="flex items-center justify-start">
-                  <Typewriter
-                    text={[
-                      "No-Code Bots",
-                      "Python Scripts", 
-                      "Zapier Flows",
-                      "n8n Workflows",
-                      "Make.com Scenarios"
-                    ]}
-                    speed={70}
-                    className="text-primary font-bold"
-                    waitTime={1500}
-                    deleteSpeed={40}
-                    showCursor={false}
-                  />
-                </div>
+                <span>AI agents built & live in &lt; 30 days – </span>
+                <Typewriter
+                  text={[
+                    "No-Code Bots",
+                    "Python Scripts", 
+                    "Zapier Flows",
+                    "n8n Workflows",
+                    "Make.com Scenarios"
+                  ]}
+                  speed={70}
+                  className="text-primary font-bold"
+                  waitTime={1500}
+                  deleteSpeed={40}
+                  showCursor={false}
+                />
               </div>
               
               {/* Integration Partners Bar */}
