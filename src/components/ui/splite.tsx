@@ -1,8 +1,8 @@
 'use client'
 
-import { Suspense, lazy } from 'react'
-import { motion } from 'framer-motion'
-const Spline = lazy(() => import('@splinetool/react-spline'))
+import { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import Spline from '@splinetool/react-spline'
 
 // Advanced Tech Robot skeleton placeholder
 const RobotSkeleton = () => (
@@ -256,9 +256,73 @@ const RobotSkeleton = () => (
 )
 
 export function SplineScene({ scene, className }: { scene: string; className?: string }) {
+  const [isLoaded, setIsLoaded] = useState(false)
+  const [isError, setIsError] = useState(false)
+
+  // Preload the scene URL
+  useEffect(() => {
+    const link = document.createElement('link')
+    link.rel = 'preload'
+    link.href = scene
+    link.as = 'fetch'
+    link.crossOrigin = 'anonymous'
+    document.head.appendChild(link)
+
+    return () => {
+      document.head.removeChild(link)
+    }
+  }, [scene])
+
+  const handleLoad = () => {
+    setIsLoaded(true)
+  }
+
+  const handleError = () => {
+    setIsError(true)
+  }
+
   return (
-    <Suspense fallback={<RobotSkeleton />}>
-      <Spline scene={scene} className={className} />
-    </Suspense>
+    <div className="relative w-full h-full">
+      {/* Background loading 3D scene */}
+      <div className={`absolute inset-0 transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+        <Spline 
+          scene={scene} 
+          className={className}
+          onLoad={handleLoad}
+          onError={handleError}
+        />
+      </div>
+
+      {/* Skeleton overlay with smooth fade out */}
+      <AnimatePresence>
+        {!isLoaded && !isError && (
+          <motion.div 
+            className="absolute inset-0 z-10"
+            exit={{ 
+              opacity: 0,
+              scale: 0.95,
+              transition: { duration: 0.6, ease: "easeOut" }
+            }}
+          >
+            <RobotSkeleton />
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Error fallback */}
+      {isError && (
+        <motion.div 
+          className="absolute inset-0 flex items-center justify-center"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}
+        >
+          <div className="text-center text-muted-foreground">
+            <div className="text-2xl mb-2">🤖</div>
+            <div className="text-sm">3D Scene Loading...</div>
+          </div>
+        </motion.div>
+      )}
+    </div>
   )
 }
