@@ -66,14 +66,14 @@ const Hero = () => {
                 {[
                   { name: "Zapier", logoPath: "/lovable-uploads/50cbdcb4-64bf-4d1b-93f5-77439bb33b81.png", alt: "Zapier logo" },
                   { name: "Make", logoPath: "/lovable-uploads/23af8b5d-1cd4-4208-8e59-d67fe34f9695.png", alt: "Make.com logo" },
-                  { name: "Python", logoPath: "/lovable-uploads/05abcba6-18fc-4a9a-b796-f81dfe979f20.png", alt: "Python logo" },
+                  { name: "Python", logoPath: "/lovable-uploads/82aab38a-7c3f-4bba-b5cc-bc13ee3abb2f.png", alt: "Python logo" },
                   { name: "OpenAI", logoPath: "/logos/openai-logo.png", alt: "OpenAI logo" },
                   { name: "Slack", logoPath: "/logos/slack-logo.png", alt: "Slack logo" },
                   { name: "Notion", logoPath: "/logos/notion-logo.png", alt: "Notion logo" }
                 ].map((partner, index) => (
                   <div 
                     key={index}
-                    className="flex items-center justify-center p-2"
+                    className="flex items-center justify-center p-2 rounded-lg bg-white/5 backdrop-blur-sm shadow-lg shadow-primary/10 border border-white/10"
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
                     <img
