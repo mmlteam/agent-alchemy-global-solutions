@@ -43,8 +43,8 @@ const Hero = () => {
                 – Save 420 Hours a Year
               </h1>
               
-              <div className="text-base lg:text-lg text-muted-foreground leading-relaxed max-w-2xl min-h-[3rem] flex items-center">
-                <span>AI agents built & live in &lt; 30 days – </span>
+              <div className="text-base lg:text-lg text-muted-foreground leading-relaxed max-w-none min-h-[1.75rem] lg:min-h-[2.25rem] flex items-center justify-start">
+                <span className="whitespace-nowrap">AI agents built & live in &lt; 30 days – </span>
                 <Typewriter
                   text={[
                     "No-Code Bots",
@@ -54,7 +54,7 @@ const Hero = () => {
                     "Make.com Scenarios"
                   ]}
                   speed={70}
-                  className="text-primary font-bold"
+                  className="text-primary font-bold whitespace-nowrap"
                   waitTime={1500}
                   deleteSpeed={40}
                   showCursor={false}
