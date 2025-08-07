@@ -65,7 +65,7 @@ const Hero = () => {
               <div className="grid grid-cols-3 lg:flex lg:flex-wrap justify-center lg:justify-start items-center gap-3 lg:gap-4 mt-4 animate-fade-in">
                 {[
                   { name: "Zapier", logoPath: "/lovable-uploads/50cbdcb4-64bf-4d1b-93f5-77439bb33b81.png", alt: "Zapier logo" },
-                  { name: "Zapier", logoPath: "/logos/zapier-logo.png", alt: "Zapier logo" },
+                  { name: "Make", logoPath: "/lovable-uploads/23af8b5d-1cd4-4208-8e59-d67fe34f9695.png", alt: "Make.com logo" },
                   { name: "Python", logoPath: "/logos/python-logo.png", alt: "Python logo" },
                   { name: "OpenAI", logoPath: "/logos/openai-logo.png", alt: "OpenAI logo" },
                   { name: "Slack", logoPath: "/logos/slack-logo.png", alt: "Slack logo" },
