@@ -69,7 +69,7 @@ const Hero = () => {
                   { name: "OpenAI", logoPath: "/lovable-uploads/81f4a72e-fd51-4d1d-9395-8d3a9fa5a4ab.png", alt: "OpenAI logo" },
                   { name: "n8n", logoPath: "/lovable-uploads/912ef728-bb1e-4412-96e7-d6bd0c9a8f89.png", alt: "n8n logo" },
                   { name: "Make", logoPath: "/lovable-uploads/23af8b5d-1cd4-4208-8e59-d67fe34f9695.png", alt: "Make.com logo" },
-                  { name: "Airtable", logoPath: "/lovable-uploads/airtable-logo-new.png", alt: "Airtable logo" }
+                  { name: "Airtable", logoPath: "/lovable-uploads/fa184e33-137e-4ccc-a258-f10ef7ae0920.png", alt: "Airtable logo" }
                 ].map((partner, index) => (
                   <div 
                     key={index}
