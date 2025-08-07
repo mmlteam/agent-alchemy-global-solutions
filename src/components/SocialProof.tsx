@@ -13,10 +13,10 @@ const logos = [
 
 const testimonials = [
   {
-    quote: "Transformed our workflow efficiency by 300% in just 30 days.",
-    name: "Sarah Chen",
-    role: "CTO at TechCorp",
-    image: "SC"
+    quote: "Wasn't expecting much at first, but the system started picking up patterns in our patient data we'd never noticed. Helped our research team focus better and actually saved us hours every week.",
+    name: "Dr. Sameer Kulkarni",
+    role: "Head of Research, LTMGH Hospital",
+    image: "SK"
   },
   {
     quote: "The ROI was evident within the first month of implementation.", 
