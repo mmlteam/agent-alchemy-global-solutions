@@ -84,43 +84,45 @@ const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <Card 
               key={index} 
-              className="p-6 bg-gradient-secondary border-border/50 hover:border-primary/30 transition-all duration-300 group relative overflow-hidden animate-fade-in"
+              className="p-4 sm:p-6 bg-gradient-secondary border-border/50 hover:border-primary/30 transition-all duration-300 group relative overflow-hidden animate-fade-in min-h-[320px] sm:min-h-[350px] lg:min-h-[380px] flex flex-col"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               {/* Quote icon */}
               <div className="absolute top-4 right-4 opacity-10">
-                <Quote className="w-8 h-8 text-primary" />
+                <Quote className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
               </div>
               
-              <div className="space-y-4 relative z-10">
+              <div className="space-y-3 sm:space-y-4 relative z-10 flex-1 flex flex-col">
                 {/* Rating */}
                 <div className="flex gap-1">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 text-accent fill-accent" />
+                    <Star key={i} className="w-3 h-3 sm:w-4 sm:h-4 text-accent fill-accent" />
                   ))}
                 </div>
                 
                 {/* Content */}
-                <blockquote className="text-foreground leading-relaxed">
+                <blockquote className="text-sm sm:text-base text-foreground leading-relaxed flex-1">
                   "{testimonial.content}"
                 </blockquote>
                 
-                {/* Results highlight */}
-                <div className="bg-primary/10 border border-primary/20 rounded-lg px-3 py-2">
-                  <div className="text-sm font-medium text-primary">{testimonial.results}</div>
-                </div>
-                
-                {/* Author */}
-                <div className="flex items-center gap-3 pt-4 border-t border-border/30">
-                  <img 
-                    src={testimonial.image} 
-                    alt={testimonial.name}
-                    className="w-12 h-12 rounded-full object-cover"
-                  />
-                  <div>
-                    <div className="font-semibold">{testimonial.name}</div>
-                    <div className="text-sm text-muted-foreground">{testimonial.role}</div>
-                    <div className="text-xs text-primary">{testimonial.company}</div>
+                <div className="mt-auto space-y-3 sm:space-y-4">
+                  {/* Results highlight */}
+                  <div className="bg-primary/10 border border-primary/20 rounded-lg px-3 py-2">
+                    <div className="text-xs sm:text-sm font-medium text-primary">{testimonial.results}</div>
+                  </div>
+                  
+                  {/* Author */}
+                  <div className="flex items-center gap-3 pt-3 sm:pt-4 border-t border-border/30">
+                    <img 
+                      src={testimonial.image} 
+                      alt={testimonial.name}
+                      className="w-10 h-10 sm:w-12 sm:h-12 rounded-full object-cover"
+                    />
+                    <div>
+                      <div className="text-sm sm:text-base font-semibold">{testimonial.name}</div>
+                      <div className="text-xs sm:text-sm text-muted-foreground">{testimonial.role}</div>
+                      <div className="text-xs text-primary">{testimonial.company}</div>
+                    </div>
                   </div>
                 </div>
               </div>
