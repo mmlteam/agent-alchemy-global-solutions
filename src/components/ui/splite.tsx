@@ -7,9 +7,6 @@ const Spline = lazy(() => import('@splinetool/react-spline'))
 // Robot skeleton placeholder
 const RobotSkeleton = () => (
   <div className="w-full h-full flex items-center justify-center relative">
-    {/* Background glow */}
-    <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10 rounded-lg"></div>
-    
     {/* Robot skeleton structure */}
     <motion.div 
       className="relative z-10"
@@ -17,64 +14,76 @@ const RobotSkeleton = () => (
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
     >
-      {/* Robot head */}
+      {/* Robot head - circular */}
       <motion.div 
-        className="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-muted to-muted/50 rounded-lg border border-border/50"
+        className="w-12 h-12 mx-auto mb-3 border-2 border-primary/60 rounded-full flex items-center justify-center"
         animate={{ 
-          boxShadow: [
-            "0 0 10px rgba(59, 130, 246, 0.3)",
-            "0 0 20px rgba(59, 130, 246, 0.5)",
-            "0 0 10px rgba(59, 130, 246, 0.3)"
+          borderColor: [
+            "hsl(var(--primary) / 0.6)",
+            "hsl(var(--primary) / 0.9)",
+            "hsl(var(--primary) / 0.6)"
           ]
         }}
         transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
       >
         {/* Eyes */}
-        <div className="flex justify-center items-center h-full space-x-3">
+        <div className="flex space-x-2">
           <motion.div 
-            className="w-2 h-2 bg-primary rounded-full"
-            animate={{ opacity: [1, 0.5, 1] }}
+            className="w-1.5 h-1.5 bg-primary rounded-full"
+            animate={{ opacity: [1, 0.3, 1] }}
             transition={{ duration: 1.5, repeat: Infinity }}
           />
           <motion.div 
-            className="w-2 h-2 bg-primary rounded-full"
-            animate={{ opacity: [1, 0.5, 1] }}
+            className="w-1.5 h-1.5 bg-primary rounded-full"
+            animate={{ opacity: [1, 0.3, 1] }}
             transition={{ duration: 1.5, repeat: Infinity, delay: 0.2 }}
           />
         </div>
       </motion.div>
       
-      {/* Robot body */}
+      {/* Neck connection */}
+      <div className="w-0.5 h-2 bg-primary/50 mx-auto"></div>
+      
+      {/* Robot body - circular */}
       <motion.div 
-        className="w-12 h-20 mx-auto bg-gradient-to-b from-muted to-muted/50 rounded-lg border border-border/50"
+        className="w-16 h-16 mx-auto border-2 border-primary/50 rounded-full flex items-center justify-center"
         animate={{ 
-          y: [-2, 2, -2],
-          boxShadow: [
-            "0 0 15px rgba(59, 130, 246, 0.2)",
-            "0 0 25px rgba(59, 130, 246, 0.4)",
-            "0 0 15px rgba(59, 130, 246, 0.2)"
+          y: [-1, 1, -1],
+          borderColor: [
+            "hsl(var(--primary) / 0.5)",
+            "hsl(var(--primary) / 0.8)",
+            "hsl(var(--primary) / 0.5)"
           ]
         }}
         transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
       >
-        {/* Body details */}
-        <div className="pt-3 space-y-2">
-          <div className="w-6 h-1 bg-primary/60 rounded mx-auto"></div>
-          <div className="w-4 h-1 bg-primary/40 rounded mx-auto"></div>
-          <div className="w-5 h-1 bg-primary/50 rounded mx-auto"></div>
-        </div>
+        {/* Body center dot */}
+        <motion.div 
+          className="w-2 h-2 bg-primary/70 rounded-full"
+          animate={{ 
+            scale: [1, 1.3, 1],
+            opacity: [0.7, 1, 0.7]
+          }}
+          transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+        />
       </motion.div>
       
-      {/* Robot arms */}
-      <div className="flex justify-between items-center w-20 mx-auto -mt-12">
+      {/* Robot arms - simple lines */}
+      <div className="flex justify-between items-center w-24 mx-auto -mt-8">
         <motion.div 
-          className="w-3 h-8 bg-muted/70 rounded border border-border/30"
-          animate={{ rotate: [-5, 5, -5] }}
+          className="w-8 h-0.5 bg-primary/60"
+          animate={{ 
+            rotate: [-10, 10, -10],
+            opacity: [0.6, 0.9, 0.6]
+          }}
           transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.div 
-          className="w-3 h-8 bg-muted/70 rounded border border-border/30"
-          animate={{ rotate: [5, -5, 5] }}
+          className="w-8 h-0.5 bg-primary/60"
+          animate={{ 
+            rotate: [10, -10, 10],
+            opacity: [0.6, 0.9, 0.6]
+          }}
           transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
         />
       </div>
@@ -88,16 +97,8 @@ const RobotSkeleton = () => (
       transition={{ delay: 0.3 }}
     >
       <div className="text-xs text-muted-foreground font-medium">
-        Initializing AI Assistant...
+        Loading AI Assistant...
       </div>
-      <motion.div 
-        className="w-24 h-0.5 bg-primary/30 rounded-full mt-2"
-        animate={{ 
-          scaleX: [0, 1, 0],
-          opacity: [0.5, 1, 0.5]
-        }}
-        transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-      />
     </motion.div>
   </div>
 )
