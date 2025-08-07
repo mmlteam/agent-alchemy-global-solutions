@@ -6,9 +6,9 @@ const logos = [
   { name: "dentsu", logo: "/lovable-uploads/89e62100-337d-4e06-a2e9-425267fc7cee.png" },
   { name: "HETERO", logo: "/lovable-uploads/72684f76-5a1c-4da1-a9ab-aa8f22868e38.png" },
   { name: "XP-PEN", logo: "/lovable-uploads/88e0d2bb-c4e5-4e37-9d08-d6699e648ea0.png" },
-  { name: "AutoScale", logo: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=64&h=64&fit=crop&crop=center" }, // Software development
-  { name: "SmartOps", logo: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=64&h=64&fit=crop&crop=center" }, // Data analytics
-  { name: "CloudTech", logo: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=64&h=64&fit=crop&crop=center" } // Circuit board/automation
+  { name: "KEM Hospital", logo: "/lovable-uploads/bf7d486e-c630-4c17-b798-3d8e6c857426.png" },
+  { name: "LTMGH Hospital", logo: "/lovable-uploads/e94ebc51-7780-4b18-9e4d-58343533f2c8.png" },
+  { name: "MEOGEM", logo: "/lovable-uploads/eaf9a3d1-22fd-4e6f-9f59-1e0c506dc884.png" }
 ];
 
 const testimonials = [
