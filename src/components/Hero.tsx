@@ -67,7 +67,7 @@ const Hero = () => {
                   { name: "Zapier", logoPath: "/lovable-uploads/50cbdcb4-64bf-4d1b-93f5-77439bb33b81.png", alt: "Zapier logo" },
                   { name: "Make", logoPath: "/lovable-uploads/23af8b5d-1cd4-4208-8e59-d67fe34f9695.png", alt: "Make.com logo" },
                   { name: "Python", logoPath: "/lovable-uploads/82aab38a-7c3f-4bba-b5cc-bc13ee3abb2f.png", alt: "Python logo" },
-                  { name: "OpenAI", logoPath: "/logos/openai-logo.png", alt: "OpenAI logo" },
+                  { name: "n8n", logoPath: "/lovable-uploads/912ef728-bb1e-4412-96e7-d6bd0c9a8f89.png", alt: "n8n logo" },
                   { name: "Slack", logoPath: "/logos/slack-logo.png", alt: "Slack logo" },
                   { name: "Notion", logoPath: "/logos/notion-logo.png", alt: "Notion logo" }
                 ].map((partner, index) => (
