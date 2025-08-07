@@ -36,7 +36,6 @@ const ROICalculator = () => {
     if (mode === 'single') {
       return {
         MIN_SALARY: 5000,
-        MAX_SALARY: 200000,
         MIN_HOURS: 1,
         MAX_HOURS: 160,
         TOTAL_WORKING_HOURS: 176
@@ -44,7 +43,6 @@ const ROICalculator = () => {
     } else {
       return {
         MIN_SALARY: 10000,
-        MAX_SALARY: 5000000,
         MIN_HOURS: 1,
         MAX_HOURS: 800, // 5x single employee max
         TOTAL_WORKING_HOURS: 176
@@ -52,20 +50,19 @@ const ROICalculator = () => {
     }
   };
 
-  const { MIN_SALARY, MAX_SALARY, MIN_HOURS, MAX_HOURS, TOTAL_WORKING_HOURS } = getValidationConstants();
+  const { MIN_SALARY, MIN_HOURS, MAX_HOURS, TOTAL_WORKING_HOURS } = getValidationConstants();
 
   // Mode-aware validation functions
   const validateSalary = (salary: number): ValidationMessage => {
     if (salary === 0) return { level: 'info', message: '', show: false };
     if (salary < MIN_SALARY) return { level: 'error', message: `Minimum ${mode === 'single' ? 'salary' : 'total cost'} should be ₹${MIN_SALARY.toLocaleString('en-IN')}`, show: true };
-    if (salary > MAX_SALARY) return { level: 'error', message: `Maximum ${mode === 'single' ? 'salary' : 'total cost'} should be ₹${MAX_SALARY.toLocaleString('en-IN')}`, show: true };
     
     if (mode === 'single') {
       if (salary < 15000) return { level: 'warning', message: 'This seems quite low for automation ROI', show: true };
-      if (salary > 150000) return { level: 'warning', message: 'High salary - ensure automation scope matches', show: true };
+      if (salary > 1000000) return { level: 'info', message: 'High salary - great automation potential!', show: true };
     } else {
       if (salary < 50000) return { level: 'warning', message: 'Low team cost - consider single employee mode', show: true };
-      if (salary > 2000000) return { level: 'warning', message: 'Very high team cost - ensure realistic automation scope', show: true };
+      if (salary > 10000000) return { level: 'info', message: 'Very high team cost - excellent automation potential!', show: true };
     }
     
     return { level: 'info', message: `✓ ${mode === 'single' ? 'Salary' : 'Team cost'} looks reasonable`, show: true };
@@ -101,10 +98,10 @@ const ROICalculator = () => {
     let score = 5;
     
     // Reduce confidence for edge cases
-    if (salary < 15000 || salary > 200000) score -= 1;
+    if (salary < 15000) score -= 1;
     if (hours > 100) score -= 1;
     if (hours > 120) score -= 1;
-    if (salary < MIN_SALARY || salary > MAX_SALARY) score -= 2;
+    if (salary < MIN_SALARY) score -= 2;
     if (hours < MIN_HOURS || hours > MAX_HOURS) score -= 2;
     
     return Math.max(1, score);
@@ -200,9 +197,41 @@ const ROICalculator = () => {
 
   const automationPercentage = hoursAutomated > 0 ? Math.min((hoursAutomated / TOTAL_WORKING_HOURS) * 100, 100) : 0;
 
+  // Format large numbers for better readability
+  const formatLargeNumber = (amount: number): string => {
+    if (amount >= 10000000) { // 1 crore+
+      return `₹${(amount / 10000000).toFixed(1)}Cr`;
+    } else if (amount >= 100000) { // 1 lakh+
+      return `₹${(amount / 100000).toFixed(1)}L`;
+    } else {
+      return `₹${amount.toLocaleString('en-IN')}`;
+    }
+  };
+
+  // Get appropriate text size for savings amount
+  const getSavingsTextSize = (amount: number): string => {
+    const formatted = amount.toLocaleString('en-IN');
+    if (formatted.length > 15) return 'text-xl sm:text-2xl';
+    if (formatted.length > 12) return 'text-2xl sm:text-3xl';
+    if (formatted.length > 8) return 'text-3xl sm:text-4xl';
+    return 'text-4xl sm:text-5xl';
+  };
+
   // Dynamic CTA messaging based on savings amount
   const getCTAMessage = (): { title: string; buttonText: string; buttonTextShort: string } => {
-    if (adjustedSavings >= 500000) {
+    if (adjustedSavings >= 50000000) { // 5 crore+
+      return {
+        title: "Massive automation potential - enterprise level ROI!",
+        buttonText: "Book Executive Automation Strategy Session",
+        buttonTextShort: "Book Executive Session"
+      };
+    } else if (adjustedSavings >= 10000000) { // 1 crore+
+      return {
+        title: "Outstanding automation potential identified!",
+        buttonText: "Book Your Priority Automation Audit",
+        buttonTextShort: "Book Priority Audit"
+      };
+    } else if (adjustedSavings >= 500000) {
       return {
         title: "Significant automation potential identified!",
         buttonText: "Book Your Priority Automation Audit",
@@ -285,14 +314,13 @@ const ROICalculator = () => {
                     {mode === 'single' ? 'Monthly Salary (₹)' : 'Total Monthly Cost (₹)'}
                   </Label>
                   <Badge variant="outline" className="text-xs">
-                    ₹{MIN_SALARY.toLocaleString('en-IN')} - ₹{MAX_SALARY.toLocaleString('en-IN')}
+                    Min ₹{MIN_SALARY.toLocaleString('en-IN')}
                   </Badge>
                 </div>
                 <Input 
                   id="salary" 
                   type="number" 
                   min={MIN_SALARY}
-                  max={MAX_SALARY}
                   value={monthlySalary || ''} 
                   onChange={e => handleSalaryChange(e.target.value)} 
                   placeholder={mode === 'single' ? "75000" : "500000"} 
@@ -374,11 +402,11 @@ const ROICalculator = () => {
                 <div className="grid md:grid-cols-2 gap-4 text-sm">
                   <div className="p-4 bg-muted/50 rounded-lg">
                     <p className="font-medium mb-2">Basic Calculation</p>
-                    <p className="text-muted-foreground">₹{annualSavings.toLocaleString('en-IN')} annually</p>
+                    <p className="text-muted-foreground break-words">{formatLargeNumber(annualSavings)} annually</p>
                   </div>
                   <div className="p-4 bg-muted/50 rounded-lg">
                     <p className="font-medium mb-2">Realistic Projection</p>
-                    <p className="text-muted-foreground">₹{adjustedSavings.toLocaleString('en-IN')} annually</p>
+                    <p className="text-muted-foreground break-words">{formatLargeNumber(adjustedSavings)} annually</p>
                   </div>
                 </div>
               )}
@@ -387,9 +415,16 @@ const ROICalculator = () => {
               <div className="p-6 bg-gradient-primary rounded-xl text-center">
                 <div className="text-white space-y-2">
                   <p className="text-lg font-medium">Estimated Annual Savings</p>
-                  <p className={`font-bold break-words ${adjustedSavings.toLocaleString('en-IN').length > 12 ? 'text-2xl' : adjustedSavings.toLocaleString('en-IN').length > 8 ? 'text-3xl' : 'text-4xl'}`}>
-                    ₹{adjustedSavings.toLocaleString('en-IN')}
-                  </p>
+                  <div className="flex flex-col items-center gap-1">
+                    <p className={`font-bold break-words ${getSavingsTextSize(adjustedSavings)}`}>
+                      {formatLargeNumber(adjustedSavings)}
+                    </p>
+                    {adjustedSavings >= 100000 && (
+                      <p className="text-xs opacity-75">
+                        (₹{adjustedSavings.toLocaleString('en-IN')} exact)
+                      </p>
+                    )}
+                  </div>
                   {adjustedSavings !== annualSavings && adjustedSavings > 0 && (
                     <p className="text-sm opacity-90">
                       (Adjusted for efficiency: {Math.round(getAutomationEfficiency(hoursAutomated) * 100)}% & implementation costs)
