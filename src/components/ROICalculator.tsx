@@ -26,6 +26,7 @@ const ROICalculator = () => {
   const [adjustedSavings, setAdjustedSavings] = useState<number>(0);
   const [confidenceScore, setConfidenceScore] = useState<number>(5);
   const [showCTA, setShowCTA] = useState(false);
+  const [perPersonCost, setPerPersonCost] = useState<number>(0); // Track per-person cost for team mode
   
   // Validation states
   const [salaryValidation, setSalaryValidation] = useState<ValidationMessage>({ level: 'info', message: '', show: false });
@@ -41,11 +42,13 @@ const ROICalculator = () => {
         TOTAL_WORKING_HOURS: 176
       };
     } else {
+      // For team mode, max hours should be based on team size
+      const maxTeamHours = teamSize * 160; // Each person can automate up to 160 hours
       return {
         MIN_SALARY: 10000,
         MIN_HOURS: 1,
-        MAX_HOURS: 800, // 5x single employee max
-        TOTAL_WORKING_HOURS: 176
+        MAX_HOURS: maxTeamHours,
+        TOTAL_WORKING_HOURS: 176 * teamSize // Total working hours for the team
       };
     }
   };
@@ -71,16 +74,17 @@ const ROICalculator = () => {
   const validateHours = (hours: number): ValidationMessage => {
     if (hours === 0) return { level: 'info', message: '', show: false };
     if (hours < MIN_HOURS) return { level: 'error', message: `Minimum ${MIN_HOURS} hour per month`, show: true };
-    if (hours > MAX_HOURS) return { level: 'error', message: `Maximum ${MAX_HOURS} hours/month`, show: true };
+    if (hours > MAX_HOURS) return { level: 'error', message: `Maximum ${MAX_HOURS} hours/month (${teamSize} x 160h)`, show: true };
     
     if (mode === 'single') {
       if (hours > 120) return { level: 'warning', message: 'Very high automation - ensure this is realistic', show: true };
       if (hours > 80) return { level: 'warning', message: 'High automation hours - consider phased approach', show: true };
       if (hours < 20) return { level: 'info', message: 'Most businesses start with 20-60 hours/month', show: true };
     } else {
-      if (hours > 400) return { level: 'warning', message: 'Very high team automation - consider phased rollout', show: true };
-      if (hours > 200) return { level: 'warning', message: 'High team automation - ensure realistic planning', show: true };
-      if (hours < 50) return { level: 'info', message: 'Teams typically automate 50-200 hours/month', show: true };
+      const teamHoursThreshold = teamSize * 80; // 80 hours per person as high threshold
+      if (hours > teamHoursThreshold) return { level: 'warning', message: `Very high team automation (${Math.round(hours/teamSize)}h per person) - consider phased rollout`, show: true };
+      if (hours > teamSize * 40) return { level: 'warning', message: `High team automation (${Math.round(hours/teamSize)}h per person) - ensure realistic planning`, show: true };
+      if (hours < teamSize * 25) return { level: 'info', message: `Teams typically automate 25-80 hours per person/month`, show: true };
     }
     
     return { level: 'info', message: '✓ Automation scope looks realistic', show: true };
@@ -137,12 +141,37 @@ const ROICalculator = () => {
     const numValue = value === '' ? 0 : Number(value);
     setMonthlySalary(numValue);
     setSalaryValidation(validateSalary(numValue));
+    
+    // Update per-person cost for team mode
+    if (mode === 'team' && numValue > 0 && teamSize > 0) {
+      setPerPersonCost(numValue / teamSize);
+    }
   };
 
   const handleHoursChange = (value: string) => {
     const numValue = value === '' ? 0 : Number(value);
     setHoursAutomated(numValue);
     setHoursValidation(validateHours(numValue));
+  };
+
+  // Handle team size changes with automatic salary adjustment
+  const handleTeamSizeChange = (newTeamSize: number) => {
+    if (newTeamSize < 2) newTeamSize = 2;
+    if (newTeamSize > 50) newTeamSize = 50;
+    
+    setTeamSize(newTeamSize);
+    
+    // If we have a per-person cost established, adjust total salary
+    if (mode === 'team' && perPersonCost > 0) {
+      const newTotalSalary = perPersonCost * newTeamSize;
+      setMonthlySalary(newTotalSalary);
+      setSalaryValidation(validateSalary(newTotalSalary));
+    }
+    
+    // Re-validate hours since MAX_HOURS depends on team size
+    if (hoursAutomated > 0) {
+      setHoursValidation(validateHours(hoursAutomated));
+    }
   };
 
   // Handle mode changes
@@ -152,6 +181,7 @@ const ROICalculator = () => {
     setMonthlySalary(0);
     setHoursAutomated(0);
     setTeamSize(newMode === 'team' ? 5 : 1);
+    setPerPersonCost(0);
     setSalaryValidation({ level: 'info', message: '', show: false });
     setHoursValidation({ level: 'info', message: '', show: false });
   };
@@ -349,7 +379,7 @@ const ROICalculator = () => {
                           min={2}
                           max={50}
                           value={teamSize}
-                          onChange={(e) => setTeamSize(Number(e.target.value) || 1)}
+                          onChange={(e) => handleTeamSizeChange(Number(e.target.value) || 2)}
                           className="w-16 h-6 text-xs"
                         />
                         <span className="text-xs">people</span>
