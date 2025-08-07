@@ -257,6 +257,7 @@ const RobotSkeleton = () => (
 
 export function SplineScene({ scene, className }: { scene: string; className?: string }) {
   const [isLoaded, setIsLoaded] = useState(false)
+  const [isReady, setIsReady] = useState(false)
   const [isError, setIsError] = useState(false)
 
   // Preload the scene URL
@@ -269,12 +270,18 @@ export function SplineScene({ scene, className }: { scene: string; className?: s
     document.head.appendChild(link)
 
     return () => {
-      document.head.removeChild(link)
+      if (document.head.contains(link)) {
+        document.head.removeChild(link)
+      }
     }
   }, [scene])
 
   const handleLoad = () => {
     setIsLoaded(true)
+    // Add slight delay for scene to fully initialize
+    setTimeout(() => {
+      setIsReady(true)
+    }, 100)
   }
 
   const handleError = () => {
@@ -282,26 +289,51 @@ export function SplineScene({ scene, className }: { scene: string; className?: s
   }
 
   return (
-    <div className="relative w-full h-full">
-      {/* Background loading 3D scene */}
-      <div className={`absolute inset-0 transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
+    <div className="relative w-full h-full overflow-hidden">
+      {/* 3D Scene - Always mounted for background loading */}
+      <motion.div 
+        className="absolute inset-0"
+        style={{ 
+          willChange: 'opacity, transform',
+          backfaceVisibility: 'hidden',
+          transform: 'translate3d(0,0,0)'
+        }}
+        initial={{ opacity: 0, scale: 0.9 }}
+        animate={{ 
+          opacity: isReady ? 1 : 0,
+          scale: isReady ? 1 : 0.9
+        }}
+        transition={{ 
+          duration: 0.8, 
+          ease: [0.25, 0.46, 0.45, 0.94],
+          delay: isReady ? 0.2 : 0
+        }}
+      >
         <Spline 
           scene={scene} 
           className={className}
           onLoad={handleLoad}
           onError={handleError}
         />
-      </div>
+      </motion.div>
 
-      {/* Skeleton overlay with smooth fade out */}
-      <AnimatePresence>
-        {!isLoaded && !isError && (
+      {/* Skeleton overlay with smooth crossfade */}
+      <AnimatePresence mode="wait">
+        {!isReady && !isError && (
           <motion.div 
             className="absolute inset-0 z-10"
+            style={{ 
+              willChange: 'opacity',
+              backfaceVisibility: 'hidden',
+              transform: 'translate3d(0,0,0)'
+            }}
+            initial={{ opacity: 1 }}
             exit={{ 
               opacity: 0,
-              scale: 0.95,
-              transition: { duration: 0.6, ease: "easeOut" }
+              transition: { 
+                duration: 0.6, 
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }
             }}
           >
             <RobotSkeleton />
@@ -312,7 +344,7 @@ export function SplineScene({ scene, className }: { scene: string; className?: s
       {/* Error fallback */}
       {isError && (
         <motion.div 
-          className="absolute inset-0 flex items-center justify-center"
+          className="absolute inset-0 flex items-center justify-center bg-background/50 backdrop-blur-sm"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.3 }}
