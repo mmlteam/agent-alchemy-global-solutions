@@ -96,7 +96,7 @@ const Hero = () => {
               <Button 
                 variant="premium" 
                 size="lg" 
-                className="group text-base px-6 py-3 w-full max-w-xs lg:w-auto" 
+                className="group w-full max-w-xs lg:w-auto" 
                 aria-label="Book My Free Automation Audit"
                 onClick={() => document.querySelector('#lead-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
               >

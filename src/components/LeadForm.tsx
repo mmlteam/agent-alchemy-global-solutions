@@ -370,11 +370,11 @@ const LeadForm = () => {
                       type="submit"
                       variant="premium" 
                       size="lg" 
-                      className="w-full sm:flex-2 group min-w-0"
+                      className="w-full sm:flex-2 group"
                       disabled={isSubmitting || !formData.gdprConsent}
                       aria-label="Book My Free Automation Audit"
                     >
-                      <span className="truncate">
+                      <span className="text-center leading-tight">
                         {isSubmitting ? "Booking..." : "Book My Free Automation Audit"}
                       </span>
                       <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform flex-shrink-0" />
