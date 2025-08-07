@@ -66,7 +66,7 @@ const Hero = () => {
                 {[
                   { name: "Zapier", logoPath: "/lovable-uploads/50cbdcb4-64bf-4d1b-93f5-77439bb33b81.png", alt: "Zapier logo" },
                   { name: "Make", logoPath: "/lovable-uploads/23af8b5d-1cd4-4208-8e59-d67fe34f9695.png", alt: "Make.com logo" },
-                  { name: "Python", logoPath: "/logos/python-logo.png", alt: "Python logo" },
+                  { name: "Python", logoPath: "/lovable-uploads/05abcba6-18fc-4a9a-b796-f81dfe979f20.png", alt: "Python logo" },
                   { name: "OpenAI", logoPath: "/logos/openai-logo.png", alt: "OpenAI logo" },
                   { name: "Slack", logoPath: "/logos/slack-logo.png", alt: "Slack logo" },
                   { name: "Notion", logoPath: "/logos/notion-logo.png", alt: "Notion logo" }
