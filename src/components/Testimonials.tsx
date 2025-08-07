@@ -80,11 +80,11 @@ const Testimonials = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 min-h-[1000px] md:min-h-[750px] lg:min-h-[420px]">
           {testimonials.map((testimonial, index) => (
             <Card 
               key={index} 
-              className="p-4 sm:p-6 bg-gradient-secondary border-border/50 hover:border-primary/30 transition-all duration-300 group relative overflow-hidden animate-fade-in min-h-[320px] sm:min-h-[350px] lg:min-h-[380px] flex flex-col"
+              className="p-4 sm:p-6 bg-gradient-secondary border-border/50 hover:border-primary/30 transition-all duration-300 group relative overflow-hidden animate-fade-in flex flex-col"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               {/* Quote icon */}
@@ -101,7 +101,7 @@ const Testimonials = () => {
                 </div>
                 
                 {/* Content */}
-                <blockquote className="text-sm sm:text-base text-foreground leading-relaxed flex-1">
+                <blockquote className="text-xs sm:text-base text-foreground leading-relaxed flex-1">
                   "{testimonial.content}"
                 </blockquote>
                 
