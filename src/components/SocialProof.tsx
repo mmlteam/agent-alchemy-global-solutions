@@ -25,10 +25,10 @@ const testimonials = [
     image: "MR"
   },
   {
-    quote: "24/7 automation freed our team to focus on strategic growth.",
-    name: "Emily Thompson", 
-    role: "VP Engineering at DataFlow",
-    image: "ET"
+    quote: "We used to spend hours every week manually compiling patient and operations data. ProAgentz's automation cut that time by 80%. Now, our staff can focus more on patient care than paperwork.",
+    name: "Dr. Rina Mehra",
+    role: "Operations Lead at KEM",
+    image: "RM"
   }
 ];
 
