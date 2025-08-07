@@ -73,7 +73,7 @@ const Hero = () => {
                 ].map((partner, index) => (
                   <div 
                     key={index}
-                    className="flex items-center justify-center p-2 grayscale hover:grayscale-0 transition-all duration-300"
+                    className="flex items-center justify-center p-2"
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
                     <img
