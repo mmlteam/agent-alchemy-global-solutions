@@ -166,9 +166,10 @@ const ROICalculator = () => {
     setAdjustedSavings(adjusted);
     setConfidenceScore(calculateConfidence(monthlySalary, hoursAutomated));
     
-    // Show CTA only for valid, realistic inputs
-    const isValid = salaryValidation.level !== 'error' && hoursValidation.level !== 'error';
-    setShowCTA(isValid && adjusted > 100000);
+    // Show CTA for any positive savings with valid inputs
+    const hasValidInputs = salaryValidation.level !== 'error' && hoursValidation.level !== 'error';
+    const hasPositiveSavings = adjusted > 0;
+    setShowCTA(hasValidInputs && hasPositiveSavings);
   }, [monthlySalary, hoursAutomated, salaryValidation.level, hoursValidation.level, mode]);
 
   // Helper functions for UI
@@ -198,6 +199,41 @@ const ROICalculator = () => {
   };
 
   const automationPercentage = hoursAutomated > 0 ? Math.min((hoursAutomated / TOTAL_WORKING_HOURS) * 100, 100) : 0;
+
+  // Dynamic CTA messaging based on savings amount
+  const getCTAMessage = (): { title: string; buttonText: string; buttonTextShort: string } => {
+    if (adjustedSavings >= 500000) {
+      return {
+        title: "Significant automation potential identified!",
+        buttonText: "Book Your Priority Automation Audit",
+        buttonTextShort: "Book Priority Audit"
+      };
+    } else if (adjustedSavings >= 200000) {
+      return {
+        title: "Strong ROI potential - let's explore this further!",
+        buttonText: "Book Your Free Automation Audit", 
+        buttonTextShort: "Book Free Audit"
+      };
+    } else if (adjustedSavings >= 100000) {
+      return {
+        title: "Good automation opportunity identified!",
+        buttonText: "Explore Your Automation Options",
+        buttonTextShort: "Explore Options"
+      };
+    } else if (adjustedSavings >= 50000) {
+      return {
+        title: "Every automation journey starts somewhere!",
+        buttonText: "Discuss Your Automation Potential",
+        buttonTextShort: "Discuss Potential"
+      };
+    } else {
+      return {
+        title: "Even small automations can make a difference!",
+        buttonText: "Get Expert Automation Guidance",
+        buttonTextShort: "Get Guidance"
+      };
+    }
+  };
 
   return (
     <section className="py-section bg-secondary/10">
@@ -385,10 +421,10 @@ const ROICalculator = () => {
             <div className="mt-6 p-4 bg-primary/10 rounded-lg border border-primary/20">
               <div className="text-center space-y-3">
                 <p className="font-semibold text-primary">
-                  {showCTA ? "Ready to unlock these savings?" : 
+                  {showCTA ? getCTAMessage().title : 
                    salaryValidation.level === 'error' || hoursValidation.level === 'error' ? 
                    "Please fix the errors above" : 
-                   "Enter realistic values to see your audit eligibility"}
+                   "Enter your values to explore automation opportunities"}
                 </p>
                 <Button 
                   variant="premium" 
@@ -404,12 +440,12 @@ const ROICalculator = () => {
                   <span className="truncate flex-1 text-center">
                     {showCTA ? (
                       <>
-                        <span className="sm:hidden">Book Free Audit</span>
-                        <span className="hidden sm:inline">Book Your Free Automation Audit</span>
+                        <span className="sm:hidden">{getCTAMessage().buttonTextShort}</span>
+                        <span className="hidden sm:inline">{getCTAMessage().buttonText}</span>
                       </>
                     ) : (
                       <>
-                        <span className="sm:hidden">Fix errors first</span>
+                        <span className="sm:hidden">Complete inputs</span>
                         <span className="hidden sm:inline">Complete inputs to continue</span>
                       </>
                     )}
