@@ -25,8 +25,8 @@ const Hero = () => {
         <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-accent rounded-full blur-3xl animate-glow delay-300"></div>
       </div>
       
-      <div className="container mx-auto px-6 pt-0 pb-8 lg:pb-12 relative z-10">
-        <div className="grid lg:grid-cols-[1fr_1.2fr] xl:grid-cols-[1fr_1.1fr] gap-6 lg:gap-2 items-end min-h-[80vh] lg:min-h-[75vh]">
+      <div className="container mx-auto px-6 pt-16 sm:pt-20 lg:pt-12 pb-8 lg:pb-12 relative z-10">
+        <div className="grid lg:grid-cols-[1fr_1.2fr] xl:grid-cols-[1fr_1.1fr] gap-6 lg:gap-2 items-end min-h-[75vh] lg:min-h-[75vh]">
           {/* Content */}
           <div className="space-y-6 animate-fade-in flex flex-col justify-center order-1 lg:order-none">
             <div className="space-y-5">
@@ -43,7 +43,7 @@ const Hero = () => {
                 – Save 420 Hours a Year
               </h1>
               
-              <p className="text-base lg:text-lg text-muted-foreground leading-relaxed max-w-2xl">
+              <div className="text-base lg:text-lg text-muted-foreground leading-relaxed max-w-2xl min-h-[3rem] flex items-center">
                 <span>AI agents built & live in &lt; 30 days – </span>
                 <Typewriter
                   text={[
@@ -59,7 +59,7 @@ const Hero = () => {
                   deleteSpeed={40}
                   showCursor={false}
                 />
-              </p>
+              </div>
               
               {/* Integration Partners Bar */}
               <div className="grid grid-cols-3 lg:flex lg:flex-wrap justify-center lg:justify-start items-center gap-3 lg:gap-4 mt-4 animate-fade-in">

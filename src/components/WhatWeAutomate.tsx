@@ -36,9 +36,9 @@ const automationTypes = [
 
 const WhatWeAutomate = () => {
   return (
-    <section className="py-section bg-secondary/10">
+    <section className="py-12 lg:py-16 bg-secondary/10">
       <div className="container mx-auto px-6">
-        <div className="text-center space-y-6 mb-16 animate-fade-in">
+        <div className="text-center space-y-6 mb-12 lg:mb-16 animate-fade-in">
           <h2 className="text-4xl lg:text-5xl font-bold">
             What We{" "}
             <span className="bg-gradient-primary bg-clip-text text-transparent">

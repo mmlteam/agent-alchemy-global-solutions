@@ -42,10 +42,10 @@ const benefits = [
 
 const Benefits = () => {
   return (
-    <section className="py-section bg-secondary/20">
+    <section className="py-12 lg:py-16 bg-secondary/20">
       <div className="container mx-auto px-6">
         {/* Zig-zag feature layout */}
-        <div className="space-y-20 max-w-6xl mx-auto">
+        <div className="space-y-12 lg:space-y-20 max-w-6xl mx-auto">
           {benefits.map((benefit, index) => (
             <div 
               key={index}
