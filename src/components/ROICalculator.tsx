@@ -27,6 +27,7 @@ const ROICalculator = () => {
   const [confidenceScore, setConfidenceScore] = useState<number>(5);
   const [showCTA, setShowCTA] = useState(false);
   const [perPersonCost, setPerPersonCost] = useState<number>(0); // Track per-person cost for team mode
+  const [teamSizeManuallySet, setTeamSizeManuallySet] = useState(false); // Track if user manually changed team size
   
   // Validation states
   const [salaryValidation, setSalaryValidation] = useState<ValidationMessage>({ level: 'info', message: '', show: false });
@@ -42,9 +43,8 @@ const ROICalculator = () => {
         TOTAL_WORKING_HOURS: 176
       };
     } else {
-      // For team mode, max hours should be based on team size
-      // But only apply specific cap if team size is meaningfully set (>1)
-      const maxTeamHours = teamSize > 1 ? teamSize * 160 : 1000; // Use high default until team size is set
+      // For team mode, use flexible hours initially until user sets team size
+      const maxTeamHours = teamSizeManuallySet ? teamSize * 160 : 2000; // High default until manually set
       return {
         MIN_SALARY: 10000,
         MIN_HOURS: 1,
@@ -167,6 +167,7 @@ const ROICalculator = () => {
     if (newTeamSize > 50) newTeamSize = 50;
     
     setTeamSize(newTeamSize);
+    setTeamSizeManuallySet(true); // Mark as manually set
     
     // If we have a per-person cost established, adjust total salary
     if (mode === 'team' && perPersonCost > 0) {
@@ -189,6 +190,7 @@ const ROICalculator = () => {
     setHoursAutomated(0);
     setTeamSize(newMode === 'team' ? 5 : 1);
     setPerPersonCost(0);
+    setTeamSizeManuallySet(false); // Reset manual flag
     setSalaryValidation({ level: 'info', message: '', show: false });
     setHoursValidation({ level: 'info', message: '', show: false });
   };
@@ -401,7 +403,7 @@ const ROICalculator = () => {
                 <div className="flex items-center justify-between">
                   <Label htmlFor="hours">Hours Automated / Month</Label>
                   <Badge variant="outline" className="text-xs">
-                    {mode === 'team' && teamSize > 1 ? `Max ${teamSize * 160}h` : mode === 'team' ? 'Set team size first' : `Max ${MAX_HOURS}h`}
+                    {mode === 'team' && teamSizeManuallySet ? `Max ${teamSize * 160}h` : mode === 'team' ? 'Flexible hours' : `Max ${MAX_HOURS}h`}
                   </Badge>
                 </div>
                  <Input 
