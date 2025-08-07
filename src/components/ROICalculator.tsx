@@ -43,12 +43,13 @@ const ROICalculator = () => {
       };
     } else {
       // For team mode, max hours should be based on team size
-      const maxTeamHours = teamSize * 160; // Each person can automate up to 160 hours
+      // But only apply specific cap if team size is meaningfully set (>1)
+      const maxTeamHours = teamSize > 1 ? teamSize * 160 : 1000; // Use high default until team size is set
       return {
         MIN_SALARY: 10000,
         MIN_HOURS: 1,
         MAX_HOURS: maxTeamHours,
-        TOTAL_WORKING_HOURS: 176 * teamSize // Total working hours for the team
+        TOTAL_WORKING_HOURS: 176 * Math.max(teamSize, 1)
       };
     }
   };
@@ -74,7 +75,13 @@ const ROICalculator = () => {
   const validateHours = (hours: number): ValidationMessage => {
     if (hours === 0) return { level: 'info', message: '', show: false };
     if (hours < MIN_HOURS) return { level: 'error', message: `Minimum ${MIN_HOURS} hour per month`, show: true };
-    if (hours > MAX_HOURS) return { level: 'error', message: `Maximum ${MAX_HOURS} hours/month (${teamSize} x 160h)`, show: true };
+    
+    // Only show specific cap error if team size is properly set
+    if (hours > MAX_HOURS && teamSize > 1) {
+      return { level: 'error', message: `Maximum ${teamSize * 160} hours/month (${teamSize} x 160h)`, show: true };
+    } else if (hours > MAX_HOURS) {
+      return { level: 'error', message: `This seems too high - please set team size first`, show: true };
+    }
     
     if (mode === 'single') {
       if (hours > 120) return { level: 'warning', message: 'Very high automation - ensure this is realistic', show: true };
@@ -394,7 +401,7 @@ const ROICalculator = () => {
                 <div className="flex items-center justify-between">
                   <Label htmlFor="hours">Hours Automated / Month</Label>
                   <Badge variant="outline" className="text-xs">
-                    Max {MAX_HOURS}h
+                    {mode === 'team' && teamSize > 1 ? `Max ${teamSize * 160}h` : mode === 'team' ? 'Set team size first' : `Max ${MAX_HOURS}h`}
                   </Badge>
                 </div>
                  <Input 
