@@ -4,8 +4,9 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-import { ArrowRight, Calculator, AlertTriangle, CheckCircle, Info } from "lucide-react";
+import { ArrowRight, Calculator, AlertTriangle, CheckCircle, Info, Users, User } from "lucide-react";
 import { useState, useEffect } from "react";
+
 // Validation types
 type ValidationLevel = 'info' | 'warning' | 'error';
 type ValidationMessage = {
@@ -14,9 +15,13 @@ type ValidationMessage = {
   show: boolean;
 };
 
+type CalculatorMode = 'single' | 'team';
+
 const ROICalculator = () => {
+  const [mode, setMode] = useState<CalculatorMode>('single');
   const [monthlySalary, setMonthlySalary] = useState<number>(0);
   const [hoursAutomated, setHoursAutomated] = useState<number>(0);
+  const [teamSize, setTeamSize] = useState<number>(1);
   const [annualSavings, setAnnualSavings] = useState<number>(0);
   const [adjustedSavings, setAdjustedSavings] = useState<number>(0);
   const [confidenceScore, setConfidenceScore] = useState<number>(5);
@@ -26,30 +31,61 @@ const ROICalculator = () => {
   const [salaryValidation, setSalaryValidation] = useState<ValidationMessage>({ level: 'info', message: '', show: false });
   const [hoursValidation, setHoursValidation] = useState<ValidationMessage>({ level: 'info', message: '', show: false });
 
-  // Constants for validation
-  const MIN_SALARY = 5000;
-  const MAX_SALARY = 500000;
-  const MIN_HOURS = 1;
-  const MAX_HOURS = 160; // 90% of 176 working hours
-  const TOTAL_WORKING_HOURS = 176; // 22 days * 8 hours
+  // Dynamic constants based on mode
+  const getValidationConstants = () => {
+    if (mode === 'single') {
+      return {
+        MIN_SALARY: 5000,
+        MAX_SALARY: 200000,
+        MIN_HOURS: 1,
+        MAX_HOURS: 160,
+        TOTAL_WORKING_HOURS: 176
+      };
+    } else {
+      return {
+        MIN_SALARY: 10000,
+        MAX_SALARY: 5000000,
+        MIN_HOURS: 1,
+        MAX_HOURS: 800, // 5x single employee max
+        TOTAL_WORKING_HOURS: 176
+      };
+    }
+  };
 
-  // Validation functions
+  const { MIN_SALARY, MAX_SALARY, MIN_HOURS, MAX_HOURS, TOTAL_WORKING_HOURS } = getValidationConstants();
+
+  // Mode-aware validation functions
   const validateSalary = (salary: number): ValidationMessage => {
     if (salary === 0) return { level: 'info', message: '', show: false };
-    if (salary < MIN_SALARY) return { level: 'error', message: `Minimum salary should be ₹${MIN_SALARY.toLocaleString('en-IN')}`, show: true };
-    if (salary > MAX_SALARY) return { level: 'error', message: `Maximum salary should be ₹${MAX_SALARY.toLocaleString('en-IN')}`, show: true };
-    if (salary < 15000) return { level: 'warning', message: 'This seems quite low for automation ROI', show: true };
-    if (salary > 200000) return { level: 'warning', message: 'High salary - ensure automation scope matches', show: true };
-    return { level: 'info', message: '✓ Salary looks reasonable', show: true };
+    if (salary < MIN_SALARY) return { level: 'error', message: `Minimum ${mode === 'single' ? 'salary' : 'total cost'} should be ₹${MIN_SALARY.toLocaleString('en-IN')}`, show: true };
+    if (salary > MAX_SALARY) return { level: 'error', message: `Maximum ${mode === 'single' ? 'salary' : 'total cost'} should be ₹${MAX_SALARY.toLocaleString('en-IN')}`, show: true };
+    
+    if (mode === 'single') {
+      if (salary < 15000) return { level: 'warning', message: 'This seems quite low for automation ROI', show: true };
+      if (salary > 150000) return { level: 'warning', message: 'High salary - ensure automation scope matches', show: true };
+    } else {
+      if (salary < 50000) return { level: 'warning', message: 'Low team cost - consider single employee mode', show: true };
+      if (salary > 2000000) return { level: 'warning', message: 'Very high team cost - ensure realistic automation scope', show: true };
+    }
+    
+    return { level: 'info', message: `✓ ${mode === 'single' ? 'Salary' : 'Team cost'} looks reasonable`, show: true };
   };
 
   const validateHours = (hours: number): ValidationMessage => {
     if (hours === 0) return { level: 'info', message: '', show: false };
     if (hours < MIN_HOURS) return { level: 'error', message: `Minimum ${MIN_HOURS} hour per month`, show: true };
-    if (hours > MAX_HOURS) return { level: 'error', message: `Maximum ${MAX_HOURS} hours/month (90% of work time)`, show: true };
-    if (hours > 120) return { level: 'warning', message: 'Very high automation - ensure this is realistic', show: true };
-    if (hours > 80) return { level: 'warning', message: 'High automation hours - consider phased approach', show: true };
-    if (hours < 20) return { level: 'info', message: 'Most businesses start with 20-60 hours/month', show: true };
+    if (hours > MAX_HOURS) return { level: 'error', message: `Maximum ${MAX_HOURS} hours/month`, show: true };
+    
+    if (mode === 'single') {
+      if (hours > 120) return { level: 'warning', message: 'Very high automation - ensure this is realistic', show: true };
+      if (hours > 80) return { level: 'warning', message: 'High automation hours - consider phased approach', show: true };
+      if (hours < 20) return { level: 'info', message: 'Most businesses start with 20-60 hours/month', show: true };
+    } else {
+      if (hours > 400) return { level: 'warning', message: 'Very high team automation - consider phased rollout', show: true };
+      if (hours > 200) return { level: 'warning', message: 'High team automation - ensure realistic planning', show: true };
+      if (hours < 50) return { level: 'info', message: 'Teams typically automate 50-200 hours/month', show: true };
+    }
+    
     return { level: 'info', message: '✓ Automation scope looks realistic', show: true };
   };
 
@@ -112,6 +148,17 @@ const ROICalculator = () => {
     setHoursValidation(validateHours(numValue));
   };
 
+  // Handle mode changes
+  const handleModeChange = (newMode: CalculatorMode) => {
+    setMode(newMode);
+    // Reset values when switching modes
+    setMonthlySalary(0);
+    setHoursAutomated(0);
+    setTeamSize(newMode === 'team' ? 5 : 1);
+    setSalaryValidation({ level: 'info', message: '', show: false });
+    setHoursValidation({ level: 'info', message: '', show: false });
+  };
+
   // Update calculations
   useEffect(() => {
     const { gross, adjusted } = calculateROI(monthlySalary, hoursAutomated);
@@ -122,7 +169,7 @@ const ROICalculator = () => {
     // Show CTA only for valid, realistic inputs
     const isValid = salaryValidation.level !== 'error' && hoursValidation.level !== 'error';
     setShowCTA(isValid && adjusted > 100000);
-  }, [monthlySalary, hoursAutomated, salaryValidation.level, hoursValidation.level]);
+  }, [monthlySalary, hoursAutomated, salaryValidation.level, hoursValidation.level, mode]);
 
   // Helper functions for UI
   const getValidationIcon = (level: ValidationLevel) => {
@@ -166,11 +213,41 @@ const ROICalculator = () => {
           </div>
 
           <Card className="p-8 bg-card/80 backdrop-blur-sm">
+            {/* Mode Toggle */}
+            <div className="mb-6 text-center">
+              <div className="inline-flex p-1 bg-muted rounded-lg">
+                <button
+                  onClick={() => handleModeChange('single')}
+                  className={`flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-all ${
+                    mode === 'single' 
+                      ? 'bg-background text-foreground shadow-sm' 
+                      : 'text-muted-foreground hover:text-foreground'
+                  }`}
+                >
+                  <User className="w-4 h-4" />
+                  Single Employee
+                </button>
+                <button
+                  onClick={() => handleModeChange('team')}
+                  className={`flex items-center gap-2 px-4 py-2 rounded-md text-sm font-medium transition-all ${
+                    mode === 'team' 
+                      ? 'bg-background text-foreground shadow-sm' 
+                      : 'text-muted-foreground hover:text-foreground'
+                  }`}
+                >
+                  <Users className="w-4 h-4" />
+                  Team / Department
+                </button>
+              </div>
+            </div>
+
             <div className="grid md:grid-cols-2 gap-6">
-              {/* Salary Input */}
+              {/* Salary/Cost Input */}
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <Label htmlFor="salary">Monthly Salary (₹)</Label>
+                  <Label htmlFor="salary">
+                    {mode === 'single' ? 'Monthly Salary (₹)' : 'Total Monthly Cost (₹)'}
+                  </Label>
                   <Badge variant="outline" className="text-xs">
                     ₹{MIN_SALARY.toLocaleString('en-IN')} - ₹{MAX_SALARY.toLocaleString('en-IN')}
                   </Badge>
@@ -182,7 +259,7 @@ const ROICalculator = () => {
                   max={MAX_SALARY}
                   value={monthlySalary || ''} 
                   onChange={e => handleSalaryChange(e.target.value)} 
-                  placeholder="75000" 
+                  placeholder={mode === 'single' ? "75000" : "500000"} 
                   className={`text-lg ${getInputBorderClass(salaryValidation)}`}
                 />
                 {salaryValidation.show && (
@@ -192,9 +269,29 @@ const ROICalculator = () => {
                   </div>
                 )}
                 {monthlySalary > 0 && (
-                  <p className="text-xs text-muted-foreground">
-                    Hourly rate: ₹{Math.round(monthlySalary / (22 * 8)).toLocaleString('en-IN')}
-                  </p>
+                  <div className="text-xs text-muted-foreground space-y-1">
+                    <p>
+                      {mode === 'single' 
+                        ? `Hourly rate: ₹${Math.round(monthlySalary / (22 * 8)).toLocaleString('en-IN')}`
+                        : `Average per person: ₹${Math.round(monthlySalary / teamSize).toLocaleString('en-IN')}/month`
+                      }
+                    </p>
+                    {mode === 'team' && (
+                      <div className="flex items-center gap-2">
+                        <Label htmlFor="teamSize" className="text-xs">Team size:</Label>
+                        <Input
+                          id="teamSize"
+                          type="number"
+                          min={2}
+                          max={50}
+                          value={teamSize}
+                          onChange={(e) => setTeamSize(Number(e.target.value) || 1)}
+                          className="w-16 h-6 text-xs"
+                        />
+                        <span className="text-xs">people</span>
+                      </div>
+                    )}
+                  </div>
                 )}
               </div>
               
@@ -206,14 +303,14 @@ const ROICalculator = () => {
                     Max {MAX_HOURS}h
                   </Badge>
                 </div>
-                <Input 
+                 <Input 
                   id="hours" 
                   type="number" 
                   min={MIN_HOURS}
                   max={MAX_HOURS}
                   value={hoursAutomated || ''} 
                   onChange={e => handleHoursChange(e.target.value)} 
-                  placeholder="80" 
+                  placeholder={mode === 'single' ? "80" : "200"} 
                   className={`text-lg ${getInputBorderClass(hoursValidation)}`}
                 />
                 {hoursValidation.show && (
