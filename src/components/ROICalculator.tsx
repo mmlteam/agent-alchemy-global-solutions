@@ -305,18 +305,18 @@ const ROICalculator = () => {
 
   return (
     <section className="py-section bg-secondary/10">
-      <div className="container mx-auto px-6">
-        <div className="max-w-2xl mx-auto">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="max-w-4xl mx-auto">
           <div className="text-center space-y-4 mb-8">
             <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium">
               <Calculator className="w-4 h-4" />
               Enhanced ROI Calculator
             </div>
-            <h2 className="text-3xl font-bold">Calculate Your Potential Savings</h2>
-            <p className="text-muted-foreground">Get realistic automation ROI with built-in validation</p>
+            <h2 className="text-2xl sm:text-3xl font-bold">Calculate Your Potential Savings</h2>
+            <p className="text-muted-foreground text-sm sm:text-base">Get realistic automation ROI with built-in validation</p>
           </div>
 
-          <Card className="p-8 bg-card/80 backdrop-blur-sm">
+          <Card className="p-4 sm:p-6 lg:p-8 bg-card/80 backdrop-blur-sm overflow-hidden">
             {/* Mode Toggle */}
             <div className="mb-6 text-center">
               <div className="inline-flex p-1 bg-muted rounded-lg">
@@ -451,21 +451,21 @@ const ROICalculator = () => {
               )}
 
               {/* Main Results */}
-              <div className="p-6 bg-gradient-primary rounded-xl text-center">
+              <div className="p-4 sm:p-6 bg-gradient-primary rounded-xl text-center overflow-hidden">
                 <div className="text-white space-y-2">
-                  <p className="text-lg font-medium">Estimated Annual Savings</p>
-                  <div className="flex flex-col items-center gap-1">
-                    <p className={`font-bold break-words ${getSavingsTextSize(adjustedSavings)}`}>
+                  <p className="text-base sm:text-lg font-medium">Estimated Annual Savings</p>
+                  <div className="flex flex-col items-center gap-1 min-w-0">
+                    <p className={`font-bold break-all ${getSavingsTextSize(adjustedSavings)} leading-tight`}>
                       {formatLargeNumber(adjustedSavings)}
                     </p>
                     {adjustedSavings >= 100000 && (
-                      <p className="text-xs opacity-75">
+                      <p className="text-xs opacity-75 break-all px-2">
                         (₹{adjustedSavings.toLocaleString('en-IN')} exact)
                       </p>
                     )}
                   </div>
                   {adjustedSavings !== annualSavings && adjustedSavings > 0 && (
-                    <p className="text-sm opacity-90">
+                    <p className="text-xs sm:text-sm opacity-90 px-2">
                       (Adjusted for efficiency: {Math.round(getAutomationEfficiency(hoursAutomated) * 100)}% & implementation costs)
                     </p>
                   )}
@@ -492,9 +492,9 @@ const ROICalculator = () => {
             </div>
 
             {/* CTA Section */}
-            <div className="mt-6 p-4 bg-primary/10 rounded-lg border border-primary/20">
+            <div className="mt-6 p-4 bg-primary/10 rounded-lg border border-primary/20 overflow-hidden">
               <div className="text-center space-y-3">
-                <p className="font-semibold text-primary">
+                <p className="font-semibold text-primary text-sm sm:text-base">
                   {showCTA ? getCTAMessage().title : 
                    salaryValidation.level === 'error' || hoursValidation.level === 'error' ? 
                    "Please fix the errors above" : 
@@ -502,7 +502,7 @@ const ROICalculator = () => {
                 </p>
                 <Button 
                   variant="premium" 
-                  className={`group transition-all duration-300 w-full max-w-sm mx-auto px-4 py-3 text-xs sm:text-sm flex items-center justify-center gap-2 ${
+                  className={`group transition-all duration-300 w-full max-w-sm mx-auto px-2 sm:px-4 py-3 text-xs sm:text-sm flex items-center justify-center gap-2 min-w-0 ${
                     showCTA ? 'opacity-100 transform scale-100' : 'opacity-50 blur-sm pointer-events-none'
                   } ${showCTA && 'animate-fade-in'}`} 
                   disabled={!showCTA}
@@ -511,7 +511,7 @@ const ROICalculator = () => {
                     document.getElementById('lead-form')?.scrollIntoView({ behavior: 'smooth' });
                   }}
                 >
-                  <span className="truncate flex-1 text-center">
+                  <span className="truncate flex-1 text-center min-w-0">
                     {showCTA ? (
                       <>
                         <span className="sm:hidden">{getCTAMessage().buttonTextShort}</span>

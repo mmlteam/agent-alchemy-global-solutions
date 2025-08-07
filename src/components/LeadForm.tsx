@@ -355,13 +355,13 @@ const LeadForm = () => {
                     </Label>
                   </div>
 
-                  <div className="flex gap-4">
+                  <div className="flex flex-col sm:flex-row gap-4">
                     <Button 
                       type="button"
                       onClick={() => setStep(1)}
                       variant="outline" 
                       size="lg" 
-                      className="flex-1"
+                      className="w-full sm:flex-1"
                     >
                       Back
                     </Button>
@@ -370,12 +370,14 @@ const LeadForm = () => {
                       type="submit"
                       variant="premium" 
                       size="lg" 
-                      className="flex-2 group"
+                      className="w-full sm:flex-2 group min-w-0"
                       disabled={isSubmitting || !formData.gdprConsent}
                       aria-label="Book My Free Automation Audit"
                     >
-                      {isSubmitting ? "Booking..." : "Book My Free Automation Audit"}
-                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                      <span className="truncate">
+                        {isSubmitting ? "Booking..." : "Book My Free Automation Audit"}
+                      </span>
+                      <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform flex-shrink-0" />
                     </Button>
                   </div>
                   </div>
