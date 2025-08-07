@@ -19,7 +19,7 @@ const testimonials = [
     image: "SK"
   },
   {
-    quote: "The ROI was evident within the first month of implementation. What used to take our team 3-4 hours daily now happens automatically in under 30 minutes. We've redirected that saved time toward strategic initiatives that actually drive revenue growth. The automation doesn't just save time - it eliminates human errors that were costing us thousands monthly.",
+    quote: "The ROI was evident within the first month of implementation. What used to take our team 3-4 hours daily now happens automatically in under 30 minutes. We've redirected that saved time toward strategic initiatives that actually drive revenue growth.",
     name: "Michael Rodriguez",
     role: "Head of Operations at InnovateAI",
     image: "MR"
