@@ -64,7 +64,7 @@ const Hero = () => {
               {/* Integration Partners Bar */}
               <div className="grid grid-cols-3 lg:flex lg:flex-wrap justify-center lg:justify-start items-center gap-3 lg:gap-4 mt-4 animate-fade-in">
                 {[
-                  { name: "Make.com", logoPath: "/logos/make-logo.png", alt: "Make.com logo" },
+                  { name: "Zapier", logoPath: "/logos/zapier-logo-new.png", alt: "Zapier logo" },
                   { name: "Zapier", logoPath: "/logos/zapier-logo.png", alt: "Zapier logo" },
                   { name: "Python", logoPath: "/logos/python-logo.png", alt: "Python logo" },
                   { name: "OpenAI", logoPath: "/logos/openai-logo.png", alt: "OpenAI logo" },
