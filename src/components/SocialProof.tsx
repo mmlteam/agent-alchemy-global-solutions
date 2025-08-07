@@ -3,9 +3,9 @@ import { Card } from "@/components/ui/card";
 import { Star, Quote } from "lucide-react";
 
 const logos = [
-  { name: "dentsu", logo: "/lovable-uploads/690a92b9-80c6-4f78-862f-d402666ef615.png" },
-  { name: "HETERO", logo: "/lovable-uploads/c7ef56e2-e2ac-43fa-be30-f3db49ca7aa6.png" },
-  { name: "XP-PEN", logo: "/lovable-uploads/5f4ae12a-b2cb-4fbf-9c88-8f66a4f24fdb.png" },
+  { name: "dentsu", logo: "/lovable-uploads/89e62100-337d-4e06-a2e9-425267fc7cee.png" },
+  { name: "HETERO", logo: "/lovable-uploads/72684f76-5a1c-4da1-a9ab-aa8f22868e38.png" },
+  { name: "XP-PEN", logo: "/lovable-uploads/88e0d2bb-c4e5-4e37-9d08-d6699e648ea0.png" },
   { name: "AutoScale", logo: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=64&h=64&fit=crop&crop=center" }, // Software development
   { name: "SmartOps", logo: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=64&h=64&fit=crop&crop=center" }, // Data analytics
   { name: "CloudTech", logo: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=64&h=64&fit=crop&crop=center" } // Circuit board/automation
