@@ -3,9 +3,9 @@ import { Card } from "@/components/ui/card";
 import { Star, Quote } from "lucide-react";
 
 const logos = [
-  { name: "TechCorp", logo: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=64&h=64&fit=crop&crop=center" }, // AI/ML brain
-  { name: "InnovateAI", logo: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=64&h=64&fit=crop&crop=center" }, // Code/programming
-  { name: "DataFlow", logo: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=64&h=64&fit=crop&crop=center" }, // MacBook with code
+  { name: "dentsu", logo: "/lovable-uploads/690a92b9-80c6-4f78-862f-d402666ef615.png" },
+  { name: "HETERO", logo: "/lovable-uploads/c7ef56e2-e2ac-43fa-be30-f3db49ca7aa6.png" },
+  { name: "XP-PEN", logo: "/lovable-uploads/5f4ae12a-b2cb-4fbf-9c88-8f66a4f24fdb.png" },
   { name: "AutoScale", logo: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=64&h=64&fit=crop&crop=center" }, // Software development
   { name: "SmartOps", logo: "https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=64&h=64&fit=crop&crop=center" }, // Data analytics
   { name: "CloudTech", logo: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=64&h=64&fit=crop&crop=center" } // Circuit board/automation
