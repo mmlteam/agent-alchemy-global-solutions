@@ -64,12 +64,12 @@ const Hero = () => {
               {/* Integration Partners Bar */}
               <div className="grid grid-cols-3 lg:flex lg:flex-wrap justify-center lg:justify-start items-center gap-3 lg:gap-4 mt-4 animate-fade-in">
                 {[
-                  { name: "Zapier", logoPath: "/lovable-uploads/50cbdcb4-64bf-4d1b-93f5-77439bb33b81.png", alt: "Zapier logo" },
-                  { name: "Make", logoPath: "/lovable-uploads/23af8b5d-1cd4-4208-8e59-d67fe34f9695.png", alt: "Make.com logo" },
                   { name: "Python", logoPath: "/lovable-uploads/82aab38a-7c3f-4bba-b5cc-bc13ee3abb2f.png", alt: "Python logo" },
+                  { name: "Zapier", logoPath: "/lovable-uploads/50cbdcb4-64bf-4d1b-93f5-77439bb33b81.png", alt: "Zapier logo" },
+                  { name: "OpenAI", logoPath: "/lovable-uploads/openai-logo-new.png", alt: "OpenAI logo" },
                   { name: "n8n", logoPath: "/lovable-uploads/912ef728-bb1e-4412-96e7-d6bd0c9a8f89.png", alt: "n8n logo" },
-                  { name: "Slack", logoPath: "/logos/slack-logo.png", alt: "Slack logo" },
-                  { name: "Notion", logoPath: "/logos/notion-logo.png", alt: "Notion logo" }
+                  { name: "Make", logoPath: "/lovable-uploads/23af8b5d-1cd4-4208-8e59-d67fe34f9695.png", alt: "Make.com logo" },
+                  { name: "Airtable", logoPath: "/lovable-uploads/airtable-logo-new.png", alt: "Airtable logo" }
                 ].map((partner, index) => (
                   <div 
                     key={index}
