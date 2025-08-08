@@ -18,7 +18,7 @@ const Hero = () => {
         <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-accent rounded-full blur-3xl animate-glow delay-300"></div>
       </div>
       
-      <div className="container mx-auto px-4 md:px-6 pt-4 md:pt-6 lg:pt-8 pb-8 lg:pb-12 relative z-10">
+      <div className="container mx-auto px-4 md:px-6 pt-0 pb-8 lg:pb-12 relative z-10">
         <div className="grid lg:grid-cols-[1fr_1.2fr] xl:grid-cols-[1fr_1.1fr] gap-6 lg:gap-2 items-end min-h-[75vh] lg:min-h-[75vh]">
           {/* Content */}
           <div className="space-y-6 animate-fade-in flex flex-col justify-center order-1 lg:order-none">
