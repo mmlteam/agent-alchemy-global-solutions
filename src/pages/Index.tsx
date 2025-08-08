@@ -15,7 +15,6 @@ import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
 import StickyDesktopCTA from "@/components/StickyDesktopCTA";
-import FloatingContact from "@/components/FloatingContact";
 
 const Index = () => {
   return (
@@ -39,7 +38,7 @@ const Index = () => {
       <Footer />
       <StickyMobileCTA />
       <StickyDesktopCTA />
-      <FloatingContact />
+      
       
       {/* Analytics placeholders */}
       <script dangerouslySetInnerHTML={{
