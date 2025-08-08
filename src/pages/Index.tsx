@@ -1,3 +1,4 @@
+import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import CombinedFOMOStrip from "@/components/CombinedFOMOStrip";
 import ValueSnapshotStrip from "@/components/ValueSnapshotStrip";
@@ -19,6 +20,7 @@ import StickyDesktopCTA from "@/components/StickyDesktopCTA";
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      <Header />
       <Hero />
       <CombinedFOMOStrip />
       <ValueSnapshotStrip />

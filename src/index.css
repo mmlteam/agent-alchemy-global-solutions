@@ -144,6 +144,13 @@ All colors MUST be HSL.
   --sidebar-accent-foreground: 240 5.9% 10%;
   --sidebar-border: 220 13% 91%;
   --sidebar-ring: 217.2 91.2% 59.8%;
+
+  /* Header dimensions */
+  --header-h-mobile: 56px;
+  --header-h-desktop: 64px;
+
+  /* Brand - WhatsApp */
+  --whatsapp: 142 64% 49%;
 }
 
   .dark {
