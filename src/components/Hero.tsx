@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Zap, Brain, Workflow } from "lucide-react";
+import { ArrowRight, Zap } from "lucide-react";
 import { HeroIllustration } from "@/components/HeroIllustration";
 import { SpotlightCursor } from "@/components/ui/spotlight-cursor";
-import { Typewriter } from "@/components/ui/typewriter";
+
 import HeroFloatingParticles from "@/components/HeroFloatingParticles";
 
 const Hero = () => {
@@ -25,32 +25,15 @@ const Hero = () => {
             <div className="space-y-5">
               <div className="inline-flex items-center gap-2 bg-secondary/50 backdrop-blur-sm border border-border rounded-full px-4 py-2 text-sm">
                 <Zap className="w-4 h-4 text-primary" />
-                <span className="text-muted-foreground">Next-Gen Automation</span>
+                <span className="text-muted-foreground">Automation & AI Agents</span>
               </div>
               
               <h1 className="text-3xl lg:text-5xl xl:text-6xl font-bold leading-tight">
-                Transform Your Business Into a{" "}
-                <span className="bg-gradient-primary bg-clip-text text-transparent">
-                  Self-Running Machine
-                </span>
+                <span className="bg-gradient-primary bg-clip-text text-transparent">Automation & AI Agents</span> to Simplify, Scale, and Supercharge Your Business
               </h1>
               
               <div className="text-base lg:text-lg text-muted-foreground leading-relaxed max-w-2xl min-h-[3.5rem] lg:min-h-[4.5rem]">
-                <span>Custom AI agents deployed in under 30 days – </span>
-                <Typewriter
-                  text={[
-                    "No-Code Bots",
-                    "Python Scripts", 
-                    "Zapier Flows",
-                    "n8n Workflows",
-                    "Make.com Scenarios"
-                  ]}
-                  speed={70}
-                  className="text-primary font-bold"
-                  waitTime={1500}
-                  deleteSpeed={40}
-                  showCursor={false}
-                />
+                From streamlining repetitive tasks to deploying intelligent AI agents, we design solutions that fit your unique business needs.
               </div>
               
               {/* Integration Partners Bar */}

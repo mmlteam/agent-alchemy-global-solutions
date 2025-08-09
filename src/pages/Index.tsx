@@ -6,6 +6,7 @@ import SocialProof from "@/components/SocialProof";
 import MetricsZigZag from "@/components/MetricsZigZag";
 import PainSolution from "@/components/PainSolution";
 import WhatWeAutomate from "@/components/WhatWeAutomate";
+import IntegrationsSlider from "@/components/IntegrationsSlider";
 import IndustriesWeServe from "@/components/IndustriesWeServe";
 import Benefits from "@/components/Benefits";
 import ROICalculator from "@/components/ROICalculator";
@@ -28,6 +29,7 @@ const Index = () => {
       <PainSolution />
       <MetricsZigZag />
       <WhatWeAutomate />
+      <IntegrationsSlider />
       <IndustriesWeServe />
       <Benefits />
       <ROICalculator />

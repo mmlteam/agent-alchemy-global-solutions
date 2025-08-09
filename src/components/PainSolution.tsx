@@ -43,16 +43,9 @@ const PainSolution = () => {
     <section className="py-12 lg:py-16 bg-background">
       <div className="container mx-auto px-6">
         <div className="text-center space-y-6 mb-12 lg:mb-16 animate-fade-in">
-          <h2 className="text-4xl lg:text-5xl font-bold">
-            From{" "}
-            <span className="text-destructive">
-              Pain Points
-            </span>{" "}
-            to{" "}
-            <span className="bg-gradient-primary bg-clip-text text-transparent">
-              Solutions
-            </span>
-          </h2>
+              <h2 className="text-4xl lg:text-5xl font-bold">
+                From <span className="text-destructive">Pain Points</span> to <span className="bg-gradient-primary bg-clip-text text-transparent">Automation & AI Agent Solutions</span>
+              </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Discover how AI automation transforms your biggest operational challenges into competitive advantages.
           </p>
@@ -73,7 +66,8 @@ const PainSolution = () => {
               onMouseEnter={() => setActiveCard(item.id)}
               onMouseLeave={() => setActiveCard(null)}
             >
-              <div className="relative">
+              {/* Desktop (hover to reveal) */}
+              <div className="hidden md:block relative">
                 {/* Pain State */}
                 <div className={`transition-all duration-500 ${
                   activeCard === item.id ? 'opacity-0 transform -translate-y-2' : 'opacity-100 transform translate-y-0'
@@ -89,6 +83,9 @@ const PainSolution = () => {
                   </div>
                 </div>
 
+                {/* Connector line appears on hover */}
+                <div className={`absolute left-6 right-6 top-1/2 -translate-y-1/2 h-px border-t border-dashed transition-opacity duration-500 ${activeCard === item.id ? 'opacity-100 border-primary/40' : 'opacity-0 border-border/40'}`} />
+
                 {/* Solution State */}
                 <div className={`absolute inset-0 transition-all duration-500 ${
                   activeCard === item.id ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-2 pointer-events-none'
@@ -96,12 +93,46 @@ const PainSolution = () => {
                   <div className="w-12 h-12 bg-primary/20 rounded-xl flex items-center justify-center mb-4">
                     <item.solutionIcon className="w-6 h-6 text-primary" />
                   </div>
-                   <h3 className="text-xl font-semibold mb-3 text-primary">AI Solution</h3>
-                   <p className="text-muted-foreground leading-relaxed mb-4">
-                     {item.solution}
-                   </p>
+                  <h3 className="text-xl font-semibold mb-3 text-primary">AI Solution</h3>
+                  <p className="text-muted-foreground leading-relaxed mb-4">{item.solution}</p>
                   <div className="inline-flex items-center gap-2 bg-primary/10 text-primary text-sm font-semibold px-3 py-1 rounded-full">
                     <CheckCircle className="w-4 h-4" />
+                    {item.metric}
+                  </div>
+                </div>
+              </div>
+
+              {/* Mobile (show both, no interaction required) */}
+              <div className="block md:hidden space-y-4">
+                {/* Pain */}
+                <div>
+                  <div className="w-10 h-10 bg-destructive/20 rounded-xl flex items-center justify-center mb-3">
+                    <item.icon className="w-5 h-5 text-destructive" />
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
+                  <p className="text-muted-foreground leading-relaxed mb-3">{item.pain}</p>
+                  <div className="inline-flex items-center gap-2 bg-destructive/10 text-destructive text-xs font-semibold px-2.5 py-1 rounded-full">
+                    <TrendingDown className="w-3.5 h-3.5" />
+                    {item.painMetric}
+                  </div>
+                </div>
+
+                {/* Connector */}
+                <div className="flex items-center justify-center gap-2 text-muted-foreground">
+                  <span className="h-px w-8 bg-border" />
+                  <ArrowRight className="w-4 h-4" />
+                  <span className="h-px w-8 bg-border" />
+                </div>
+
+                {/* Solution */}
+                <div>
+                  <div className="w-10 h-10 bg-primary/20 rounded-xl flex items-center justify-center mb-3">
+                    <item.solutionIcon className="w-5 h-5 text-primary" />
+                  </div>
+                  <h3 className="text-lg font-semibold mb-2 text-primary">AI Solution</h3>
+                  <p className="text-muted-foreground leading-relaxed mb-3">{item.solution}</p>
+                  <div className="inline-flex items-center gap-2 bg-primary/10 text-primary text-xs font-semibold px-2.5 py-1 rounded-full">
+                    <CheckCircle className="w-3.5 h-3.5" />
                     {item.metric}
                   </div>
                 </div>

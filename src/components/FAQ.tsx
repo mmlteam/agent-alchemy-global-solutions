@@ -5,48 +5,44 @@ import { ArrowRight } from "lucide-react";
 
 const faqs = [
   {
-    question: "How much does AI automation implementation cost?",
-    answer: "Investment depends on scope and complexity. Most clients see ROI within 3-6 months. Our free consultation includes a detailed cost-benefit analysis tailored to your specific needs."
+    question: "What do Automation & AI Agents actually do?",
+    answer: "Automation syncs data and triggers workflows (e.g., CRM updates). AI Agents handle tasks like customer queries, lead qualification, or drafting emails."
   },
   {
-    question: "How long does it take to implement AI automation?",
-    answer: "Simple automations can be deployed in 2-4 weeks. Complex enterprise solutions typically take 6-12 weeks. We provide a detailed timeline during your free consultation based on your requirements."
+    question: "How long does it take to implement?",
+    answer: "Simple automations go live in 2–4 weeks. AI agents typically 4–8 weeks. We'll share a clear plan after your free audit."
   },
   {
-    question: "Is our data secure with AI automation?",
-    answer: "Absolutely. We implement bank-grade security with end-to-end encryption, comply with GDPR/CCPA standards, and offer on-premise deployment options for maximum data control."
+    question: "Will this work with our existing tools?",
+    answer: "Yes. We integrate with CRMs, ERPs, and 1500+ apps via Make, Zapier, and APIs (HubSpot, Salesforce, Slack, Google Workspace, etc.)."
   },
   {
-    question: "Can my small business even use AI automation?",
-    answer: "Yes—most clients start with one workflow and scale. We tailor scope to budget."
+    question: "What results can we expect?",
+    answer: "Typical outcomes: 30–60% cost reduction, 2–3x faster delivery, fewer errors, and better customer response times."
   },
   {
-    question: "Will I fall behind if I delay?",
-    answer: "Early adopters cut costs & gain speed; late adopters scramble to catch up."
+    question: "Is our data secure?",
+    answer: "Bank‑grade security with encryption, least‑privilege access, audit logs. Deploy in your VPC if required. GDPR/CCPA compliant."
   },
   {
-    question: "How much does the roadmap cost?",
-    answer: "The 30-min audit & roadmap are ₹0. You pay only if you proceed."
+    question: "Do we need in‑house developers?",
+    answer: "No. We design, build, deploy, and train your team. You own the stack and we provide documentation."
   },
   {
-    question: "Is ongoing maintenance included?",
-    answer: "Yes, 30-day optimisation + optional monthly SLA."
+    question: "What does it cost and what's the ROI?",
+    answer: "Based on scope. Most clients see ROI in 30–90 days. Your free audit includes a cost‑benefit model."
   },
   {
-    question: "How secure is my data?",
-    answer: "Tokens stored with AES-256, deploy in your VPC, ISO-27001 processes."
+    question: "How does maintenance work?",
+    answer: "30‑day optimisation included. Optional monthly SLA for monitoring, updates, and improvements."
   },
   {
-    question: "Which tools do you integrate?",
-    answer: "1500+ SaaS + custom APIs via Make, Zapier, Python & OpenAI."
+    question: "Examples for our use case?",
+    answer: "Automation: auto‑sync CRM, invoice reconciliation. AI Agents: L1 support, meeting summaries, lead scoring, SOP enforcement."
   },
   {
-    question: "Do I need in-house developers?",
-    answer: "No—our team builds, deploys, and trains your staff."
-  },
-  {
-    question: "What's the ROI timeline?",
-    answer: "Most clients recover costs in ≤ 60 days."
+    question: "How scalable is this?",
+    answer: "Architected to scale from one workflow to hundreds. We use modular blueprints and versioned pipelines."
   }
 ];
 
