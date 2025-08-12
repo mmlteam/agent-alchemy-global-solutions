@@ -29,7 +29,10 @@ const Hero = () => {
               </div>
               
               <h1 className="text-3xl lg:text-5xl xl:text-6xl font-bold leading-tight">
-                <span className="bg-gradient-primary bg-clip-text text-transparent">Automation & AI Agents</span> to Simplify, Scale, and Supercharge Your Business
+                <span className="bg-gradient-primary bg-clip-text text-transparent">Automation & AI Agents —</span>
+                <br className="hidden sm:block" />
+                <span className="bg-gradient-secondary bg-clip-text text-transparent">Cut Costs.</span>{" "}
+                <span className="bg-gradient-primary bg-clip-text text-transparent">Save Time</span>
               </h1>
               
               <div className="text-base lg:text-lg text-muted-foreground leading-relaxed max-w-2xl min-h-[3.5rem] lg:min-h-[4.5rem]">
