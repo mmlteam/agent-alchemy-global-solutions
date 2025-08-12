@@ -9,7 +9,7 @@ const Hero = () => {
   return (
     <section className="bg-gradient-hero relative overflow-y-hidden pt-[calc(var(--header-h-mobile)-1em)] md:pt-[calc(var(--header-h-desktop)-1em)]">
       {/* Full Hero Spotlight Effect */}
-      <SpotlightCursor size={400} />
+      <SpotlightCursor size={250} />
       {/* Header with Logo */}
       
       {/* Animated background elements */}
