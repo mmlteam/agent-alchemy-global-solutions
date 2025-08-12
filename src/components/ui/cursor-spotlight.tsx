@@ -3,7 +3,7 @@ import React, { useRef, useState, useCallback, useEffect } from 'react';
 import { motion, useSpring, useTransform } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
-export function CursorSpotlight({ className, size = 192 }: { className?: string; size?: number }) {
+export function CursorSpotlight({ className, size = 250 }: { className?: string; size?: number }) {
   const ref = useRef<HTMLDivElement>(null);
   const [active, setActive] = useState(false);
   const x = useSpring(0, { bounce: 0 });

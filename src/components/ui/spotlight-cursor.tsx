@@ -2,7 +2,7 @@
 import { motion, useSpring, useTransform } from 'framer-motion'
 import { useEffect, useRef, useState } from 'react'
 
-export function SpotlightCursor({ size = 208 }: { size?: number }) {
+export function SpotlightCursor({ size = 250 }: { size?: number }) {
   const ref = useRef<HTMLDivElement>(null)
   const [active, setActive] = useState(false)
   const x = useSpring(0, { bounce: 0 })
