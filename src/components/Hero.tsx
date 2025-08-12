@@ -2,53 +2,40 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap } from "lucide-react";
 import { HeroIllustration } from "@/components/HeroIllustration";
 import { SpotlightCursor } from "@/components/ui/spotlight-cursor";
-import { badgeVariants } from "@/components/ui/badge";
+
 import HeroFloatingParticles from "@/components/HeroFloatingParticles";
 
 const Hero = () => {
   return (
-    <section className="bg-gradient-hero relative min-h-[clamp(560px,70vh,760px)] overflow-hidden pt-[calc(var(--header-h-mobile)-1em)] md:pt-[calc(var(--header-h-desktop)-1em)]">
-      {/* Spotlight */}
+    <section className="bg-gradient-hero relative overflow-y-hidden pt-[calc(var(--header-h-mobile)-1em)] md:pt-[calc(var(--header-h-desktop)-1em)]">
+      {/* Full Hero Spotlight Effect */}
       <SpotlightCursor size={400} />
-
-      {/* Ambient glows behind content */}
+      {/* Header with Logo */}
+      
+      {/* Animated background elements */}
       <div className="absolute inset-0 opacity-10 overflow-hidden z-0">
         <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-primary rounded-full blur-3xl animate-glow"></div>
         <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-accent rounded-full blur-3xl animate-glow delay-300"></div>
       </div>
-
-      <div className="container mx-auto px-4 md:px-6 relative z-10">
-        <div className="grid grid-cols-12 gap-8 items-end min-h-[60vh]">
-          {/* Left column: copy */}
-          <div className="col-span-12 lg:col-span-6 flex flex-col justify-end pr-0 lg:pr-10 order-1 lg:order-none">
-            <div className="space-y-6 animate-fade-in">
-              {/* Eyebrow */}
+      
+      <div className="container mx-auto px-4 md:px-6 pt-0 pb-8 lg:pb-12 relative z-10">
+        <div className="grid lg:grid-cols-[1fr_1.2fr] xl:grid-cols-[1fr_1.1fr] gap-6 lg:gap-2 items-end min-h-[75vh] lg:min-h-[75vh]">
+          {/* Content */}
+          <div className="space-y-6 animate-fade-in flex flex-col justify-center order-1 lg:order-none">
+            <div className="space-y-5">
               <div className="inline-flex items-center gap-2 bg-secondary/50 backdrop-blur-sm border border-border rounded-full px-4 py-2 text-sm">
                 <Zap className="w-4 h-4 text-primary" />
                 <span className="text-muted-foreground">Automation & AI Agents</span>
               </div>
-
-              {/* Headline */}
-              <h1 className="text-[clamp(36px,6vw,84px)] font-bold max-w-[20ch] [text-wrap:balance] leading-tight">
-                <span className="bg-gradient-primary bg-clip-text text-transparent">Automation & AI Agents —</span>
-                <br className="hidden lg:block" />
-                <span className="bg-gradient-secondary bg-clip-text text-transparent">Cut Costs.</span>{' '}
-                <span className="bg-gradient-primary bg-clip-text text-transparent">Save Time.</span>
+              
+              <h1 className="text-3xl lg:text-5xl xl:text-6xl font-bold leading-tight">
+                <span className="bg-gradient-primary bg-clip-text text-transparent">Automation & AI Agents</span> to Simplify, Scale, and Supercharge Your Business
               </h1>
-
-              {/* Subhead */}
-              <p className="text-base lg:text-lg text-muted-foreground leading-relaxed max-w-2xl">
+              
+              <div className="text-base lg:text-lg text-muted-foreground leading-relaxed max-w-2xl min-h-[3.5rem] lg:min-h-[4.5rem]">
                 From streamlining repetitive tasks to deploying intelligent AI agents, we design solutions that fit your unique business needs.
-              </p>
-
-              {/* Stat chips */}
-              <div className="mt-4 flex flex-wrap gap-3" role="list" aria-label="Key results">
-                <button type="button" className={`${badgeVariants({ variant: 'secondary' })} rounded-full`} tabIndex={0} aria-label="Decrease sixty percent costs" role="listitem">↓ 60% Costs</button>
-                <button type="button" className={`${badgeVariants({ variant: 'secondary' })} rounded-full`} tabIndex={0} aria-label="Increase four hundred twenty plus hours saved per year" role="listitem">↑ 420+ Hours Saved / Yr</button>
-                <button type="button" className={`${badgeVariants({ variant: 'secondary' })} rounded-full`} tabIndex={0} aria-label="Twenty four seven uptime" role="listitem">24/7 Uptime</button>
-                <button type="button" className={`${badgeVariants({ variant: 'secondary' })} rounded-full`} tabIndex={0} aria-label="Live in under thirty days" role="listitem">Live in &lt;30 Days</button>
               </div>
-
+              
               {/* Integration Partners Bar */}
               <div className="grid grid-cols-3 lg:flex lg:flex-wrap justify-center lg:justify-start items-center gap-3 lg:gap-4 mt-4 animate-fade-in">
                 {[
@@ -73,57 +60,52 @@ const Hero = () => {
                   </div>
                 ))}
               </div>
-
+              
               {/* Disclaimer */}
               <p className="logo-disclaimer text-xs text-muted-foreground text-left mt-3 opacity-60">
                 *All brand visuals are illustrative dummy logos—no affiliation implied.
               </p>
-
-              {/* CTA */}
-              <div className="flex flex-col items-center lg:items-start mt-4">
-                <Button 
-                  variant="premium" 
-                  size="lg" 
-                  className="group w-full max-w-xs lg:w-auto" 
-                  aria-label="Book My Free Automation Audit"
-                  onClick={() => document.querySelector('#lead-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
-                >
-                  Book My Free Automation Audit
-                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </Button>
-                <p className="text-sm text-muted-foreground mt-1 text-center lg:text-left">Takes &lt; 2 min</p>
+            </div>
+            
+            <div className="flex flex-col items-center lg:items-start">
+              <Button 
+                variant="premium" 
+                size="lg" 
+                className="group w-full max-w-xs lg:w-auto" 
+                aria-label="Book My Free Automation Audit"
+                onClick={() => document.querySelector('#lead-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+              >
+                Book My Free Automation Audit
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+              <p className="text-sm text-muted-foreground mt-1 text-center lg:text-left">Takes &lt; 2 min</p>
+            </div>
+            
+            {/* Stats */}
+            <div className="grid grid-cols-3 gap-4 pt-4 pb-0 mb-0 border-t border-border/30">
+              <div className="space-y-1">
+                <div className="text-lg lg:text-xl font-bold text-primary">500+</div>
+                <div className="text-xs text-muted-foreground">AI Agents Deployed</div>
               </div>
-
-              {/* KPI row */}
-              <div className="grid grid-cols-3 gap-4 pt-4 pb-0 mb-0 border-t border-border/30">
-                <div className="space-y-1">
-                  <div className="text-lg lg:text-xl font-bold text-primary">500+</div>
-                  <div className="text-xs text-muted-foreground">AI Agents Deployed</div>
-                </div>
-                <div className="space-y-1">
-                  <div className="text-lg lg:text-xl font-bold text-primary">98%</div>
-                  <div className="text-xs text-muted-foreground">Efficiency Increase</div>
-                </div>
-                <div className="space-y-1">
-                  <div className="text-lg lg:text-xl font-bold text-primary">24/7</div>
-                  <div className="text-xs text-muted-foreground">Autonomous Operation</div>
-                </div>
+              <div className="space-y-1">
+                <div className="text-lg lg:text-xl font-bold text-primary">98%</div>
+                <div className="text-xs text-muted-foreground">Efficiency Increase</div>
+              </div>
+              <div className="space-y-1">
+                <div className="text-lg lg:text-xl font-bold text-primary">24/7</div>
+                <div className="text-xs text-muted-foreground">Autonomous Operation</div>
               </div>
             </div>
           </div>
-
-          {/* Right column: robot */}
-          <div className="col-span-12 lg:col-span-6 relative flex items-end justify-end order-2 lg:order-none h-[52vh] max-h-[520px] mt-6 lg:h-[60vh] lg:max-h-[86vh]">
-            {/* Bottom-anchored wrapper for Spline */}
-            <div className="absolute inset-x-0 bottom-0 h-[92%] max-h-[86vh] pointer-events-none z-10">
-              <HeroIllustration />
-            </div>
+          
+          {/* Hero Illustration - Aligned with content */}
+          <div className="relative h-[350px] sm:h-[400px] md:h-[450px] lg:h-[600px] xl:h-[650px] w-full order-2 lg:order-none self-end overflow-visible">
+            <HeroIllustration />
             <HeroFloatingParticles />
           </div>
         </div>
       </div>
     </section>
-
   );
 };
 
