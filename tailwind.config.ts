@@ -71,6 +71,8 @@ export default {
 			backgroundImage: {
 				'gradient-primary': 'var(--gradient-primary)',
 				'gradient-secondary': 'var(--gradient-secondary)',
+				'gradient-success': 'var(--gradient-success)',
+				'gradient-speed': 'var(--gradient-speed)',
 				'gradient-hero': 'var(--gradient-hero)',
 			},
 			boxShadow: {
