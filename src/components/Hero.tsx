@@ -32,7 +32,8 @@ const Hero = () => {
               <h1 className="text-[clamp(36px,6vw,84px)] font-bold max-w-[20ch] [text-wrap:balance] leading-tight">
                 <span className="bg-gradient-primary bg-clip-text text-transparent">Automation & AI Agents —</span>
                 <br className="hidden lg:block" />
-                <span className="bg-gradient-primary bg-clip-text text-transparent">Cut Costs. Save Time.</span>
+                <span className="bg-gradient-secondary bg-clip-text text-transparent">Cut Costs.</span>{' '}
+                <span className="bg-gradient-primary bg-clip-text text-transparent">Save Time.</span>
               </h1>
 
               {/* Subhead */}
@@ -112,9 +113,9 @@ const Hero = () => {
           </div>
 
           {/* Right column: robot */}
-          <div className="col-span-12 lg:col-span-6 relative flex items-end justify-end order-2 lg:order-none h-[52vh] max-h-[520px] mt-6 lg:h-auto lg:max-h-none">
+          <div className="col-span-12 lg:col-span-6 relative flex items-end justify-end order-2 lg:order-none h-[52vh] max-h-[520px] mt-6 lg:h-[60vh] lg:max-h-[86vh]">
             {/* Bottom-anchored wrapper for Spline */}
-            <div className="absolute inset-x-0 bottom-0 h-[92%] max-h-[86vh] pointer-events-none">
+            <div className="absolute inset-x-0 bottom-0 h-[92%] max-h-[86vh] pointer-events-none z-10">
               <HeroIllustration />
             </div>
             <HeroFloatingParticles />
