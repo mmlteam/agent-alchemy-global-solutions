@@ -7,7 +7,7 @@ import HeroFloatingParticles from "@/components/HeroFloatingParticles";
 
 const Hero = () => {
   return (
-    <section className="bg-gradient-hero relative overflow-y-hidden pt-[calc(var(--header-h-mobile)-1em)] md:pt-[calc(var(--header-h-desktop)-1em)]">
+    <section className="bg-gradient-hero relative overflow-y-hidden pt-[15px]">
       {/* Full Hero Spotlight Effect */}
       <SpotlightCursor size={250} />
       {/* Header with Logo */}
