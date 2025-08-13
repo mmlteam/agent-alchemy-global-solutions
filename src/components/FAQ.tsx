@@ -82,7 +82,13 @@ const FAQ = () => {
             <p className="text-muted-foreground mb-6">
               Still have questions? Let's discuss your specific needs.
             </p>
-            <Button variant="premium" size="lg" className="group">
+            <Button 
+              variant="premium" 
+              size="lg" 
+              className="group"
+              onClick={() => document.querySelector('#lead-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
+              aria-label="Get My Free Consultation"
+            >
               Get My Free Consultation
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
