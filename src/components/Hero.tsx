@@ -2,12 +2,9 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Zap } from "lucide-react";
 import { HeroIllustration } from "@/components/HeroIllustration";
 import { SpotlightCursor } from "@/components/ui/spotlight-cursor";
-
 import HeroFloatingParticles from "@/components/HeroFloatingParticles";
-
 const Hero = () => {
-  return (
-    <section className="bg-gradient-hero relative overflow-y-hidden pt-[15px]">
+  return <section className="bg-gradient-hero relative overflow-y-hidden pt-[15px]">
       {/* Full Hero Spotlight Effect */}
       <SpotlightCursor size={250} />
       {/* Header with Logo */}
@@ -41,43 +38,46 @@ const Hero = () => {
               
               {/* Integration Partners Bar */}
               <div className="grid grid-cols-3 lg:flex lg:flex-wrap justify-center lg:justify-start items-center gap-3 lg:gap-4 mt-4 animate-fade-in">
-                {[
-                  { name: "Python", logoPath: "/lovable-uploads/82aab38a-7c3f-4bba-b5cc-bc13ee3abb2f.png", alt: "Python logo" },
-                  { name: "Zapier", logoPath: "/lovable-uploads/50cbdcb4-64bf-4d1b-93f5-77439bb33b81.png", alt: "Zapier logo" },
-                  { name: "OpenAI", logoPath: "/lovable-uploads/81f4a72e-fd51-4d1d-9395-8d3a9fa5a4ab.png", alt: "OpenAI logo" },
-                  { name: "n8n", logoPath: "/lovable-uploads/912ef728-bb1e-4412-96e7-d6bd0c9a8f89.png", alt: "n8n logo" },
-                  { name: "Make", logoPath: "/lovable-uploads/23af8b5d-1cd4-4208-8e59-d67fe34f9695.png", alt: "Make.com logo" },
-                  { name: "Airtable", logoPath: "/lovable-uploads/fa184e33-137e-4ccc-a258-f10ef7ae0920.png", alt: "Airtable logo" }
-                ].map((partner, index) => (
-                  <div 
-                    key={index}
-                    className="flex items-center justify-center p-2 rounded-lg bg-white/5 backdrop-blur-sm shadow-lg shadow-primary/10 border border-white/10"
-                    style={{ animationDelay: `${index * 100}ms` }}
-                  >
-                    <img
-                      src={partner.logoPath}
-                      alt={partner.alt}
-                      className="h-10 w-auto"
-                      loading="lazy"
-                    />
-                  </div>
-                ))}
+                {[{
+                name: "Python",
+                logoPath: "/lovable-uploads/82aab38a-7c3f-4bba-b5cc-bc13ee3abb2f.png",
+                alt: "Python logo"
+              }, {
+                name: "Zapier",
+                logoPath: "/lovable-uploads/50cbdcb4-64bf-4d1b-93f5-77439bb33b81.png",
+                alt: "Zapier logo"
+              }, {
+                name: "OpenAI",
+                logoPath: "/lovable-uploads/81f4a72e-fd51-4d1d-9395-8d3a9fa5a4ab.png",
+                alt: "OpenAI logo"
+              }, {
+                name: "n8n",
+                logoPath: "/lovable-uploads/912ef728-bb1e-4412-96e7-d6bd0c9a8f89.png",
+                alt: "n8n logo"
+              }, {
+                name: "Make",
+                logoPath: "/lovable-uploads/23af8b5d-1cd4-4208-8e59-d67fe34f9695.png",
+                alt: "Make.com logo"
+              }, {
+                name: "Airtable",
+                logoPath: "/lovable-uploads/fa184e33-137e-4ccc-a258-f10ef7ae0920.png",
+                alt: "Airtable logo"
+              }].map((partner, index) => <div key={index} className="flex items-center justify-center p-2 rounded-lg bg-white/5 backdrop-blur-sm shadow-lg shadow-primary/10 border border-white/10" style={{
+                animationDelay: `${index * 100}ms`
+              }}>
+                    <img src={partner.logoPath} alt={partner.alt} className="h-10 w-auto" loading="lazy" />
+                  </div>)}
               </div>
               
               {/* Disclaimer */}
-              <p className="logo-disclaimer text-xs text-muted-foreground text-left mt-3 opacity-60">
-                *All brand visuals are illustrative dummy logos—no affiliation implied.
-              </p>
+              
             </div>
             
             <div className="flex flex-col items-center lg:items-start">
-              <Button 
-                variant="premium" 
-                size="lg" 
-                className="group w-full max-w-xs lg:w-auto" 
-                aria-label="Book My Free Automation Audit"
-                onClick={() => document.querySelector('#lead-form')?.scrollIntoView({ behavior: 'smooth', block: 'start' })}
-              >
+              <Button variant="premium" size="lg" className="group w-full max-w-xs lg:w-auto" aria-label="Book My Free Automation Audit" onClick={() => document.querySelector('#lead-form')?.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            })}>
                 Book My Free Automation Audit
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
@@ -108,8 +108,6 @@ const Hero = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
