@@ -184,9 +184,9 @@ const LeadForm = () => {
   return (
     <section className="py-section bg-background sticky bottom-0 z-10">
       <div className="container mx-auto px-6">
-        <div className="max-w-2xl mx-auto">
+        <div className="max-w-2xl lg:max-w-4xl mx-auto">
           <div className="text-center space-y-6 mb-12 animate-fade-in">
-            <h2 className="text-4xl lg:text-5xl font-bold">
+            <h2 className="text-4xl lg:text-5xl font-bold lg:whitespace-nowrap">
               Book Your{" "}
               <span className="bg-gradient-primary bg-clip-text text-transparent">
                 Free Automation Audit
