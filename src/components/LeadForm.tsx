@@ -42,18 +42,20 @@ const LeadForm = () => {
         console.log('Attempting to save lead data:', { name: formData.name, phone: formData.phone });
         console.log('Supabase client status:', !!supabase);
         
+        // Generate UUID client-side for security (no SELECT access needed)
+        const newLeadId = crypto.randomUUID();
+        
         // Save step 1 data to database
-        const { data, error } = await supabase
+        const { error } = await supabase
           .from('leads')
           .insert({
+            id: newLeadId,
             name: formData.name,
             phone: formData.phone,
             step_completed: 1
-          })
-          .select()
-          .single();
+          });
 
-        console.log('Supabase response:', { data, error });
+        console.log('Supabase response:', { error });
 
         if (error) {
           console.error('Error saving lead:', error);
@@ -66,7 +68,7 @@ const LeadForm = () => {
         }
 
         // Store the lead ID for updating in step 2
-        setLeadId(data.id);
+        setLeadId(newLeadId);
         setStep(2);
         
         toast({
