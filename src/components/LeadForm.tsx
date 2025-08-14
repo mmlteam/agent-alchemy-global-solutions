@@ -145,19 +145,11 @@ const LeadForm = () => {
 
         if (functionError) {
           console.error('Error sending email:', functionError);
-          // Update lead status to error if email fails
-          await supabase
-            .from('leads')
-            .update({ email_status: 'error' })
-            .eq('id', leadId);
+          // Edge function will handle email status updates
         }
       } catch (emailError) {
         console.error('Email notification failed:', emailError);
-        // Update lead status to error if email fails
-        await supabase
-          .from('leads')
-          .update({ email_status: 'error' })
-          .eq('id', leadId);
+        // Edge function will handle email status updates
       }
 
       // Mark form as completed
