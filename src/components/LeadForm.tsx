@@ -24,6 +24,40 @@ const LeadForm = () => {
     challenge: "",
     gdprConsent: false
   });
+  
+  // Enhanced validation functions
+  const validateEmail = (email: string) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const suspiciousDomains = ['tempmail.com', '10minutemail.com', 'guerrillamail.com'];
+    
+    if (!emailRegex.test(email)) return 'Please enter a valid email address';
+    
+    const domain = email.split('@')[1];
+    if (suspiciousDomains.includes(domain)) {
+      return 'Please use a business email address';
+    }
+    
+    return null;
+  };
+  
+  const validatePhone = (phone: string) => {
+    // Remove all non-digit characters for validation
+    const cleanPhone = phone.replace(/\D/g, '');
+    
+    if (cleanPhone.length < 10) return 'Phone number must be at least 10 digits';
+    if (cleanPhone.length > 15) return 'Phone number cannot exceed 15 digits';
+    if (!/^[\d\s\-\+\(\)]+$/.test(phone)) return 'Phone number contains invalid characters';
+    
+    return null;
+  };
+  
+  const validateName = (name: string) => {
+    if (name.length < 2) return 'Name must be at least 2 characters';
+    if (name.length > 50) return 'Name cannot exceed 50 characters';
+    if (!/^[a-zA-Z\s\-\.]+$/.test(name)) return 'Name contains invalid characters';
+    
+    return null;
+  };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -35,6 +69,37 @@ const LeadForm = () => {
   };
 
   const handleNext = async () => {
+    // Enhanced validation for step 1
+    const nameError = validateName(formData.name);
+    const phoneError = validatePhone(formData.phone);
+    
+    if (!formData.name || !formData.phone) {
+      toast({
+        title: "Missing Information",
+        description: "Please fill in all required fields.",
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    if (nameError) {
+      toast({
+        title: "Invalid Name",
+        description: nameError,
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    if (phoneError) {
+      toast({
+        title: "Invalid Phone Number",
+        description: phoneError,
+        variant: "destructive",
+      });
+      return;
+    }
+    
     if (formData.name && formData.phone) {
       setIsSubmitting(true);
       
@@ -86,21 +151,28 @@ const LeadForm = () => {
       } finally {
         setIsSubmitting(false);
       }
-    } else {
-      toast({
-        title: "Missing information",
-        description: "Please fill in your name and phone number to continue.",
-        variant: "destructive",
-      });
     }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.gdprConsent) {
+    
+    // Enhanced validation for step 2
+    const emailError = validateEmail(formData.email);
+    
+    if (!formData.email || !formData.gdprConsent) {
       toast({
-        title: "Privacy consent required",
-        description: "Please accept our privacy policy to continue.",
+        title: "Missing Information",
+        description: "Please fill in all required fields and accept our privacy policy.",
+        variant: "destructive",
+      });
+      return;
+    }
+    
+    if (emailError) {
+      toast({
+        title: "Invalid Email",
+        description: emailError,
         variant: "destructive",
       });
       return;

@@ -21,10 +21,43 @@ serve(async (req) => {
   }
 
   try {
+    const startTime = Date.now();
+    const clientIP = req.headers.get('x-forwarded-for') || req.headers.get('cf-connecting-ip') || 'unknown';
+    const userAgent = req.headers.get('user-agent') || 'unknown';
+    
     const { name, email, phone, company_size, challenge, leadId } = await req.json()
     
+    // Enhanced security logging
+    console.log('=== LEAD PROCESSING START ===')
+    console.log('Timestamp:', new Date().toISOString())
+    console.log('Client IP:', clientIP)
+    console.log('User Agent:', userAgent.substring(0, 100)) // Truncate for readability
     console.log('Lead ID received:', leadId)
-    console.log('Processing email for lead:', { name, email, leadId })
+    console.log('Lead data validation:', {
+      hasName: !!name,
+      hasEmail: !!email,
+      hasPhone: !!phone,
+      nameLength: name?.length || 0,
+      emailValid: /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email || ''),
+      phoneLength: phone?.replace(/\D/g, '').length || 0
+    })
+    
+    // Input validation and sanitization
+    if (!name || !email || !phone) {
+      console.log('ERROR: Missing required fields')
+      return new Response('Missing required fields', { 
+        status: 400,
+        headers: corsHeaders
+      })
+    }
+    
+    if (name.length > 100 || email.length > 100 || phone.length > 20) {
+      console.log('ERROR: Input length validation failed')
+      return new Response('Input validation failed', { 
+        status: 400,
+        headers: corsHeaders
+      })
+    }
     
     if (!RESEND_API_KEY) {
       console.log('RESEND_API_KEY not found')
@@ -67,7 +100,13 @@ serve(async (req) => {
 
     if (!emailResponse.ok) {
       const error = await emailResponse.text()
-      console.log('Email failed with status:', emailResponse.status, 'Error:', error)
+      const processingTime = Date.now() - startTime;
+      
+      console.log('=== EMAIL SEND FAILED ===')
+      console.log('Status:', emailResponse.status)
+      console.log('Error:', error)
+      console.log('Processing time:', processingTime, 'ms')
+      console.log('Lead ID:', leadId)
       
       // Update lead with failed status if leadId provided
       if (leadId) {
@@ -93,7 +132,12 @@ serve(async (req) => {
     }
 
     const emailData = await emailResponse.json()
-    console.log('Email sent successfully, Resend ID:', emailData.id)
+    const processingTime = Date.now() - startTime;
+    
+    console.log('=== EMAIL SENT SUCCESSFULLY ===')
+    console.log('Resend ID:', emailData.id)
+    console.log('Processing time:', processingTime, 'ms')
+    console.log('Lead ID:', leadId)
 
     // Update lead with success status if leadId provided
     if (leadId) {
@@ -124,6 +168,12 @@ serve(async (req) => {
     )
 
   } catch (error) {
+    console.log('=== CRITICAL ERROR ===')
+    console.log('Error type:', error.constructor.name)
+    console.log('Error message:', error.message)
+    console.log('Stack trace:', error.stack)
+    console.log('Timestamp:', new Date().toISOString())
+    
     return new Response(
       JSON.stringify({ error: 'Internal server error' }),
       { 
