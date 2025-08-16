@@ -327,7 +327,7 @@ export function SplineScene({ scene, className }: { scene: string; className?: s
       <AnimatePresence mode="wait">
         {!isReady && !isError && (
           <motion.div 
-            className="absolute inset-0 z-10 bg-background"
+            className="absolute inset-0 z-10"
             style={{ 
               willChange: 'opacity',
               backfaceVisibility: 'hidden',
