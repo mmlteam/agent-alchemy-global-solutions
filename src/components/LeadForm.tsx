@@ -182,6 +182,9 @@ const LeadForm = () => {
 
     try {
 
+      console.log('Attempting to update lead with ID:', leadId);
+      console.log('Update data:', { email: formData.email, company_size: formData.companySize, challenge: formData.challenge });
+
       // Update the lead with complete information
       const { error: updateError } = await supabase
         .from('leads')
@@ -192,6 +195,8 @@ const LeadForm = () => {
           step_completed: 2
         })
         .eq('id', leadId);
+
+      console.log('Update result:', { error: updateError });
 
       if (updateError) {
         console.error('Error updating lead:', updateError);
