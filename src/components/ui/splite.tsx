@@ -260,8 +260,11 @@ export function SplineScene({ scene, className }: { scene: string; className?: s
   const [isReady, setIsReady] = useState(false)
   const [isError, setIsError] = useState(false)
 
+  console.log('SplineScene rendering:', { scene, isLoaded, isReady, isError });
+
   // Preload the scene URL
   useEffect(() => {
+    console.log('Preloading Spline scene:', scene);
     const link = document.createElement('link')
     link.rel = 'preload'
     link.href = scene
@@ -277,14 +280,17 @@ export function SplineScene({ scene, className }: { scene: string; className?: s
   }, [scene])
 
   const handleLoad = () => {
+    console.log('Spline scene loaded successfully');
     setIsLoaded(true)
     // Add slight delay for scene to fully initialize
     setTimeout(() => {
+      console.log('Spline scene ready');
       setIsReady(true)
     }, 100)
   }
 
-  const handleError = () => {
+  const handleError = (error: any) => {
+    console.error('Spline scene error:', error);
     setIsError(true)
   }
 
