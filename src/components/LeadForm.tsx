@@ -118,16 +118,20 @@ const LeadForm = () => {
         const newLeadId = crypto.randomUUID();
         
         // Save step 1 data to database
-        const { error } = await supabase
+        const { data: insertData, error } = await supabase
           .from('leads')
           .insert({
             id: newLeadId,
             name: formData.name,
             phone: formData.phone,
             step_completed: 1
-          });
+          })
+          .select();
 
-        console.log('Supabase response:', { error });
+        console.log('INSERT attempt - UUID:', newLeadId);
+        console.log('INSERT attempt - Data:', { id: newLeadId, name: formData.name, phone: formData.phone, step_completed: 1 });
+        console.log('INSERT result:', { data: insertData, error });
+        console.log('INSERT error details:', error);
 
         if (error) {
           console.error('Error saving lead:', error);
