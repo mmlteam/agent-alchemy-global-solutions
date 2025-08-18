@@ -100,6 +100,13 @@ const LeadForm = () => {
       return;
     }
     
+    // If we already have a leadId, just proceed to step 2 (avoid duplicate records)
+    if (leadId) {
+      console.log('Lead ID already exists, proceeding to step 2:', leadId);
+      setStep(2);
+      return;
+    }
+    
     if (formData.name && formData.phone) {
       setIsSubmitting(true);
       
@@ -192,6 +199,8 @@ const LeadForm = () => {
       });
 
       // Update the lead with complete information
+      console.log('About to execute update with leadId:', leadId, typeof leadId);
+      
       const { data: updateData, error: updateError } = await supabase
         .from('leads')
         .update({
