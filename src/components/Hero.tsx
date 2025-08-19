@@ -3,10 +3,13 @@ import { ArrowRight, Zap } from "lucide-react";
 import { HeroIllustration } from "@/components/HeroIllustration";
 import { SpotlightCursor } from "@/components/ui/spotlight-cursor";
 import HeroFloatingParticles from "@/components/HeroFloatingParticles";
+import { useIsMobile } from "@/hooks/use-mobile";
 const Hero = () => {
+  const isMobile = useIsMobile();
+  
   return <section className="bg-gradient-hero relative overflow-y-hidden pt-[15px]">
-      {/* Full Hero Spotlight Effect */}
-      <SpotlightCursor size={250} />
+      {/* Full Hero Spotlight Effect - Only on desktop */}
+      {!isMobile && <SpotlightCursor size={250} />}
       {/* Header with Logo */}
       
       {/* Animated background elements */}
