@@ -69,28 +69,41 @@ const SocialProof = () => {
 
         {/* Rotating Testimonial */}
         <div className="max-w-4xl mx-auto">
-          <Card className="p-8 bg-card/50 backdrop-blur-sm border-border/50 text-center animate-fade-in">
-            <div className="space-y-6">
-              <Quote className="w-12 h-12 text-primary mx-auto opacity-50" />
+          <Card className="p-6 md:p-8 bg-card/50 backdrop-blur-sm border-border/50 text-center animate-fade-in h-[340px] md:h-auto">
+            <div className="h-full md:space-y-6 flex flex-col md:block">
+              <Quote className="w-8 h-8 md:w-12 md:h-12 text-primary mx-auto opacity-50 mb-4 md:mb-0" />
               
-              <blockquote className="text-lg lg:text-2xl font-medium leading-relaxed min-h-[120px] lg:min-h-[140px] flex items-center justify-center">
-                "{testimonials[currentTestimonial].quote}"
-              </blockquote>
-              
-              <div className="flex items-center justify-center gap-4">
-                <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center text-sm font-semibold">
-                  {testimonials[currentTestimonial].image}
-                </div>
-                <div className="text-left">
-                  <div className="font-semibold">{testimonials[currentTestimonial].name}</div>
-                  <div className="text-sm text-muted-foreground">{testimonials[currentTestimonial].role}</div>
-                </div>
+              {/* Quote section with fixed mobile height */}
+              <div className="flex-1 md:flex-none flex items-center justify-center mb-4 md:mb-0">
+                <blockquote className="text-base md:text-lg lg:text-2xl font-medium leading-relaxed md:min-h-[140px] relative">
+                  <div className="md:hidden line-clamp-4 relative">
+                    "{testimonials[currentTestimonial].quote}"
+                    {/* Fade overlay for long text on mobile */}
+                    <div className="absolute bottom-0 right-0 w-8 h-6 bg-gradient-to-l from-card to-transparent pointer-events-none"></div>
+                  </div>
+                  <div className="hidden md:block">
+                    "{testimonials[currentTestimonial].quote}"
+                  </div>
+                </blockquote>
               </div>
               
-              <div className="flex justify-center gap-1">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="w-5 h-5 fill-primary text-primary" />
-                ))}
+              {/* Author info - anchored to bottom on mobile */}
+              <div className="mt-auto md:mt-0">
+                <div className="flex items-center justify-center gap-4 mb-4">
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-primary/20 rounded-full flex items-center justify-center text-sm font-semibold">
+                    {testimonials[currentTestimonial].image}
+                  </div>
+                  <div className="text-left">
+                    <div className="font-semibold text-sm md:text-base">{testimonials[currentTestimonial].name}</div>
+                    <div className="text-xs md:text-sm text-muted-foreground">{testimonials[currentTestimonial].role}</div>
+                  </div>
+                </div>
+                
+                <div className="flex justify-center gap-1">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Star key={i} className="w-4 h-4 md:w-5 md:h-5 fill-primary text-primary" />
+                  ))}
+                </div>
               </div>
             </div>
           </Card>
