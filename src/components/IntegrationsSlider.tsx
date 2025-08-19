@@ -40,13 +40,13 @@ function LogoTile({ name, src }: { name: string; src?: string }) {
   const [imgOk, setImgOk] = useState(Boolean(src));
 
   return (
-    <Card className="h-20 md:h-24 flex items-center justify-center border-border/50 bg-card/50 backdrop-blur-sm">
+    <Card className="h-20 md:h-24 flex items-center justify-center border-border/50 bg-card/50 backdrop-blur-sm overflow-hidden">
       {imgOk && src ? (
         <img
           ref={imgRef}
           src={src}
           alt={`${name} logo`}
-          className="max-h-10 md:max-h-12 w-auto object-contain"
+          className={`${name === "Google Workspace" ? "w-full h-full object-cover" : "max-h-10 md:max-h-12 w-auto object-contain"}`}
           loading="lazy"
           onError={() => setImgOk(false)}
         />
