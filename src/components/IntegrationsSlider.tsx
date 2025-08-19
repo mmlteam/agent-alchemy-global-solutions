@@ -10,10 +10,10 @@ import {
 } from "@/components/ui/carousel";
 
 const logos = [
-  { name: "Zoho CRM" },
-  { name: "HubSpot" },
-  { name: "QuickBooks" },
-  { name: "Salesforce" },
+  { name: "Zoho CRM", src: "/lovable-uploads/72b85b33-9784-49bf-b0e2-166b3e6d2371.png" },
+  { name: "HubSpot", src: "/lovable-uploads/c45d9bb5-c588-4dd7-b2e2-7632fb30e3a4.png" },
+  { name: "QuickBooks", src: "/lovable-uploads/dba629bc-bc3e-472f-8177-867654f07449.png" },
+  { name: "Salesforce", src: "/lovable-uploads/9e219071-d02e-4413-bb93-6d457e25b797.png" },
   { name: "Pipedrive" },
   { name: "Trello" },
   { name: "Slack", src: "/logos/slack-logo.png" },
@@ -25,9 +25,9 @@ const logos = [
   { name: "Notion", src: "/lovable-uploads/f29e98ac-7d37-4bc4-a047-9d98114858d8.png" },
   { name: "Airtable", src: "/lovable-uploads/6cc6edae-2b4c-45de-bb79-7c552ced00a2.png" },
   { name: "Shopify", src: "/lovable-uploads/215710cc-d035-499b-943d-d8ee7e547bf9.png" },
-  { name: "WooCommerce" },
-  { name: "Stripe" },
-  { name: "PayPal" },
+  { name: "WooCommerce", src: "/lovable-uploads/fc98c4be-e1e7-4a2e-b2b5-fcb7e931ac59.png" },
+  { name: "Stripe", src: "/lovable-uploads/61076f60-994c-4e59-94f0-a05f06bc0417.png" },
+  { name: "PayPal", src: "/lovable-uploads/3e9d37e6-f940-4a57-a0a8-b92015ab14ec.png" },
   { name: "Make.com", src: "/logos/make-logo.png" },
   { name: "Zapier", src: "/logos/zapier-logo-new.png" },
   { name: "n8n", src: "/lovable-uploads/912ef728-bb1e-4412-96e7-d6bd0c9a8f89.png" },
