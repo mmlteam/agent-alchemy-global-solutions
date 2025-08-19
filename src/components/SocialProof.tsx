@@ -69,17 +69,15 @@ const SocialProof = () => {
 
         {/* Rotating Testimonial */}
         <div className="max-w-4xl mx-auto">
-          <Card className="p-6 md:p-8 bg-card/50 backdrop-blur-sm border-border/50 text-center animate-fade-in h-[340px] md:h-auto">
+          <Card className="p-6 md:p-8 bg-card/50 backdrop-blur-sm border-border/50 text-center animate-fade-in h-[440px] md:h-auto">
             <div className="h-full md:space-y-6 flex flex-col md:block">
               <Quote className="w-8 h-8 md:w-12 md:h-12 text-primary mx-auto opacity-50 mb-4 md:mb-0" />
               
-              {/* Quote section with fixed mobile height */}
+              {/* Quote section with calculated mobile height for longest testimonial */}
               <div className="flex-1 md:flex-none flex items-center justify-center mb-4 md:mb-0">
-                <blockquote className="text-base md:text-lg lg:text-2xl font-medium leading-relaxed md:min-h-[140px] relative">
-                  <div className="md:hidden line-clamp-4 relative">
+                <blockquote className="text-base md:text-lg lg:text-2xl font-medium leading-relaxed md:min-h-[140px]">
+                  <div className="md:hidden">
                     "{testimonials[currentTestimonial].quote}"
-                    {/* Fade overlay for long text on mobile */}
-                    <div className="absolute bottom-0 right-0 w-8 h-6 bg-gradient-to-l from-card to-transparent pointer-events-none"></div>
                   </div>
                   <div className="hidden md:block">
                     "{testimonials[currentTestimonial].quote}"
