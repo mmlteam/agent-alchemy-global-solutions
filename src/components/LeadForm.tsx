@@ -100,68 +100,51 @@ const LeadForm = () => {
       return;
     }
     
-    // If we already have a leadId, just proceed to step 2 (avoid duplicate records)
-    if (leadId) {
-      console.log('Lead ID already exists, proceeding to step 2:', leadId);
-      setStep(2);
-      return;
-    }
+    setIsSubmitting(true);
     
-    if (formData.name && formData.phone) {
-      setIsSubmitting(true);
+    try {
+      // Generate UUID client-side
+      const newLeadId = crypto.randomUUID();
       
-      try {
-        console.log('Attempting to save lead data:', { name: formData.name, phone: formData.phone });
-        console.log('Supabase client status:', !!supabase);
-        
-        // Generate UUID client-side for security (no SELECT access needed)
-        const newLeadId = crypto.randomUUID();
-        
-        // Save step 1 data to database
-        const { data: insertData, error } = await supabase
-          .from('leads')
-          .insert({
-            id: newLeadId,
-            name: formData.name,
-            phone: formData.phone,
-            step_completed: 1
-          })
-          .select();
+      // Save step 1 data to database - only name, phone, step_completed
+      const { data: insertData, error } = await supabase
+        .from('leads')
+        .insert({
+          id: newLeadId,
+          name: formData.name,
+          phone: formData.phone,
+          step_completed: 1
+        })
+        .select();
 
-        console.log('INSERT attempt - UUID:', newLeadId);
-        console.log('INSERT attempt - Data:', { id: newLeadId, name: formData.name, phone: formData.phone, step_completed: 1 });
-        console.log('INSERT result:', { data: insertData, error });
-        console.log('INSERT error details:', error);
-
-        if (error) {
-          console.error('Error saving lead:', error);
-          toast({
-            title: "Error",
-            description: `Database error: ${error.message}`,
-            variant: "destructive",
-          });
-          return;
-        }
-
-        // Store the lead ID for updating in step 2
-        setLeadId(newLeadId);
-        setStep(2);
-        
-        toast({
-          title: "Information saved",
-          description: "Your contact details have been saved. Please complete the remaining fields.",
-        });
-
-      } catch (error) {
-        console.error('Error:', error);
+      if (error) {
+        console.error('Error saving lead:', error);
         toast({
           title: "Error",
-          description: "Something went wrong. Please try again.",
+          description: `Database error: ${error.message}`,
           variant: "destructive",
         });
-      } finally {
-        setIsSubmitting(false);
+        return;
       }
+
+      // Store the lead ID for updating in step 2
+      setLeadId(newLeadId);
+      setStep(2);
+      
+      toast({
+        title: "Information saved",
+        description: "Your contact details have been saved. Please complete the remaining fields.",
+      });
+
+    } catch (error) {
+      console.error('Error:', error);
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
