@@ -16,7 +16,7 @@ const logos = [
   { name: "Salesforce", src: "/lovable-uploads/9e219071-d02e-4413-bb93-6d457e25b797.png" },
   { name: "Pipedrive", src: "/lovable-uploads/7872d575-4875-4f7b-a138-ab07a3b178c5.png" },
   { name: "Trello", src: "/lovable-uploads/0fbce304-a998-4f18-a3f1-f81456d35239.png" },
-  { name: "Slack", src: "/logos/slack-logo.png" },
+  { name: "Slack", src: "/lovable-uploads/986f96ef-cc8e-46fd-abdc-13cb767339ca.png" },
   { name: "Google Workspace", src: "/lovable-uploads/add4a2f4-b8d2-41fb-8b2f-a8fd19eccc89.png" },
   { name: "Microsoft Teams", src: "/lovable-uploads/6e55cbb3-abe5-427c-b4bd-fa220226b562.png" },
   { name: "Asana", src: "/lovable-uploads/a35163ae-d2fe-4f5e-886f-ec7745ddc8a4.png" },
