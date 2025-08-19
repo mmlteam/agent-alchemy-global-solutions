@@ -14,8 +14,8 @@ const logos = [
   { name: "HubSpot", src: "/lovable-uploads/c45d9bb5-c588-4dd7-b2e2-7632fb30e3a4.png" },
   { name: "QuickBooks", src: "/lovable-uploads/dba629bc-bc3e-472f-8177-867654f07449.png" },
   { name: "Salesforce", src: "/lovable-uploads/9e219071-d02e-4413-bb93-6d457e25b797.png" },
-  { name: "Pipedrive" },
-  { name: "Trello" },
+  { name: "Pipedrive", src: "/lovable-uploads/7872d575-4875-4f7b-a138-ab07a3b178c5.png" },
+  { name: "Trello", src: "/lovable-uploads/0fbce304-a998-4f18-a3f1-f81456d35239.png" },
   { name: "Slack", src: "/logos/slack-logo.png" },
   { name: "Google Workspace", src: "/lovable-uploads/add4a2f4-b8d2-41fb-8b2f-a8fd19eccc89.png" },
   { name: "Microsoft Teams", src: "/lovable-uploads/6e55cbb3-abe5-427c-b4bd-fa220226b562.png" },
@@ -29,9 +29,9 @@ const logos = [
   { name: "Stripe", src: "/lovable-uploads/61076f60-994c-4e59-94f0-a05f06bc0417.png" },
   { name: "PayPal", src: "/lovable-uploads/3e9d37e6-f940-4a57-a0a8-b92015ab14ec.png" },
   { name: "Make.com", src: "/lovable-uploads/083ffaab-cc46-46a9-8086-001b91bbc1f2.png" },
-  { name: "Zapier", src: "/logos/zapier-logo-new.png" },
+  { name: "Zapier", src: "/lovable-uploads/9fd92014-bdac-4a97-a6f1-d7fbc5ff1776.png" },
   { name: "n8n", src: "/lovable-uploads/912ef728-bb1e-4412-96e7-d6bd0c9a8f89.png" },
-  { name: "Python", src: "/logos/python-logo.png" },
+  { name: "SAP", src: "/lovable-uploads/153f5e23-3b96-4384-8d2e-1cf3c46248ad.png" },
   { name: "+ More" },
 ];
 
