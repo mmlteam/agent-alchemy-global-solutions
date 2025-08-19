@@ -17,7 +17,7 @@ const logos = [
   { name: "Pipedrive" },
   { name: "Trello" },
   { name: "Slack", src: "/logos/slack-logo.png" },
-  { name: "Google Workspace", src: "/lovable-uploads/4f192ea3-2e2d-4d10-b678-44587c753f5d.png" },
+  { name: "Google Workspace", src: "/lovable-uploads/add4a2f4-b8d2-41fb-8b2f-a8fd19eccc89.png" },
   { name: "Microsoft Teams" },
   { name: "Asana" },
   { name: "ClickUp" },
