@@ -9,6 +9,7 @@ import { useToast } from "@/hooks/use-toast";
 import { ArrowRight, Users, Building, CheckCircle } from "lucide-react";
 import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
+import PrivacyPolicyDialog from "./PrivacyPolicyDialog";
 
 const LeadForm = () => {
   const { toast } = useToast();
@@ -423,9 +424,11 @@ const LeadForm = () => {
                     />
                     <Label htmlFor="gdpr" className="text-sm leading-relaxed">
                       I agree to the{" "}
-                      <a href="/privacy" className="text-primary hover:underline">
-                        Privacy Policy
-                      </a>{" "}
+                      <PrivacyPolicyDialog>
+                        <button type="button" className="text-primary hover:underline underline-offset-2">
+                          Privacy Policy
+                        </button>
+                      </PrivacyPolicyDialog>{" "}
                       and consent to being contacted about AI automation services.
                     </Label>
                   </div>
