@@ -1,3 +1,5 @@
+import PrivacyPolicyDialog from "./PrivacyPolicyDialog";
+
 const Footer = () => {
   return (
     <footer className="py-section-sm bg-background border-t border-border/30">
@@ -11,9 +13,11 @@ const Footer = () => {
           </div>
           
           <div className="flex justify-center gap-8 text-sm text-muted-foreground">
-            <a href="/privacy" className="hover:text-primary transition-colors">
-              Privacy Policy
-            </a>
+            <PrivacyPolicyDialog>
+              <button className="hover:text-primary transition-colors underline-offset-4 hover:underline">
+                Privacy Policy
+              </button>
+            </PrivacyPolicyDialog>
             <span>•</span>
             <span>© 2024 AI Automation. All rights reserved.</span>
           </div>
