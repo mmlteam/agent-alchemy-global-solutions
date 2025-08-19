@@ -46,7 +46,7 @@ function LogoTile({ name, src }: { name: string; src?: string }) {
           ref={imgRef}
           src={src}
           alt={`${name} logo`}
-          className="w-full h-full object-contain p-2"
+          className="w-full h-full object-cover"
           loading="lazy"
           onError={() => setImgOk(false)}
         />
