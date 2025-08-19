@@ -71,14 +71,7 @@ const CombinedFOMOStrip = () => {
               {proofChips.map((chip, index) => (
                 <div 
                   key={index}
-                  className={`inline-flex items-center gap-2 bg-slate-700/50 backdrop-blur-sm border border-slate-600 rounded-full px-4 py-2 text-sm ${
-                    shouldAnimate ? 'animate-pulse' : ''
-                  }`}
-                  style={{
-                    animationDuration: '6s',
-                    animationDelay: `${index * 1}s`,
-                    animationIterationCount: 'infinite'
-                  }}
+                  className="inline-flex items-center gap-2 bg-slate-700/50 border border-slate-600 rounded-full px-4 py-2 text-sm"
                 >
                   <span className="font-bold text-primary">{chip.value}</span>
                   <span className="text-slate-300">{chip.label}</span>
