@@ -28,7 +28,7 @@ const logos = [
   { name: "WooCommerce", src: "/lovable-uploads/fc98c4be-e1e7-4a2e-b2b5-fcb7e931ac59.png" },
   { name: "Stripe", src: "/lovable-uploads/61076f60-994c-4e59-94f0-a05f06bc0417.png" },
   { name: "PayPal", src: "/lovable-uploads/3e9d37e6-f940-4a57-a0a8-b92015ab14ec.png" },
-  { name: "Make.com", src: "/logos/make-logo.png" },
+  { name: "Make.com", src: "/lovable-uploads/083ffaab-cc46-46a9-8086-001b91bbc1f2.png" },
   { name: "Zapier", src: "/logos/zapier-logo-new.png" },
   { name: "n8n", src: "/lovable-uploads/912ef728-bb1e-4412-96e7-d6bd0c9a8f89.png" },
   { name: "Python", src: "/logos/python-logo.png" },
