@@ -40,13 +40,13 @@ function LogoTile({ name, src }: { name: string; src?: string }) {
   const [imgOk, setImgOk] = useState(Boolean(src));
 
   return (
-    <Card className="h-20 flex items-center justify-center border-border/50 bg-card/50 backdrop-blur-sm overflow-hidden">
+    <Card className="aspect-[2/1] flex items-center justify-center border-border/50 bg-card/50 backdrop-blur-sm overflow-hidden">
       {imgOk && src ? (
         <img
           ref={imgRef}
           src={src}
           alt={`${name} logo`}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-contain p-2"
           loading="lazy"
           onError={() => setImgOk(false)}
         />
