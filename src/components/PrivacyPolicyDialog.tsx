@@ -82,7 +82,7 @@ const PrivacyPolicyDialog = ({ children }: PrivacyPolicyDialogProps) => {
 
             <div>
               <h3 className="font-semibold text-foreground mb-2">Contact Us</h3>
-              <p>If you have any questions about this privacy policy, please contact us through our contact form or at the email address provided on our website.</p>
+              <p>If you have any questions about this privacy policy, please contact us at hello@makemelive.in</p>
             </div>
 
             <div className="text-xs text-muted-foreground mt-6 pt-4 border-t">
