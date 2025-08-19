@@ -1,8 +1,10 @@
 import PrivacyPolicyDialog from "./PrivacyPolicyDialog";
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+  
   return (
-    <footer className="py-section-sm bg-background border-t border-border/30">
+    <footer className="py-section-sm bg-background border-t border-border/30 mb-20 md:mb-24">{/* Added bottom margin for sticky CTA */}
       <div className="container mx-auto px-6">
         <div className="text-center space-y-6">
           <div className="flex items-center justify-center gap-2">
@@ -19,7 +21,7 @@ const Footer = () => {
               </button>
             </PrivacyPolicyDialog>
             <span>•</span>
-            <span>© 2024 AI Automation. All rights reserved.</span>
+            <span>© {currentYear} AI Automation. All rights reserved.</span>
           </div>
         </div>
       </div>
