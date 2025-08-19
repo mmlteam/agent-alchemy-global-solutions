@@ -94,8 +94,8 @@ export default function IntegrationsSlider() {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="hidden md:flex" aria-label="Previous logos" />
-            <CarouselNext className="hidden md:flex" aria-label="Next logos" />
+            <CarouselPrevious className="hidden md:flex left-4" aria-label="Previous logos" />
+            <CarouselNext className="hidden md:flex right-4" aria-label="Next logos" />
           </Carousel>
         </div>
       </div>
