@@ -7,7 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox";
 import { useToast } from "@/hooks/use-toast";
 import { ArrowRight, Users, Building, CheckCircle } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import PrivacyPolicyDialog from "./PrivacyPolicyDialog";
 
@@ -257,6 +257,30 @@ const LeadForm = () => {
     }
   };
 
+  // Add keyboard event handling for Enter key
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        if (step === 1) {
+          e.preventDefault();
+          const step1Button = document.getElementById('step1-form-cta');
+          if (step1Button && !step1Button.hasAttribute('disabled')) {
+            step1Button.click();
+          }
+        } else if (step === 2) {
+          e.preventDefault();
+          const step2Button = document.getElementById('step2-form-submit-cta');
+          if (step2Button && !step2Button.hasAttribute('disabled')) {
+            step2Button.click();
+          }
+        }
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [step]);
+
   return (
     <section className="py-section bg-background sticky bottom-0 z-10">
       <div className="container mx-auto px-6">
@@ -350,6 +374,7 @@ const LeadForm = () => {
                   </div>
 
                    <Button 
+                     id="step1-form-cta"
                      type="button"
                      onClick={handleNext}
                      variant="premium" 
