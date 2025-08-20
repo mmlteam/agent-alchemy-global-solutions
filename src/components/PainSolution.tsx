@@ -143,6 +143,7 @@ const PainSolution = () => {
 
         <div className="text-center mt-12">
            <Button 
+             id= "painpoint-cta"
              variant="premium" 
              size="lg" 
              className="group"
