@@ -83,6 +83,7 @@ const FAQ = () => {
               Still have questions? Let's discuss your specific needs.
             </p>
             <Button 
+              id = "faq-cta"
               variant="premium" 
               size="lg" 
               className="group"
