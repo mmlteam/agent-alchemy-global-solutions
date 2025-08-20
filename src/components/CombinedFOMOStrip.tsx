@@ -83,6 +83,7 @@ const CombinedFOMOStrip = () => {
           {/* CTA */}
           <div className="pt-4">
             <Button 
+              id = "competitors-cta"
               variant="premium" 
               size="lg"
               className="group"
