@@ -36,6 +36,7 @@ const Header = () => {
 
         {/* WhatsApp Action - Desktop */}
         <Button
+          id = "whatsapp-header-cta"
           asChild
           className="hidden md:inline-flex h-11 rounded-full px-4 gap-2 font-medium text-white bg-[hsl(var(--whatsapp))] hover:bg-[hsl(var(--whatsapp)/0.9)] focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[hsl(var(--whatsapp))]"
           data-analytics="whatsapp_click_header"
