@@ -350,7 +350,6 @@ const LeadForm = () => {
                   </div>
 
                    <Button 
-                     id = "step1-form-cta"
                      type="button"
                      onClick={handleNext}
                      variant="premium" 
@@ -436,6 +435,7 @@ const LeadForm = () => {
 
                   <div className="flex flex-col sm:flex-row gap-4">
                     <Button 
+                      id ="step2-form-back-cta"
                       type="button"
                       onClick={() => setStep(1)}
                       variant="outline" 
@@ -446,6 +446,7 @@ const LeadForm = () => {
                     </Button>
                     
                     <Button 
+                      id ="step2-form-submit-cta"
                       type="submit"
                       variant="premium" 
                       size="lg" 
