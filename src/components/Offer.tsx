@@ -58,7 +58,7 @@ const Offer = () => {
 
             {/* CTA */}
             <div className="text-center mt-8 pt-8 border-t border-border/30">
-              <Button variant="premium" size="lg" className="group w-full max-w-sm mx-auto" onClick={() => document.querySelector('#lead-form')?.scrollIntoView({
+              <Button id="workflow-audit-cta" variant="premium" size="lg" className="group w-full max-w-sm mx-auto" onClick={() => document.querySelector('#lead-form')?.scrollIntoView({
               behavior: 'smooth',
               block: 'start'
             })}>
