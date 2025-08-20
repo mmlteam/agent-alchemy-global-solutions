@@ -77,7 +77,7 @@ const Hero = () => {
             </div>
             
             <div className="flex flex-col items-center lg:items-start">
-              <Button variant="premium" size="lg" className="group w-full max-w-xs lg:w-auto" aria-label="Book My Free Automation Audit" onClick={() => document.querySelector('#lead-form')?.scrollIntoView({
+              <Button id="hero-cta" variant="premium" size="lg" className="group w-full max-w-xs lg:w-auto" aria-label="Book My Free Automation Audit" onClick={() => document.querySelector('#lead-form')?.scrollIntoView({
               behavior: 'smooth',
               block: 'start'
             })}>
