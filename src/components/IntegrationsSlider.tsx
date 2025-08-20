@@ -74,7 +74,7 @@ export default function IntegrationsSlider() {
       <div className="container mx-auto px-6">
         <div className="text-center space-y-4 mb-8">
           <h2 className="text-2xl md:text-3xl font-bold">We integrate with all major CRMs, tools, and software</h2>
-          <p className="text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-muted-foreground max-w-3xl mx-auto md:whitespace-nowrap">
             From leading automation platforms to your favourite business tools — if it's out there, we can connect to it.
           </p>
         </div>
