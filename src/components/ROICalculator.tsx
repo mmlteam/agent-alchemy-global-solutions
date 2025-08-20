@@ -501,6 +501,7 @@ const ROICalculator = () => {
                    "Enter your values to explore automation opportunities"}
                 </p>
                 <Button 
+                  id = "roicalculator-cta"
                   variant="premium" 
                   className={`group transition-all duration-300 w-full max-w-sm mx-auto px-2 sm:px-4 py-3 text-xs sm:text-sm flex items-center justify-center gap-2 min-w-0 ${
                     showCTA ? 'opacity-100 transform scale-100' : 'opacity-50 blur-sm pointer-events-none'
