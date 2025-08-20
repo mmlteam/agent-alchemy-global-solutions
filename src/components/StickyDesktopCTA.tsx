@@ -9,6 +9,7 @@ const StickyDesktopCTA = () => {
         <p className="text-sm text-muted-foreground">Get your free automation audit and start saving time today</p>
       </div>
       <Button 
+        id="footer-book-cta"
         variant="premium" 
         size="lg" 
         className="group flex-shrink-0 ml-6"
