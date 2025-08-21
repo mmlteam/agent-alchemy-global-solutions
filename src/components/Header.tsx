@@ -30,46 +30,42 @@ const Header = () => {
       aria-label="Site header"
     >
       <div className="container mx-auto px-4 md:px-6 h-full flex items-center justify-between">
-        <a href="/" className="inline-flex items-center ml-4 md:-ml-[14px]" aria-label="ProAgentz home">
+        <a href="/" className="inline-flex items-center" aria-label="ProAgentz home">
           <img src="/lovable-uploads/65fd72c0-6ead-4fcb-8ac7-2d2e11c3ee2e.png" alt="ProAgentz" className="h-6 md:h-8 w-auto" />
         </a>
 
         {/* WhatsApp Action - Desktop */}
-        <div className="mr-4 md:mr-4">
-          <Button
-            id = "whatsapp-header-cta"
-            asChild
-            className="hidden md:inline-flex h-11 rounded-full px-4 gap-2 font-medium text-white bg-[hsl(var(--whatsapp))] hover:bg-[hsl(var(--whatsapp)/0.9)] focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[hsl(var(--whatsapp))]"
-            data-analytics="whatsapp_click_header"
-            aria-label="Open WhatsApp chat"
-            title="WhatsApp"
-          >
-            <a href={waUrl} target="_blank" rel="noopener noreferrer">
-              <img src="/icons/whatsapp.svg" alt="WhatsApp" className="h-5 w-5" />
-              <span>WhatsApp</span>
-            </a>
-          </Button>
-        </div>
+        <Button
+          id = "whatsapp-header-cta"
+          asChild
+          className="hidden md:inline-flex h-11 rounded-full px-4 gap-2 font-medium text-white bg-[hsl(var(--whatsapp))] hover:bg-[hsl(var(--whatsapp)/0.9)] focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[hsl(var(--whatsapp))]"
+          data-analytics="whatsapp_click_header"
+          aria-label="Open WhatsApp chat"
+          title="WhatsApp"
+        >
+          <a href={waUrl} target="_blank" rel="noopener noreferrer">
+            <img src="/icons/whatsapp.svg" alt="WhatsApp" className="h-5 w-5" />
+            <span>WhatsApp</span>
+          </a>
+        </Button>
 
         {/* WhatsApp Action - Mobile */}
-        <div className="mr-4 md:hidden">
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <Button
-                asChild
-                className="inline-flex h-11 w-11 rounded-full p-0 text-white bg-[hsl(var(--whatsapp))] hover:bg-[hsl(var(--whatsapp)/0.9)] focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[hsl(var(--whatsapp))]"
-                data-analytics="whatsapp_click_header"
-                aria-label="Chat on WhatsApp"
-                title="Chat on WhatsApp"
-              >
-                <a href={waUrl} target="_blank" rel="noopener noreferrer">
-                  <img src="/icons/whatsapp.svg" alt="WhatsApp" className="h-5 w-5" />
-                </a>
-              </Button>
-            </TooltipTrigger>
-            <TooltipContent side="bottom">Chat on WhatsApp</TooltipContent>
-          </Tooltip>
-        </div>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <Button
+              asChild
+              className="md:hidden inline-flex h-11 w-11 rounded-full p-0 text-white bg-[hsl(var(--whatsapp))] hover:bg-[hsl(var(--whatsapp)/0.9)] focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[hsl(var(--whatsapp))]"
+              data-analytics="whatsapp_click_header"
+              aria-label="Chat on WhatsApp"
+              title="Chat on WhatsApp"
+            >
+              <a href={waUrl} target="_blank" rel="noopener noreferrer">
+                <img src="/icons/whatsapp.svg" alt="WhatsApp" className="h-5 w-5" />
+              </a>
+            </Button>
+          </TooltipTrigger>
+          <TooltipContent side="bottom">Chat on WhatsApp</TooltipContent>
+        </Tooltip>
       </div>
     </header>
   );
