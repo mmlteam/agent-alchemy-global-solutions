@@ -28,7 +28,7 @@ const Hero = () => {
                 <span className="text-muted-foreground">Automation & AI Agents</span>
               </div>
               
-              <h1 className="text-3xl lg:text-5xl xl:text-6xl font-redhawk font-bold leading-tight">
+              <h1 className="text-3xl lg:text-5xl xl:text-6xl font-bold leading-tight">
                 <span className="bg-gradient-primary bg-clip-text text-transparent">Automation & AI Agents —</span>
                 <br className="hidden sm:block" />
                 <span className="bg-gradient-success bg-clip-text text-transparent">Cut Costs.</span>{" "}
