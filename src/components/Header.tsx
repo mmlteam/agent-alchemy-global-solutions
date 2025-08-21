@@ -29,7 +29,7 @@ const Header = () => {
       ].join(" ")}
       aria-label="Site header"
     >
-      <div className="container mx-auto px-4 md:px-6 h-full flex items-center justify-between">
+      <div className="max-w-7xl mx-auto h-full flex items-center justify-between pl-4 pr-4 md:pl-6 md:pr-6">
         <a href="/" className="inline-flex items-center" aria-label="ProAgentz home">
           <img src="/lovable-uploads/65fd72c0-6ead-4fcb-8ac7-2d2e11c3ee2e.png" alt="ProAgentz" className="h-6 md:h-8 w-auto" />
         </a>
