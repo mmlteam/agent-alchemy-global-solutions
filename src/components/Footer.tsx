@@ -7,11 +7,8 @@ const Footer = () => {
     <footer className="py-section-sm bg-background border-t border-border/30 mb-20 md:mb-24">{/* Added bottom margin for sticky CTA */}
       <div className="container mx-auto px-6">
         <div className="text-center space-y-6">
-          <div className="flex items-center justify-center gap-2">
-            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-sm">AI</span>
-            </div>
-            <span className="text-xl font-bold">AI Automation</span>
+          <div className="flex items-center justify-center">
+            <img src="/lovable-uploads/65fd72c0-6ead-4fcb-8ac7-2d2e11c3ee2e.png" alt="ProAgentz" className="h-12 w-auto" />
           </div>
           
           <div className="flex justify-center gap-8 text-sm text-muted-foreground">

@@ -31,7 +31,7 @@ const Header = () => {
     >
       <div className="max-w-7xl mx-auto h-full flex items-center justify-between">
         <a href="/" className="inline-flex items-center" aria-label="ProAgentz home">
-          <div className="text-2xl font-bold text-foreground">ProAgentz</div>
+          <img src="/lovable-uploads/65fd72c0-6ead-4fcb-8ac7-2d2e11c3ee2e.png" alt="ProAgentz" className="h-10 w-auto" />
         </a>
 
         {/* WhatsApp Action - Desktop */}
