@@ -30,7 +30,7 @@ const logos = [
   { name: "PayPal", src: "/lovable-uploads/3e9d37e6-f940-4a57-a0a8-b92015ab14ec.png" },
   { name: "Make.com", src: "/lovable-uploads/083ffaab-cc46-46a9-8086-001b91bbc1f2.png" },
   { name: "Zapier", src: "/lovable-uploads/9fd92014-bdac-4a97-a6f1-d7fbc5ff1776.png" },
-  { name: "n8n", src: "/lovable-uploads/912ef728-bb1e-4412-96e7-d6bd0c9a8f89.png" },
+  { name: "n8n", src: "/lovable-uploads/0c262531-2c9b-4691-a331-200dc1985d31.png" },
   { name: "SAP", src: "/lovable-uploads/153f5e23-3b96-4384-8d2e-1cf3c46248ad.png" },
   { name: "+ More" },
 ];
